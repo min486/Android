@@ -27,9 +27,7 @@
 
 👉 inner 라는 키워드를 붙인 내부 class는 혼자서 객체를 만들 수 없고, 외부 클래스의 객체가 있어야만 생성과 사용이 가능하다
 
-<img src="../README.assets/inner.png" alt="companion" align="left" width="600px" />
-
-<br>
+<img src="../README.assets/inner.png" alt="companion" align="center" width="600px" />
 
 ### 차이점
 

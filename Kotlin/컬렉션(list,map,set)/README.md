@@ -41,7 +41,7 @@
 
   👉 기본적으로 제공하는 것이 immutable
 
-<img src="../README.assets/collection.png" alt="collection" align="left" style="zoom: 67%;" />
+<img src="../README.assets/collection.png" alt="collection" align="center" width="80%" />
 
 ### Collection 예제
 

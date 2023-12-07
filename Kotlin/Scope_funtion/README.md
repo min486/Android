@@ -21,7 +21,7 @@
 
 <br>
 
-<img src="../README.assets/scope.png" alt="scope" align="left" style="zoom:67%;" />
+<img src="../README.assets/scope.png" alt="scope" align="center" width="80%" />
 
 ### 차이점
 

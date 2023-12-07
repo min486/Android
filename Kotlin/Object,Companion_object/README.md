@@ -133,7 +133,7 @@ DataSourceClass.baseUrl
 
 자바와 코틀린은 모두 JVM(Java Virtual Machine)에서 실행된다
 
-![JVM](../README.assets/JVM.png)
+<img src="../README.assets/JVM.png" alt="JVM" align="center" width="70%" />
 
 ### - Method area
 

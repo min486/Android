@@ -27,7 +27,7 @@
 
 👉 inner 라는 키워드를 붙인 내부 class는 혼자서 객체를 만들 수 없고, 외부 클래스의 객체가 있어야만 생성과 사용이 가능하다
 
-![companion](../README.assets/inner.png)
+<img src="../README.assets/inner.png" alt="companion" align="left" style="zoom: 50%;" />
 
 ### 차이점
 
@@ -38,7 +38,7 @@
 ```kotlin
 // 비교 예시
 class Outer {
-	private val outer = "Outer"
+  private val outer = "Outer"
   
   class InnerClass {
     init {
@@ -55,7 +55,7 @@ class Outer {
 ```kotlin
 // 해결방법 1
 class Outer {
-	private val outer = "Outer"
+  private val outer = "Outer"
   
   inner class InnerClass {
     init {
@@ -72,7 +72,7 @@ class Outer {
 ```kotlin
 // 해결방법 2
 class Outer {
-	private val outer = "Outer"
+  private val outer = "Outer"
   
   class InnerClass(
     private val out: Outer

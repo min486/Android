@@ -29,6 +29,8 @@
 
 <img src="../README.assets/inner.png" alt="companion" align="left" width="600px" />
 
+<br>
+
 ### 차이점
 
 - Nested class (중첩 클래스)는 형태만 내부에 존재할 뿐 실질적으로는 내용을 서로 공유할 수 없는 별개의 클래스 이지만,

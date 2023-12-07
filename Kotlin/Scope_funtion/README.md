@@ -9,7 +9,7 @@
   <br>
 </div>
 
-## 🔥 Scope Function (범위 지정 함수)
+## 🔥 Scope function (범위 지정 함수)
 
 ### 정의
 
@@ -21,7 +21,7 @@
 
 <br>
 
-![Untitled](https://user-images.githubusercontent.com/24618293/201356804-93c1fdeb-81ee-4316-9096-e33d998885bf.png)
+![scope](../README.assets/scope.png)
 
 ### 차이점
 

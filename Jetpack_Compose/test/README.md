@@ -1,17 +1,18 @@
 <div align="center">
   <p>
-    <img src="../README.assets/android.png">
+    <img src="../README.assets/jetpack-hero.png">
   </p>
   <br>
-  <h2>Android</h2>
-  <p>안드로이드 관련 내용 정리</p>
+  <h2>Jetpack Compose</h2>
+  <p>Jetpack Compose 관련 내용 정리</p>
   <br>
   <br>
 </div>
 
 
 
-## 🔥 Dependency injection (DI, 의존성 주입)
+
+## 🔥 test
 
 ### 정의
 

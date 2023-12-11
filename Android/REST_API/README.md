@@ -1,13 +1,15 @@
 <div align="center">
   <p>
-    <img src="../README.assets/kotlin-hero.png">
+    <img src="../README.assets/android.png">
   </p>
   <br>
-  <h2>Kotlin</h2>
-  <p>코틀린 관련 내용 정리</p>
+  <h2>Android</h2>
+  <p>안드로이드 관련 내용 정리</p>
   <br>
   <br>
 </div>
+
+
 
 ## 🔥 REST API
 

@@ -105,13 +105,12 @@
 - Coroutine Scope
 
   > 코루틴이 동작하는 범위를 규정
-
-```kotlin
-// CoroutineContext 하나만 멤버 변수로 정의하고 있는 인터페이스
-public interface CoroutineScope {
-  public val coroutincContext: CoroutineContext
-}
-```
+  
+  ```kotlin
+  public interface CoroutineScope {
+    public val coroutincContext: CoroutineContext
+  }
+  ```
 
 - Coroutine Context
 

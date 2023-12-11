@@ -145,16 +145,11 @@ public interface CoroutineScope {
 
     - States
 
+      <img src="../README.assets/job.png" alt="job" align="center" width="40%" ><img src="../README.assets/job2.png" alt="job2" align="center" width="55%" />
+
     - methods
-
+  
       : cancel, join, start
-
-  <img src="../README.assets/job.png" alt="job" align="center" width="40%" >|<img src="../README.assets/job2.png" alt="job2" align="center" width="50%" />
-
-  <img src="../README.assets/job2.png" alt="job2" align="center" width="50%" />
-
-  | []<img src="../README.assets/job2.png" alt="job2" align="center" width="50%" /> | ![](https://velog.velcdn.com/images/woojusm/post/10fd9c69-9abd-46ad-897c-1589168ff54f/image.png) |
-  | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 - Coroutine Builder
 

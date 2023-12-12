@@ -1,19 +1,22 @@
 <div align="center">
   <p>
-    <img src="../README.assets/kotlin-hero.png">
+    <img src="../README.assets/android.png">
   </p>
   <br>
-  <h2>Kotlin</h2>
-  <p>코틀린 관련 내용 정리</p>
+  <h2>Android</h2>
+  <p>안드로이드 관련 내용 정리</p>
   <br>
   <br>
 </div>
+
 
 ## 🔥 Room
 
 ### Room 정의
 
 > 상당한 양의 구조화된 데이터를 처리할 때 사용할 수 있는 데이터베이스 라이브러리
+>
+> (Android 내장 DB에 데이터를 저장하기 위해 사용)
 
 <br>
 
@@ -37,7 +40,7 @@ Room을 사용하려면
 
   - Dao를 사용하여 데이터베이스에 쿼리를 실행한다
 
-  - @Database로 어노테이션을 달아야 한다 (데이터베이스라는걸 알려주기 위해)
+  - `@Database`로 어노테이션을 달아야 한다 (데이터베이스라는걸 알려주기 위해)
 
   - Room Database를 상속받는 클래스는 추상 클래스여야 한다
 
@@ -45,14 +48,14 @@ Room을 사용하려면
 
 - Entity
 
-  - Room 작업시 데이터베이스 테이블을 설명하는 주석이 달린 클래스
-  - @Entity로 어노테이션을 달아야 한다
+  - 데이터베이스에서 테이블을 나타낸다
+  - `@Entity`로 어노테이션을 달아야 한다
   - 각 Entity에 대해 연결 된 데이터베이스 객체 내에 테이블이 생성된다
 
 - DAO
   - 데이터에 접근하려면 Dao를 사용해야 한다
 
-  - @Dao로 어노테이션을 달아야 한다
+  - `@Dao`로 어노테이션을 달아야 한다
 
   - Dao는 interface 혹은 abstract class일 수 있다
 
@@ -81,10 +84,11 @@ abstract class AppDatabase : RoomDatabase() {
 ```kotlin
 @Entity(tableName = "word")  // 테이블 이름 (생략 가능)
 data class Word(
-	val text : String,
-	val mean : String,
-	val type : String,
-	@PrimaryKey(autoGenerate = true)
+  val text : String,
+  val mean : String,
+  val type : String,
+  
+  @PrimaryKey(autoGenerate = true)  // id 자동 증가
   val id: Int = 0
 )
 ```
@@ -97,7 +101,7 @@ interface WordDao {
   @Query("SELECT * from word ORDER BY id DESC")  // word 테이블에 있는 모든 내용 가져오기, id 내림차순 정렬
   fun getAll(): List<Word>
   
-  @Query("SELECT * from word ORDER BY id DESC LIMIT 1")  // 최신꺼 1개 받기
+  @Query("SELECT * from word ORDER BY id DESC LIMIT 1")  // DB 조회, 최신꺼 1개 받기
   fun getLatestWord() : Word
   
   @Insert  // 데이터 추가

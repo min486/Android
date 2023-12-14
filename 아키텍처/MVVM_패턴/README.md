@@ -40,7 +40,7 @@
 
 - `View`에서는 `ViewModel`에서 제공하는 데이터를 관찰하여 UI를 업데이트 시킨다
 
-- `View`와 `ViewModel` 사이에서 ` View`가 `ViewModel`에만 의존성을 갖게 하고,
+- `View`와 `ViewModel` 사이에서 `View`가 `ViewModel`에만 의존성을 갖게 하고,
 
   `ViewModel`은 `View`에 대한 의존성을 제거했다
 

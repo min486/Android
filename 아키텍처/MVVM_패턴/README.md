@@ -34,7 +34,7 @@
 >
 > 체계적으로 앱을 만들고 관리하기 위한 아키텍처 패턴
 
-<img src="../README.assets/mvvm.png" alt="mvvm" align="left" width="50%" />
+<img src="../README.assets/mvvm.png" alt="mvvm" align="center" width="50%" />
 
 - `ViewModel`에서 UI를 조작하지 않는다
 

@@ -42,7 +42,7 @@ https://developers.naver.com/main/
 
 `NaverIdLoginSDK.authenticate()` 메서드를 직접 실행하는 방법으로 구현함
 
-<img src="../README.assets/naver3.png" alt="naver3" align="left" width="80%" />
+<img src="../README.assets/naver3.png" alt="naver3" align="center" width="80%" />
 
 👉 `NaverIdLoginSDK.authenticate(context, oauthLoginCallback)`을 실행한 경우 `OAuthLoginCallback`이 호출됩니다. 
 

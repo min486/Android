@@ -41,11 +41,11 @@
 // ViewModel의 생명주기만큼만 구독받는 행동을 하는 StateFlow가 만들어짐
 
 val contentList = contentRepository.loadList()
-		.stateIn(
-      	initialValue = emptyList(),
-      	started = SharingStarted.WhileSubscribed(5000),
-      	scope = viewModelScope
-    )
+	.stateIn(
+    initialValue = emptyList(),
+    started = SharingStarted.WhileSubscribed(5000),
+    scope = viewModelScope
+  )
 ```
 
 - initialValue : StateFlow에 저장될 초기값을 설정한다

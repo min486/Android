@@ -42,7 +42,7 @@
 
 - 만약 ViewModelStore가 적합한 ViewModel 인스턴스를 가지고 있지 않다면, 
 
-  Factory를 통해 ViewModel인스턴스를 생성한다
+  Factory를 통해 ViewModel 인스턴스를 생성한다
 
 - 생성한 ViewModel 인스턴스를 ViewModeStore에 저장하고 만들어진 ViewModel 인스턴스를 클라이언트에게 반환한다
 
@@ -63,15 +63,17 @@ class MainViewModel : ViewModel() {
 ViewModel을 생성하기 위해서는 ViewModel Provider 객체가 필요
 
 ```kotlin
-class MainActivity : AppCompatActivity() {    
-		private lateinit var viewModel: MainViewModel
+class MainActivity : AppCompatActivity() {
   
-		override fun onCreate(savedInstanceState: Bundle?) {
-    		super.onCreate(savedInstanceState)
-      
-        // ViewModel 인스턴스 생성
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-    }}
+  private lateinit var viewModel: MainViewModel
+  
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    
+    // ViewModel 인스턴스 생성
+    viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+  }
+}
 ```
 
 👉 하지만 by viewModels()를 사용하면 ViewModel Provider를 사용하지 않고, ViewModel을 지연 생성할 수 있다

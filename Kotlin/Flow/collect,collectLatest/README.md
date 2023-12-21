@@ -49,7 +49,7 @@ collectLatest는 새로운 데이터가 발행되면 이전 데이터의 처리�
 
 <img src="../../README.assets/collect2.png" alt="collect2" align="center" width="80%" />
 
-<img src="../../README.assets/collect3.png" alt="collect3" align="left" width="60%" />
+<img src="../../README.assets/collect3.png" alt="collect3" align="center" width="60%" />
 
 <br>
 

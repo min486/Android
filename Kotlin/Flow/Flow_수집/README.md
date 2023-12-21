@@ -35,18 +35,18 @@ repeatOnLifecycle은 여러 launch를 만들어 셋팅할 수 있도록 하는 �
 
 ```kotlin
 lifecycleScope.launch {
-  	repeatOnLifecycle(Lifecycle.State.STARTED) {
-        viewModel.dataList.collect {
-          // 마실 물을 받음 
-        }
+	repeatOnLifecycle(Lifecycle.State.STARTED) {
+    viewModel.dataList.collect {
+      // 마실 물을 받음 
+    }
 
-        launch {
-          // 샤워할 물을 받음
-        }
-        launch {
-          // 흙탕물을 받음
-        }      
-   	}
+    launch {
+      // 샤워할 물을 받음
+    }
+    launch {
+      // 흙탕물을 받음
+    }      
+  }
 }
 ```
 

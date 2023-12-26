@@ -23,36 +23,35 @@
 ### Navigation 구성요소
 
 - Navigation Graph
-  - 모든 탐색 관련 정보가 하나의 중심 위치에 모여 있는 XML 리소스입니다. 
-  - 여기에는 *대상*이라고 부르는 앱 내의 모든 개별적 콘텐츠 영역과 사용자가 앱에서 갈 수 있는 모든 이용 가능한 경로가 포함됩니다.
+  - Navigation 관련 정보를 한눈에 확인할 수 있는 XML 리소스
+  - 앱 내의 모든 개별적 콘텐츠 영역을 확인할 수 있다
+  - 이동 중 어떤 액션을 취할 것인지, 어떤 데이터를 넘겨줄 것인지에 대한 정보가 있다
 - NavHost
-  - 탐색 그래프에서 대상을 표시하는 빈 컨테이너입니다. 
-  - 대상 구성요소에는 프래그먼트 대상을 표시하는 기본 `NavHost` 구현인 [`NavHostFragment`](https://developer.android.com/reference/androidx/navigation/fragment/NavHostFragment?hl=ko)가 포함됩니다
+  - Navigation Graph에 담겨져 있는 목적지,
+  - 즉, 화면을 표현하는 빈 컨테이너 공간
 - NavController
-  - `NavHost`에서 앱 탐색을 관리하는 객체입니다. 
-  - `NavController`는 사용자가 앱 내에서 이동할 때 `NavHost`에서 대상 콘텐츠의 전환을 오케스트레이션합니다
+  - NavHost에서 앱 탐색을 관리하는 객체
+  - NavHost에 어떤 화면을 띄울 것인지 컨트롤하는 역할을 수행한다
 
 <br>
 
 ### Navigation 장점
 
-- 프래그먼트 트랜잭션 처리
+- Fragment 트랜잭션 처리
 
-- 기본적으로 '위로'와 '뒤로' 작업을 올바르게 처리
+- 화면 이동 쉽게 처리
 
-- 애니메이션과 전환에 표준화된 리소스 제공
+- 쉬운 애니메이션 구현 지원
 
 - 딥 링크 구현 및 처리
 
-- 최소한의 추가 작업으로 탐색 UI 패턴(예: 탐색 창, 하단 탐색) 포함
+- Bottom Navigation, Navigation Drawer 등을 쉽게 구현할 수 있도록 지원
 
-- Safe Args
-
-  : 대상 사이에서 데이터를 탐색하고 전달할 때 유형 안정성을 제공하는 그래프 플러그인
+- Safe Args를 이용한 안전한 데이터 전달 지원
 
 - ViewModel 지원
 
-  : 탐색 그래프에 대한 ViewModel을 확인해 그래프 대상 사이에 UI 관련 데이터를 공유합니다
+  : Navigation 그래프에 대한 ViewModel을 확인해 그래프 대상 사이에 UI 관련 데이터를 공유할 수 있도록 지원
 
 <br>
 

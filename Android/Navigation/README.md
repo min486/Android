@@ -63,3 +63,68 @@ app 레벨의 build.gradle에 의존성 추가
 implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
 implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
 ```
+
+<br>
+
+### 데이터 전달
+
+- 대상 간 이동을 위해 Safe Args Gradle 플러그인을 사용하면 안정성을 보장한다
+
+- 이 플러그인은 대상 간 유형 안전 탐색 및 인수 전달을 사용 설정하는 간단한 객체 및 빌더 클래스를 생성한다
+
+최상위(프로젝트) 수준의 build.gradle 파일에 아래 추가
+
+```kotlin
+plugins {
+    id ("androidx.navigation.safeargs.kotlin") version "2.5.3" apply false
+}
+```
+
+app 수준의 build.gradle 파일에 아래 추가
+
+```kotlin
+plugins {
+    id("androidx.navigation.safeargs.kotlin")
+}
+```
+
+<br>
+
+### 대상으로 이동
+
+대상으로 이동하는 것은 NavController 객체를 사용하여 실행되며 이 객체는 NavHost 내에서 앱 탐색을 관리한다
+
+각 NavHost에는 해당하는 자체 NavController가 있다
+
+다음 메서드 중 하나를 사용하여 NavController를 검색할 수 있다
+
+- Fragment.findNavController()
+- View.findNavController()
+- Activity.findNavController(viewId: Int)
+
+```kotlin
+// exampleFragment.kt
+
+val action = AuthFragmentDirections.actionAuthFragmentToHomeFragment()
+findNavController().navigate(action)
+```
+
+👉 safe args 플러그인을 사용하면 직접 찾을 필요 없이 미리 만들어준것 사용 가능
+
+<br>
+
+FragmentContainerView를 사용하여 NavHostFragment를 만들 때 
+
+또는 
+
+FragmentTransaction을 통해 NavHostFragment를 activity에 수동으로 추가할 경우
+
+👉 NavHostFragment에서 직접 NavController를 검색해야 한다
+
+```kotlin
+// activity에서 NavHostFragment 잡아서 NavController를 꺼내오는 예제
+
+val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+    binding.bottomNavigationView.setupWithNavController(navHostFragment.navController)
+```
+

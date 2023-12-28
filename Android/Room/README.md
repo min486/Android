@@ -67,7 +67,28 @@ Room을 사용하려면
 
 <br>
 
-### 예제
+### 의존성 추가
+
+앱에서 Room을 사용하려면 app 레벨의 `build.gradle` 파일에 아래 종속 항목을 추가
+
+```kotlin
+dependencies {
+  	val room_version = "2.5.0"
+  
+  	implementation("androidx.room:room-runtime:$room_version")
+  	annotationProcessor("androidx.room:room-compiler:$room_version")
+  
+  	// To use Kotlin annotation processing tool
+    kapt("androidx.room:room-compiler:$room_version")
+    
+  	// Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:$room_version")
+}
+```
+
+<br>
+
+### 사용 예제
 
 - Room Database
 

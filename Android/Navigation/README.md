@@ -122,7 +122,7 @@ FragmentTransaction을 통해 NavHostFragment를 activity에 수동으로 추가
 👉 NavHostFragment에서 직접 NavController를 검색해야 한다
 
 ```kotlin
-// activity에서 NavHostFragment 잡아서 NavController를 꺼내오는 예제
+// activity - FragmentContainerView랑 BottomNavigationView 연결하는 예제
 
 val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
     binding.bottomNavigationView.setupWithNavController(navHostFragment.navController)

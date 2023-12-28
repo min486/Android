@@ -60,3 +60,14 @@
   : 스트림의 값을 사용
 
 <img src="../README.assets/flow.png" alt="flow" align="center" width="70%" />
+
+### Flow 예제
+
+```kotlin
+@Dao
+interface ContentDao {
+  @Query("SELECT * FORM Content")
+  fun selectAll() : Flow<List<ContentEntitty>>  // Flow로 구독해서 insert, delete, update될 때 자동으로 갱신
+}
+```
+

@@ -111,3 +111,92 @@ LiveData의 값을 변경하게 해주는 함수가 setValue()와 postValue()
     }
   }
   ```
+
+<br>
+
+### Observe
+
+주로 MVVM 패턴에서 ViewModel의 Data 변화를 관찰할 때 사용
+
+observe 함수는 변수 2개 (lifeCycleOwner, Observer)를 받는다
+
+- lifeCycleOwner
+
+  - 첫 번째 변수인 lifeCycleOwner는 Observer가 따르는 LifeCycle이다
+
+  - 아래 코드에서 this가 들어갔으니 MainActivity의 LifeCycle을 따른다
+
+  - LifeCycle이 Started, onResumed 일때만 observer가 작동한다 
+
+  - onDestroyed에서는 observer가 해지된다
+
+- Observer
+
+  - UI 업데이트 함수를 가진 Observer
+  - Observer는 생략 가능
+
+```kotlin
+class InputActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityInputBinding
+    private val viewModel : InputViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityInputBinding.inflate(layoutInflater).apply {
+            setContentView(root)
+        }
+      
+        viewModel.doneEvent.observe(this) {  // viewModel에서 doneEvent 변수를 관찰한다는 뜻
+        		...
+        }
+    }
+}
+```
+
+<br>
+
+### LiveData 사용 예시
+
+- ViewModel
+
+```kotlin
+class InputViewModel : ViewModel() {
+
+    private val _doneEvent = MutableLiveData<Unit>()
+    val doneEvent : LiveData<Unit> = _doneEvent
+
+    fun insertData() {
+        content.value?.let { content ->
+            viewModelScope.launch(Dispatchers.IO) {
+                ...
+                _doneEvent.postValue(Unit)  // postValue 사용
+            }
+        }
+    }
+}
+```
+
+- Activity
+
+```kotlin
+class InputActivity : AppCompatActivity() {
+  
+    private lateinit var binding: ActivityInputBinding
+
+    private val viewModel : InputViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityInputBinding.inflate(layoutInflater).apply {
+            setContentView(root)
+        }
+      
+        viewModel.doneEvent.observe(this) {  // observe 사용
+        		Toast.makeText(this, "완료", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+}
+```
+
+👉 viewModel의 LiveData 값이 바뀔때마다 UI가 갱신

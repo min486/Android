@@ -45,7 +45,7 @@
 
 : Dagger / Hilt / Koin / Kodein / Anvil
 
-👉 안드로이드에서의 의존성 주입은 Dagger-Hilt를 사용한다
+👉 안드로이드에서의 의존성 주입은 Hilt를 사용한다
 
 <br>
 
@@ -82,6 +82,15 @@
   class ExampleApplication : Application() { ... }
   ```
 
+  ➡️ `AndroidManifest.xml`에서 아래 내용 추가
+
+  ```xml
+  <!-- 이 application 안에서 hilt를 사용하겠다는 의미 -->
+  <application
+  	android:name=".ExampleApplication"
+  </application>
+  ```
+
 - Activity
 
   ```kotlin
@@ -115,31 +124,6 @@
 
 <br>
 
-✅ Hilt 모듈
-
-위에서 했던 것과 같이 `@Inject` Annotation을 붙이는 방법 말고,
-
-Module을 이용해서 Hilt에게 원하는 Dependency를 생성하는 방법을 알려줄 수 있다
-
-아래와 같이 생성자 삽입을 할 수 없는 상황에도 쓰인다
-
-- 인터페이스
-- 외부 라이브러리의 클래스
-
-이럴 때는 Hilt 모듈을 사용하여 Hilt에 결합 정보를 제공할 수 있다
-
-👉 Module 클래스를 생성할 때 가장 먼저 `@Module` Annotation을 붙여준다
-
-그래야 Hilt는 여기가 Module이 있는 곳임을 알 수 있다
-
-👉 다음으로 `@InstallIn` Annotation을 붙여준다
-
-ex) `@InstallIn(ActivityComponent::class)`는 해당 모듈이 acitivity에서 사용가능하다고 선언하다는 의미
-
-(해당 Component의 이름을 넣어주면 된다)
-
-<br>
-
 ✅ @InstallIn
 
 필드 삽입을 실행할 수 있는 각 Android Class마다 `@InstallIn` Annotation을 설정해야 한다
@@ -170,7 +154,50 @@ Hilt는 결합의 범위가 지정된 구성요소의 인스턴스마다 한 번
 
 <br>
 
-✅ 그 밖의 Annotation
+✅ Hilt 모듈
+
+Module을 이용해서 Hilt에게 원하는 Dependency를 생성하는 방법을 알려줄 수 있다
+
+아래와 같이 생성자 삽입을 할 수 없는 상황에도 쓰인다
+
+- 인터페이스
+- 외부 라이브러리의 클래스
+
+이럴 때는 Hilt 모듈을 사용하여 Hilt에 결합 정보를 제공할 수 있다
+
+👉 Module 클래스를 생성할 때 가장 먼저 `@Module` Annotation을 붙여준다
+
+그래야 Hilt는 여기가 Module이 있는 곳임을 알 수 있다
+
+👉 다음으로 `@InstallIn` Annotation을 붙여준다
+
+ex) `@InstallIn(ActivityComponent::class)`는 해당 모듈이 acitivity에서 사용가능하다고 선언하다는 의미
+
+(해당 Component의 이름을 넣어주면 된다)
+
+```kotlin
+@Module
+@InstallIn(ViewModelComponent::class)
+object RepositoryModule {
+  
+  @ViewModelScoped
+  @Provides
+  fun providesContentRepository(contentDao: ContentDao): ContentRepository =
+  	ContentRepositoryImpl(contentDao)  // ContentDao 주입
+}
+```
+
+```kotlin
+// Hilt를 썼으니까 Inject 실행
+class ContentRepositoryImpl @Inject constructor(private val contentDao: ContentDao) : 
+	ContentRepository {
+    ...
+}
+```
+
+<br>
+
+✅ 각 Annotation 내용
 
 - @Module
 

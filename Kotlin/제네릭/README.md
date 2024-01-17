@@ -19,7 +19,7 @@ Generic의 사전적인 의미는 ‘일반적인, 포괄적인’ 이다
 
 ```kotlin
 fun main() {
-    // <> 꺾쇠 괄호 안에 Int, String을 표기하여 list1은 Int 원소, list2는 String 원소를 담는 ArrayList임을 알 수 있다
+    // 꺾쇠괄호(< >) 안에 타입을 표기하여 list1은 Int, list2는 String을 담는 ArrayList임을 알 수 있다
     val list1 = ArrayList<Int>()
     val list2 = ArrayList<String>()
 }
@@ -27,9 +27,7 @@ fun main() {
 
 👉 Kotlin의 내장 ArrayList의 선언을 보여주고 있다
 
-선언을 보면 ArrayList가 어떤 데이터 타입의 원소를 갖는지 알 수 있다
-
-단순히 꺾쇠괄호 안에 Int, String을 표기하는 방법으로 ArrayList 자료구조 안에 Int 원소와 String 원소가 들어가는 것을 보여주는 것이다
+선언을 보면 ArrayList가 어떤 데이터 타입을 갖는지 알 수 있다
 
 <br>
 
@@ -113,7 +111,7 @@ class EveryPrinter<T>(private val printValue: T) {
 
 클래스 이름 뒤에 타입 파라미터를 넣은 꺾쇠 기호(<>)를 붙이면 클래스를 Generic하게 만들 수 있다
 
-<img src="../README.assets/generic2.png" alt="generic2" align="left" width="50%" />
+<img src="../README.assets/generic2.png" alt="generic2" align="center" width="50%" />
 
 ```kotlin
 open class Box<T> {

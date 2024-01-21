@@ -40,7 +40,7 @@ implementation("io.coil-kt:coil-compose:2.1.0")  // Jetpack Compose
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-AsyncImage 컴포저블을 사용하여 이미지를 로드하고 표시
+AsyncImage를 사용하여 이미지를 로드하고 표시
 
 ```kotlin
 AsyncImage(
@@ -61,9 +61,9 @@ Painter가 필요하고 AsyncImage를 사용할 수 없으면 rememberAsyncImage
 Image(
   painter = rememberAsyncImagePainter(
     ImageRequest.Builder(LocalContext.current)
-    	.data(data = accountInfo?.profileImageUrl)  // 로드할 이미지의 URL을 지정
+      .data(data = accountInfo?.profileImageUrl)  // 로드할 이미지의 URL을 지정
       .apply(block = fun ImageRequest.Builder.() {
-      	crossfade(true)  // 로딩시간이 소요되면 저화질의 이미지를 먼저 로딩해서 보여준다
+        crossfade(true)  // 로딩시간이 소요되면 저화질의 이미지를 먼저 로딩해서 보여준다
       }).build()
   ),
   ...

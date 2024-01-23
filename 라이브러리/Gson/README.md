@@ -15,7 +15,7 @@
 
 ### Json
 
-> JavaScript Object Notation의 약자로, Name과 Value로 이루어진 하나의 텍스트 형식이다
+> JavaScript Object Notation의 약자로, Name과 Value로 이루어진 하나의 텍스트 형식
 >
 > 데이터를 구조적인 문자열로 표현한 데이터 형식이다
 
@@ -39,7 +39,7 @@ JSON에서는 기본적으로 key : value 형태로 데이터를 표현한다
 
 ### Gson
 
-Java 객체를 Json으로 변환 또는 Json을 Java 객체로 변환하는데 사용한다
+Java 객체를 Json으로 변환 또는 Json을 Java 객체로 변환하는데 사용할 수 있는 라이브러리
 
 <br>
 
@@ -77,4 +77,14 @@ fun getProductList(): List<Product> {
   
   return GsonBuilder().create().fromJson(jsonString, type)
 }
+```
+
+<br>
+
+### Gson 사용
+
+module 수준의 build.gradle에 의존성 추가
+
+```kotlin
+implementation("com.google.code.gson:gson:2.10.1")
 ```

@@ -123,7 +123,7 @@ fun main(args: Array<String>) {
 
 - 보일러플레이트 코드 감소
 
-  *보일러플레이트 : 여러곳에서 재사용되며, 반복적으로 비슷한 형태를 띄는 코드
+  *Boilerplate code : 여러곳에서 재사용되며, 반복적으로 비슷한 형태를 띄는 코드
 
 <br>
 
@@ -133,16 +133,25 @@ fun main(args: Array<String>) {
 
 ```python
 plugins {
-    id("com.google.dagger.hilt.android") version "2.44" apply false
+  id("com.google.dagger.hilt.android") version "2.44" apply false
 }
 ```
 
 ➡️ app 수준의 `build.gradle` 파일에 추가
 
 ```python
+plugins {
+  kotlin("kapt")
+  id("com.google.dagger.hilt.android")
+}
+
+android {
+  ...
+}
+
 dependencies {
-    implementation("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
+  implementation("com.google.dagger:hilt-android:2.44")
+  kapt("com.google.dagger:hilt-android-compiler:2.44")
 }
 ```
 
@@ -166,14 +175,13 @@ Hilt는 Annotation을 통해 적용할 수 있다
   ➡️ `AndroidManifest.xml`에서 아래 내용 추가
 
   ```xml
-  <!-- 이 application 안에서 hilt를 사용하겠다는 의미 -->
   <application
-  	android:name=".ExampleApplication"
+      android:name=".ExampleApplication"
   </application>
   ```
-
+  
   <br>
-
+  
 - Android 클래스에 의존성 주입
 
   `Application` 클래스에 Hilt를 설정하고 애플리케이션 수준 구성요소를 사용할 수 있게 되면 

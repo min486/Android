@@ -11,7 +11,7 @@
 
 ## 🔥 Enum class / Sealed class
 
-### Enum(열거형) class 정의
+### Enum class
 
 > 열거형 타입을 정의할 수 있다. 명확한 상수 값을 갖는 타입을 나타낼 수 있다 
 >
@@ -32,15 +32,21 @@ enum class Color {
 
 <br>
 
-### Sealed class 정의
+### Sealed class
 
-> 추상 클래스로 상속받는 자식 클래스의 종류를 제한하는 특성을 가지고 있다
+> 추상 클래스(abstract class)로 상속받는 자식 클래스의 종류를 제한하는 특성을 가지고 있다
 >
-> state을 포함하고 있는 여러개의 instance를 가질 수 있고, 생성자도 각각의 특징에 따라서 다르게 가져갈 수 있다
 
 <br>
 
-### 이점
+### Sealed class 특징
+
+- Sealed class의 하위 클래스들은 동일한 파일(같은 패키지 내)에 정의되어야 한다. 서로 다른 파일에서 정의할 수 없다
+- 직접 인스턴스 생성이 불가능하다
+
+<br>
+
+### Sealed class 장점
 
 when을 사용할 때 Sealed class를 사용하면 else 구문을 추가하지 않아도 된다
 

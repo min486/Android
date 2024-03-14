@@ -14,7 +14,7 @@
 
 ### Clean architecture
 
-> 소프트웨어 시스템의 구조를 설계할 때 지켜야 할 원칙과 방법을 정의한 개념 
+> 소프트웨어 시스템의 구조를 설계할 때 지켜야 할 원칙과 방법을 정의한 개념
 
 <img src="../README.assets/clean.png" alt="clean" align="center" width="50%" />
 

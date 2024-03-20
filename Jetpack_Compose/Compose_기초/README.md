@@ -64,7 +64,7 @@ Snackbar composable이 존재한다
 fun SnackbarEx() {
     val snackbarHostState = remember { SnackbarHostState() }
   
-  	Scaffold(
+    Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         ...
     ) {

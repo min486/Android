@@ -15,4 +15,4 @@
 
 ## 🔥 Play Console
 
-Aa
+https://play.google.com/console/signup

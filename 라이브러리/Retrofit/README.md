@@ -11,9 +11,9 @@
 
 
 
-## 🔥 Retrofit
+## 🔥 Retrofit2
 
-### Retrofit
+### Retrofit2 (레트로핏)
 
 > 서버와 클라이언트 간 http 통신을 위한 라이브러리
 >
@@ -21,7 +21,7 @@
 
 <br>
 
-### Retrofit 장점
+### Retrofit2 장점
 
 - JSON 구조의 데이터를 쉽게 가져오고 업로드 할 수 있다
 - 안드로이드 앱에서 필요한 데이터를 서버로부터 가져올 때 사용 
@@ -68,9 +68,9 @@ implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
 
 <br>
 
-### Retrofit 사용
+### Retrofit2 사용
 
-retrofit을 사용하기 위해서 세 가지 필요
+레트로핏을 사용하기 위해서 세 가지 필요
 
 - Data class
 - Http 작업을 정의하는 Interface

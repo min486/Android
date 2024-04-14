@@ -14,3 +14,9 @@
 ### 참고 순서
 
 앱 게시 1 ➡️ 앱 게시 2 ➡️ 앱 출시
+
+<br>
+
+## 대시보드
+
+<img src="../README.assets/3_1.png" alt="3_1" align="center" width="40%" />

@@ -29,4 +29,19 @@
 
 ## 비공개 테스트
 
+검토가 완료된 상태에서 테스터들을 등록할 수 있다
+
 <img src="../README.assets/3_2.png" alt="3_2" align="center" width="90%" />
+
+👉 [ 비공개 테스트 ] ➡️ [ 트랙 관리 ] 클릭
+
+<br>
+
+<img src="../README.assets/3_3.png" alt="3_3" align="center" width="90%" />
+
+👉 이메일 목록에 테스터들 추가하기
+
+<br>
+
+<img src="../README.assets/3_4.png" alt="3_4" align="center" width="80%" />
+

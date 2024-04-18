@@ -43,7 +43,7 @@
 
 <br>
 
-<img src="../README.assets/3_5.png" alt="3_5" align="left" width="90%" />
+<img src="../README.assets/3_4.png" alt="3_4" align="left" width="90%" />
 
 👉 다음과 같이 이메일들을 추가한다
 
@@ -51,13 +51,18 @@
 
 <br>
 
-👉 이메일 목록에 테스터들 추가하기
+<img src="../README.assets/3_5.png" alt="3_5" align="center" width="80%" />
+
+👉 기기로 앱을 다운받아서 테스트 안해도 되고, 
+
+(Android에서 참여 링크)
+
+웹에서 [ 테스터 되기 ] 버튼만 누르면 테스터 숫자가 늘어난다 
+
+(웹에서 참여 링크)
 
 <br>
 
-<img src="../README.assets/3_4.png" alt="3_4" align="center" width="80%" />
+<img src="../README.assets/3_6.png" alt="3_6" align="center" width="70%" />
 
-👉 기기로 앱을 다운받아서 테스트는 안해도 되고 (Android에서 참여 링크)
-
-웹에서 [ 테스터 되기 ] 버튼만 누르면 테스터 숫자가 늘어난다 (웹에서 참여 링크)
-
+<img src="../README.assets/3_7.png" alt="3_7" align="center" width="70%" />

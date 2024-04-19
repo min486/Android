@@ -23,6 +23,8 @@
 
 👉 5일 정도 소요됨
 
+<br>
+
 <img src="../README.assets/3_1.png" alt="3_1" align="center" width="40%" />
 
 <br>
@@ -39,23 +41,31 @@
 
 <img src="../README.assets/3_3.png" alt="3_3" align="center" width="90%" />
 
-👉 이메일 목록에 테스터들 추가하기
+👉 [ 테스터 ] 탭에서 이메일 목록에 테스터들 추가하기
+
+(만들었던 목록의 화살표 클릭 or 이메일 목록 만들기 클릭)
 
 <br>
 
-<img src="../README.assets/3_4.png" alt="3_4" align="left" width="90%" />
+<img src="../README.assets/3_4.png" alt="3_4" align="center" width="90%" />
 
 👉 다음과 같이 이메일들을 추가한다
 
-이메일을 등록해야 해당 소유자가 링크를 들어갈 수 있다 (등록된 이메일로 로그인해서)
+(친구, 지인 등 다른 사람들의 이메일)
 
-‼️ 구글 메일(Gmail)만 등록 가능
+Play Console에 이메일이 등록되어야 해당 소유자가 링크를 들어갈 수 있다
+
+(등록된 이메일로 로그인해서)
+
+<br>
+
+‼️ 구글 메일(Gmail)만 등록 가능, 네이버 메일 등 불가
 
 <br>
 
 <img src="../README.assets/3_5.png" alt="3_5" align="center" width="80%" />
 
-👉 기기로 앱을 다운받아서 테스트 안해도 되고, 
+👉 기기로 앱을 다운받는 테스트는 안해도 되고, 
 
 (Android에서 참여 링크)
 
@@ -80,4 +90,18 @@
 <br>
 
 ## 대시보드 - 프로덕션
+
+<img src="../README.assets/3_8.png" alt="3_8" align="center" width="90%" />
+
+👉 프로덕션에서 테스터 숫자를 확인할 수 있다
+
+<br>
+
+<img src="../README.assets/3_9.png" alt="3_9" align="center" width="90%" />
+
+👉 20명 이상을 채우면 체크 표시가 된다
+
+👉 중간에 취소 버튼을 누르는 사람이 생길 수 있으니 인원을 여유있게 채우는거 추천
+
+(ex - 20명 ❌, 22~23명 ⭕️) 
 

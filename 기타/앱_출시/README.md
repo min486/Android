@@ -49,6 +49,8 @@
 
 이메일을 등록해야 해당 소유자가 링크를 들어갈 수 있다 (등록된 이메일로 로그인해서)
 
+‼️ 구글 메일(Gmail)만 등록 가능
+
 <br>
 
 <img src="../README.assets/3_5.png" alt="3_5" align="center" width="80%" />
@@ -66,3 +68,16 @@
 <img src="../README.assets/3_6.png" alt="3_6" align="center" width="70%" />
 
 <img src="../README.assets/3_7.png" alt="3_7" align="center" width="70%" />
+
+👉 등록된 소유자(친구, 지인 등)가 링크를 들어가면 [ BECOME A TESTER ] 버튼을 누를 수 있다
+
+<br>
+
+[ LEAVE THE PROGRAM ] 버튼은 누르지 않게한다❌ 
+
+(늘어난 테스터 숫자가 다시 줄어들기 때문에)
+
+<br>
+
+## 대시보드 - 프로덕션
+

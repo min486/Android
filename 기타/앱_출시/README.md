@@ -120,3 +120,5 @@
 <br>
 
 <img src="../README.assets/3_11.png" alt="3_11" align="center" width="60%" />
+
+👉 14일이 지나면 프로덕션 신청이 가능해진다

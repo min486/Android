@@ -127,11 +127,15 @@
 
 ## 프로덕션 신청
 
+[ 프로덕션 신청 ] 버튼 클릭 후 1~3번 각 번호의 질문들에 답해야 한다
+
 <img src="../README.assets/3_12.png" alt="3_12" align="center" width="60%" />
 
-👉 1~3번 각 번호의 질문들에 답해야 한다
+<img src="../README.assets/3_13.png" alt="3_13" align="center" width="20%" />
 
-👉 위 사진들은 전체 질문의 일부분임
+<img src="../README.assets/3_14.png" alt="3_14" align="center" width="60%" />
+
+👉 위 사진들은 전체 질문의 일부분
 
 ‼️ 다 어렵지 않은 질문들이고 간단하게 답했는데도 잘 승인되었다
 

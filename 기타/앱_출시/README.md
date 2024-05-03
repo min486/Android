@@ -142,3 +142,5 @@
 (단답이 아닌 1~2줄 정도로 작성함)
 
 <br><img src="../README.assets/3_15.png" alt="3_15" align="center" width="60%" />
+
+👉 신청을 완료하면 검토가 끝날때까지 기다려야한다

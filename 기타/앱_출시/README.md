@@ -144,3 +144,19 @@
 <br><img src="../README.assets/3_15.png" alt="3_15" align="center" width="60%" />
 
 👉 신청을 완료하면 검토가 끝날때까지 기다려야한다
+
+<br>
+
+## 프로덕션 승인
+
+‼️ 신청 후 약 2일 후에 승인 메일 받음
+
+<img src="../README.assets/3_16.png" alt="3_16" align="center" width="70%" />
+
+👉 승인이 완료되면 메일이 온다
+
+<br>
+
+<img src="../README.assets/3_17.png" alt="3_17" align="center" width="60%" />
+
+👉 Play Console에서 확인 가능

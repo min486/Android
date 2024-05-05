@@ -160,3 +160,7 @@
 <img src="../README.assets/3_17.png" alt="3_17" align="center" width="60%" />
 
 👉 Play Console에서 확인 가능
+
+<br>
+
+<img src="../README.assets/3_18.png" alt="3_18" align="center" width="60%" />

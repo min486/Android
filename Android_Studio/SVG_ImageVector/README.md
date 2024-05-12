@@ -18,10 +18,14 @@ Android Studio 에서
 
 Settings ➡️ Plugins ➡️ [ svg to compose ] 검색해서 설치
 
-<img src="../README.assets/svg.png" alt="svg" align="left" width="80%" />
+<img src="../README.assets/svg.png" alt="svg" align="center" width="80%" />
 
 <br>
 
 File ➡️ New ➡️ [ Jectpack Compose ImageVector ] 클릭
 
-<img src="../README.assets/svg2.png" alt="svg2" align="left" width="60%" />
+<img src="../README.assets/svg2.png" alt="svg2" align="center" width="60%" />
+
+<br>
+
+<img src="../README.assets/svg3.png" alt="svg3" align="center" width="80%" />

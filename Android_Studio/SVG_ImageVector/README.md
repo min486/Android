@@ -22,13 +22,13 @@ Android Studio에서 Settings ➡️ Plugins ➡️ [ svg to compose ] 검색해
 
 ### 변환하기
 
-File ➡️ New ➡️ [ Jectpack Compose ImageVector ] 클릭
+- File ➡️ New ➡️ [ Jectpack Compose ImageVector ] 클릭
 
 <img src="../README.assets/svg2.png" alt="svg2" align="center" width="60%" />
 
 <br>
 
-내용들 입력 후 [ Generate ] 클릭
+- 내용들 입력 후 [ Generate ] 클릭
 
 <img src="../README.assets/svg3.png" alt="svg3" align="center" width="80%" />
 
@@ -44,10 +44,12 @@ File ➡️ New ➡️ [ Jectpack Compose ImageVector ] 클릭
 
 <br>
 
-설정한 경로(Output)에 파일들이 생성된다
+- 설정한 경로(Output)에 파일들이 생성된다
+
+<img src="../README.assets/svg4.png" alt="svg4" align="center" width="30%" />
 
 <br>
 
-Accessor name과 파일명을 통해 ImageVector에 접근 가능하다
+- Accessor name과 파일명을 통해 ImageVector에 접근 가능하다
 
-(Ex - Iconpack.Heart)
+<img src="../README.assets/svg5.png" alt="svg5" align="center" width="40%" />

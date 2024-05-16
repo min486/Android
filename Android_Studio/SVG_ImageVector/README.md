@@ -50,6 +50,6 @@ Android Studio에서 Settings ➡️ Plugins ➡️ [ svg to compose ] 검색해
 
 <br>
 
-- Accessor name과 파일명을 통해 ImageVector에 접근 가능하다
+- Accessor name과 파일명을 통해 ImageVector에 접근 가능
 
 <img src="../README.assets/svg5.png" alt="svg5" align="center" width="40%" />

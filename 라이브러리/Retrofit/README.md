@@ -44,8 +44,14 @@ implementation("com.squareup.retrofit2:retrofit:2.9.0")
 
 ✅ Converter 추가
 
-- Gson : com.squareup.retrofit2:converter-gson
-- Moshi : com.squareup.retrofit2:converter-moshi
+- Gson
+
+```kotlin
+// Gson Converter
+implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+```
+
+- Moshi
 
 ```kotlin
 // Moshi Converter

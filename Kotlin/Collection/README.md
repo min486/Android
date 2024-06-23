@@ -14,3 +14,10 @@
 ### 컬렉션의 확장함수
 
 isEmpty(), isNotEmpty()
+
+<br>
+
+### list, set, map
+
+> 컬렉션중에 가장 많이 사용되는 3가지
+

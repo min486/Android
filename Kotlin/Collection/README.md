@@ -21,3 +21,10 @@ isEmpty(), isNotEmpty()
 
 > 컬렉션중에 가장 많이 사용되는 3가지
 
+<br>
+
+### Immutable Collections (변경 불가능)
+
+<br>
+
+### Mutable Collections (변경 가능)

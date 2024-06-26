@@ -13,7 +13,13 @@
 
 ### 컬렉션의 확장함수
 
-isEmpty(), isNotEmpty()
+- isEmpty()
+
+  : 컬렉션이 비어있으면 true를 반환
+
+- isNotEmpty()
+
+  : 컬렉션이 비어있지 않으면 true를 반환
 
 <br>
 

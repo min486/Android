@@ -12,6 +12,18 @@
 
 
 
-## 🔥 Side Effects
+## 🔥 Side Effects (부수효과)
 
-aa
+### 부수효과
+
+> Composable 함수의 범위 밖에서 발생하는 앱 상태에 관한 변경사항
+
+<br>
+
+### side-effect APIs
+
+- LaunchedEffect
+
+- DisposableEffect
+
+- SideEffect

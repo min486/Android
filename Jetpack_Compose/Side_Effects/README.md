@@ -37,3 +37,7 @@
 DisposableEffect에 `Key` 값을 설정하면, 해당 키 값이 변경되면 내부의 `onDispose` 절이 실행되고, 해당 Effect를 다시 호출하여 재설정한다
 
 👉 Composable의 Lifecycle에 맞춰 정리되어야 하는 리스너나 작업이 있는 경우에 리스너나 작업을 제거하기 위해 사용되는 Effect
+
+<br>
+
+### LaunchedEffect

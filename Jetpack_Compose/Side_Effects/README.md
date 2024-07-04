@@ -41,3 +41,11 @@ DisposableEffect에 `Key` 값을 설정하면, 해당 키 값이 변경되면 �
 <br>
 
 ### LaunchedEffect
+
+LaunchedEffect 함수의 인자인 `key` 값이 변경되면, 현재 실행중인 코루틴은 취소되고 재시작된다
+
+해당 Effect가 컴포지션을 벗어나면 코루틴은 자동 취소된다
+
+키 값의 변화에 따라 중단 함수를 호출하거나,
+
+컴포저블 내부에서 외부의 값을 구독하면서 중단 함수를 호출해야 하는 경우에는 `LaunchedEffect`를 사용한다

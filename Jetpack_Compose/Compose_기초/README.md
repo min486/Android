@@ -14,6 +14,14 @@
 
 ## 🔥 Compose 기초
 
+- Compose
+- Composable
+- Composition
+- Recomposition
+- State
+
+<br>
+
 ### Scaffold
 
 > Material Component들을 편하게 사용할 수 있도록 하기 위해 미리 디자인된 레이아웃이다

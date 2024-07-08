@@ -42,6 +42,8 @@ DisposableEffect에 `Key` 값을 설정하면, 해당 키 값이 변경되면 �
 
 ### LaunchedEffect
 
+> Composable에서 컴포지션이 일어날 때 suspend fun을 실행해주는 Composable
+
 LaunchedEffect 함수의 인자인 `key` 값이 변경되면, 현재 실행중인 코루틴은 취소되고 재시작된다
 
 해당 Effect가 컴포지션을 벗어나면 코루틴은 자동 취소된다

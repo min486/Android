@@ -22,6 +22,19 @@
 
 <br>
 
+### Composable
+
+Composable은 컴포즈로 화면을 만들기 위한 함수로, `@Composable`로 지정할 수 있다
+
+```kotlin
+@Composable
+fun Greeting(name: String) {
+    Text("Hello $name")
+}
+```
+
+<br>
+
 ### Scaffold
 
 > Material Component들을 편하게 사용할 수 있도록 하기 위해 미리 디자인된 레이아웃이다

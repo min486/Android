@@ -22,6 +22,12 @@
 
 <br>
 
+### Jetpack Compose (Compose)
+
+> 안드로이드 앱의 UI를 쉽게 디자인하고 빌드하기 위한 라이브러리
+
+<br>
+
 ### Composable
 
 Composable은 컴포즈로 화면을 만들기 위한 함수로, `@Composable`로 지정할 수 있다

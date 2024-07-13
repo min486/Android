@@ -45,6 +45,12 @@ fun Greeting(name: String) {
 
 <br>
 
+### Composition (컴포지션)
+
+컴포저블 함수를 실행하면 생성되는 것으로, UI를 그리는 역할을 한다
+
+<br>
+
 ### Scaffold
 
 > Material Component들을 편하게 사용할 수 있도록 하기 위해 미리 디자인된 레이아웃이다

@@ -16,5 +16,13 @@
 
 ## 🔥 WebView (웹뷰)
 
+### WebView
+
+> 웹뷰는 네이티브 앱에 내재되어 있는 웹 브라우저
+
+웹 브라우저를 구성하는 HTML 같은 요소들을 받아들여 이를 브라우저와 동일한 형식으로 해석해서 표현해주는 뷰
+
+<br>
+
 - WebViewClient
 - WebChromeClient

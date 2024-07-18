@@ -31,3 +31,11 @@
 - WebChromeClient
 
 웹페이지에서 일어나는 액션들에 관한 콜백함수들로 구성
+
+<br>
+
+### WebViewClient 함수
+
+- onPageStarted
+- shouldOverridingUrlLoading
+- onPageFinished

@@ -51,6 +51,12 @@ fun Greeting(name: String) {
 
 <br>
 
+### Recomposition (리컴포지션)
+
+데이터가 변경될 때 컴포지션을 업데이트 하기 위해 컴포저블을 다시 실행하는 것으로, 컴포저블의 입력값이 변경될 때만 실행된다
+
+<br>
+
 ### Scaffold
 
 > Material Component들을 편하게 사용할 수 있도록 하기 위해 미리 디자인된 레이아웃이다

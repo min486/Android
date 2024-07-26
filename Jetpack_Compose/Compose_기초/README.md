@@ -49,6 +49,8 @@ fun Greeting(name: String) {
 
 컴포저블 함수를 실행하면 생성되는 것으로, UI를 그리는 역할을 한다
 
+<img src="../README.assets/compose.png" alt="navigation" align="center" width="60%" />
+
 <br>
 
 ### Recomposition (리컴포지션)

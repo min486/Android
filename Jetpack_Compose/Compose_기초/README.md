@@ -28,6 +28,12 @@
 
 <br>
 
+### 선언형 UI
+
+<img src="../README.assets/compose.png" alt="navigation" align="center" width="60%" />
+
+<br>
+
 ### Composable
 
 Composable은 컴포즈로 화면을 만들기 위한 함수로, `@Composable`로 지정할 수 있다
@@ -48,8 +54,6 @@ fun Greeting(name: String) {
 ### Composition (컴포지션)
 
 컴포저블 함수를 실행하면 생성되는 것으로, UI를 그리는 역할을 한다
-
-<img src="../README.assets/compose.png" alt="navigation" align="center" width="60%" />
 
 <br>
 

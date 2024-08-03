@@ -12,9 +12,13 @@
 
 ## 🔥 안드로이드 스튜디오 핸드폰 연결 안되는 경우
 
-### 기기 인식 안될때 연결하는 방법
+### 기기 인식 안될때 연결하는 다른방법
 
-Pair Devices Using Wi-Fi를 이용해 USB 없이 와이파이로 연결
+Pair Devices Using Wi-Fi를 이용해 USB 없이 와이파이로 연결 가능
+
+<img src="../README.assets/device.png" alt="svg" align="center" width="50%" />
+
+<img src="../README.assets/device2.png" alt="svg" align="center" width="60%" />
 
 <br>
 

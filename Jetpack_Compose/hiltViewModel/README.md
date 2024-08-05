@@ -14,4 +14,6 @@
 
 ## 🔥 hiltViewModel
 
-aa
+### hiltViewModel
+
+컴포저블에서 hiltViewModel()을 호출하여 ViewModel을 생성할 수 있다

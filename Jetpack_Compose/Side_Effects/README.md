@@ -55,3 +55,14 @@ LaunchedEffect 함수의 인자인 `key` 값이 변경되면, 현재 실행중�
 👉 별도의 코루틴 스코프에서 부수효과를 실행하며 UI 쓰레드를 차단하지 않고 시간이 오래 걸리는 작업을 실행하는데 유용하다
 
 첫 번째 컴포지션이나 키가 변경 시 트리거 됩니다
+
+<br>
+
+### LaunchedEffect 필요성
+
+리컴포지션은 Composable의 State가 바뀔 때마다 일어나므로,
+
+만약 매번 리컴포지션이 일어날 때마다 이전 LaunchedEffect가 취소되고 다시 수행된다면 매우 비효율적일 것이다
+
+이를 해결하기 위해 LaunchedEffect는 key라 불리는 기준값을 두어 key가 바뀔 때만 LaunchedEffect의 suspend fun을 취소하고 재실행한다
+

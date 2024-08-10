@@ -17,3 +17,4 @@
 
 ### release 모드와 debug 모드 차이
 
+debug - 개발 버전 또는 디버그 용도

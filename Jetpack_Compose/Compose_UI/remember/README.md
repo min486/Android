@@ -29,6 +29,14 @@ remember는 컴포저블이 초기 구성(Initial Composition)에서 실행될 �
 
 <br>
 
+### MutableState
+
+mutableStateOf는 변화 가능한 상태를 생성하고, 이 상태가 변경될 때 관련된 컴포저블 함수들을 재구성하도록 합니다
+
+이는 Compose 런타임과 통합된 관찰 가능한 타입(MutableState)을 통해 이루어집니다
+
+<br>
+
 ### Remember와 RememberSaveable 차이
 
 - `remember`는 객체를 컴포지션에 저장하고 `remember`를 호출한 컴포저블이 컴포지션에서 삭제되면 그 객체를 삭제합니다

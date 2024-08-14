@@ -37,6 +37,10 @@ mutableStateOf는 변화 가능한 상태를 생성하고, 이 상태가 변경�
 
 <br>
 
+### MutableState의 Recomposition(재구성) 유도
+
+<br>
+
 ### Remember와 RememberSaveable 차이
 
 - `remember`는 객체를 컴포지션에 저장하고 `remember`를 호출한 컴포저블이 컴포지션에서 삭제되면 그 객체를 삭제합니다

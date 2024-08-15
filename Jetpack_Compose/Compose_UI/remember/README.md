@@ -37,7 +37,11 @@ mutableStateOf는 변화 가능한 상태를 생성하고, 이 상태가 변경�
 
 <br>
 
-### MutableState의 Recomposition(재구성) 유도
+### MutableState의 재구성 유도
+
+mutableStateOf를 통해 생성된 MutableState 객체가 컴포저블 함수들을 재구성(recomposition)할 수 있는 주된 이유는
+
+이 객체가 관찰 가능한 상태(observable state)를 제공하기 때문이다
 
 <br>
 

@@ -45,6 +45,14 @@ mutableStateOf를 통해 생성된 MutableState 객체가 컴포저블 함수들
 
 <br>
 
+MutableState는 상태의 변화를 자동으로 감지하고 이에 반응할 수 있는 구조로 설계되어 있다
+
+이 객체의 value 속성에 변화가 발생하면,
+
+Compose 런타임은 그 변화를 감지하고 value를 사용하는 모든 컴포저블 함수들을 자동으로 재구성하도록 스케줄링한다
+
+<br>
+
 ### Remember와 RememberSaveable 차이
 
 - `remember`는 객체를 컴포지션에 저장하고 `remember`를 호출한 컴포저블이 컴포지션에서 삭제되면 그 객체를 삭제합니다

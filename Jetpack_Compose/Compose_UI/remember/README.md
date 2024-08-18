@@ -15,6 +15,14 @@
 
 ## 🔥 Remember 관련
 
+### Remember
+
+Compose는 State값이 바뀌면 Recomposition(재구성)이 일어난다
+
+이때 이전 State를 기억해야 하는 경우 remember을 이용해 값을 저장할 수 있다
+
+<br>
+
 ### Remember의 역할
 
 remember는 컴포저블이 초기 구성(Initial Composition)에서 실행될 때 계산된 값을 기억하고, 

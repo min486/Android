@@ -34,7 +34,7 @@
 
 <br>
 
-### Composable
+### Composable (컴포저블)
 
 Composable은 컴포즈로 화면을 만들기 위한 함수로, `@Composable`로 지정할 수 있다
 
@@ -55,11 +55,31 @@ fun Greeting(name: String) {
 
 컴포저블 함수를 실행하면 생성되는 것으로, UI를 그리는 역할을 한다
 
+@Composable 어노테이션을 활용하여 작성한 함수가 실제 UI로 구성되는 과정을 의미한다
+
+<br>
+
+즉, 맨 처음 UI로 초기화 될 때는 composition, 
+
+클릭이나 다른 이벤트가 일어나 UI의 상태가 바뀌어 재구성 될 때는 recomposition이라고 부른다
+
 <br>
 
 ### Recomposition (리컴포지션)
 
-데이터가 변경될 때 컴포지션을 업데이트 하기 위해 컴포저블을 다시 실행하는 것으로, 컴포저블의 입력값이 변경될 때만 실행된다
+데이터가 변경될 때 컴포지션을 업데이트 하기 위해 컴포저블을 다시 실행하는 것
+
+데이터의 변화를 관찰하여 Composition이 다시 일어나는 과정을 Recomposition이라 부른다
+
+👉 뷰가 새로 그려짐
+
+<br>
+
+상태(State)가 변경되는 시점을 관찰하기 위해서 아래와 같은 클래스와 메서드를 활용할 수 있다
+
+- MutableStateOf
+- remember
+- LiveData
 
 <br>
 

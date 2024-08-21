@@ -42,6 +42,12 @@ State Object로 활용하는 방법에는 `mutableStateOf` 말고도 여러가�
 
 <br>
 
+### MutableStateFlow
+
+StateFlow, MutableStateFlow는 위의 MutableStateOf와는 조금 다르게 Kotlin Coroutine의 Flow를 State로 사용하기 위한 API이다
+
+<br>
+
 ### 핵심 용어
 
 - Composition

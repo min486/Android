@@ -48,6 +48,16 @@ StateFlow, MutableStateFlow는 위의 MutableStateOf와는 조금 다르게 Kotl
 
 <br>
 
+StateFlow는 state-holder 로 observable flow 이다. 현재 상태 또는 새로운 상태 업데이트를 collector 에게 방출(emit)한다
+
+value property 로 현재 상태를 read 할 수 있다
+
+<br>
+
+새로운 상태로 변경하기 위해서는 MutableStateFlow 의 value property 로 변경해야 한다
+
+<br>
+
 ### 핵심 용어
 
 - Composition

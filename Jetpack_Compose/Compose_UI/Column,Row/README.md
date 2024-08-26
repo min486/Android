@@ -32,7 +32,11 @@ LazyColumn은 item을 기반으로 동작한다
 item 하나가 자식 컴포저블에 대응되며 LazyColumnScope내에서 다음의 item들을 사용할 수 있다
 
 - item
+
+  LazyColumn 내부에 컴포저블을 직접 넣고 싶을 때 사용하는 메서드이다
+
 - items
+
 - itemsIndexed
 
 

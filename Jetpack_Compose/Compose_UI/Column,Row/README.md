@@ -37,6 +37,8 @@ item 하나가 자식 컴포저블에 대응되며 LazyColumnScope내에서 다�
 
 - items
 
+  items는 컴포저블을 반복해서 나타내고자 할 때 사용한다
+
 - itemsIndexed
 
 

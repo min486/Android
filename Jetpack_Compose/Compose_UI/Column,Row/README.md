@@ -41,5 +41,9 @@ item 하나가 자식 컴포저블에 대응되며 LazyColumnScope내에서 다�
 
 - itemsIndexed
 
+  index와 item을 사용할 수 있다
+
+  
+
 
 

@@ -22,5 +22,11 @@ Build ➡️ Generate Signed Bundle / APK ➡️ APK 선택 ➡️ 키스토어 
 
 <br>
 
+APK 생성 완료되면
+
+해당 프로젝트 폴더 ➡️ app ➡️ release 폴더에서 만들어진 APK 확인 가능
+
+<br>
+
 ### APK 설치
 

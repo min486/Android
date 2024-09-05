@@ -30,3 +30,8 @@ APK 생성 완료되면
 
 ### APK 설치
 
+https://developer.android.com/tools/releases/platform-tools?hl=ko
+
+👉 노트북 OS에 맞게 설치하기
+
+ex) Windows용 SDK 플랫폼 도구 다운로드

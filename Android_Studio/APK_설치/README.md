@@ -32,6 +32,14 @@ APK 생성 완료되면
 
 https://developer.android.com/tools/releases/platform-tools?hl=ko
 
-👉 노트북 OS에 맞게 설치하기
+위 링크에서 노트북 OS에 맞게 설치하기
 
 ex) Windows용 SDK 플랫폼 도구 다운로드
+
+<br>
+
+OS 선택 후 약관동의 체크하고 다운로드 진행
+
+➡️ adb 폴더 만든 후 다운받은 파일 풀어주기
+
+➡️ adb 폴더 안에 apk 폴더 만들기 (설치된 apk파일 옮기기 위해서)

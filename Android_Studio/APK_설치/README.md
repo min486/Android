@@ -60,7 +60,7 @@ ex) Windows용 SDK 플랫폼 도구 다운로드
 
 이후 설정 ➡️ 개발자 옵션 ➡️ USB 디버깅을 활성화 시킨 후
 
-휴대폰과 PC를 연결해준다
+휴대폰과 PC를 연결한다
 
 <br>
 
@@ -70,3 +70,8 @@ ex) Windows용 SDK 플랫폼 도구 다운로드
 
 이후 c드라이브로 이동 후 adb 폴더로 이동 (cd\ ➡️ cd adb)
 
+<br>
+
+adb 폴더에서 adb devices 명령어 입력하여 기기와 잘 연결되었는지 확인 가능
+
+👉 정상적으로 연결되었다면 List of devices attached가 나온다

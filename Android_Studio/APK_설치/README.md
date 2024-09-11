@@ -75,3 +75,9 @@ ex) Windows용 SDK 플랫폼 도구 다운로드
 adb 폴더에서 adb devices 명령어 입력하여 기기와 잘 연결되었는지 확인 가능
 
 👉 정상적으로 연결되었다면 List of devices attached가 나온다
+
+<br>
+
+이후 adb install 설치폴더\파일이름 을 입력하면 apk 설치가 시작된다
+
+ex) adb install c:\adb\apk\파일이름 

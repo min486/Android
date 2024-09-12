@@ -80,4 +80,14 @@ adb 폴더에서 adb devices 명령어 입력하여 기기와 잘 연결되었�
 
 이후 adb install 설치폴더\파일이름 을 입력하면 apk 설치가 시작된다
 
-ex) adb install c:\adb\apk\파일이름 
+ex) adb install c:\adb\apk\파일이름
+
+<br>
+
+Performing Streamed Install 이 나오면 정상적으로 설치되고 있는 중
+
+<br>
+
+이후 success 가 나오면 설치 완료
+
+👉 휴대폰에서 확인 가능

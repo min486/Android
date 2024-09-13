@@ -15,6 +15,18 @@
 
 ## 🔥 Column, Row
 
+### Column
+
+수직 배치를 지원하는 레이아웃
+
+<br>
+
+### Row
+
+수평 배치를 지원하는 레이아웃
+
+<br>
+
 ### LazyColumn
 
 화면에 보여지는 컴포저블만을 표시하는 scrollable한 Column이다

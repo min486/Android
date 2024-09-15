@@ -55,7 +55,13 @@ item 하나가 자식 컴포저블에 대응되며 LazyColumnScope내에서 다�
 
   index와 item을 사용할 수 있다
 
-  
+<br>
+
+### LazyRow
+
+화면에 보여지는 컴포저블만을 표시하는 scrollable한 Row이다
+
+
 
 
 

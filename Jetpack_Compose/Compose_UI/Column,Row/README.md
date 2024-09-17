@@ -27,6 +27,14 @@
 
 <br>
 
+### LazyColumn, LazyRow 장점
+
+기존의 RecyclerView와 동일하게 리스트에 속한 모든 View를 한번에 그리지 않고
+
+스크롤하면서 화면에 보여지게 될 때만 그리게 함으로써 리소스 사용을 최적화하기 위한 용도로 만들어졌다
+
+<br>
+
 ### LazyColumn
 
 화면에 보여지는 컴포저블만을 표시하는 scrollable한 Column이다

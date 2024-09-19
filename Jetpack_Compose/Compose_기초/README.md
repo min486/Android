@@ -26,9 +26,15 @@
 
 > 안드로이드 앱의 UI를 쉽게 디자인하고 빌드하기 위한 라이브러리
 
+Android를 위한 현대적인 선언형 UI 도구 키트
+
+Compose는 선언형 UI 프레임워크
+
 <br>
 
 ### 선언형 UI
+
+선언형 UI는 어떻게(HOW) UI를 구성하는지가 아니라 무엇(WHAT)을 UI에 구성하는지 나타내는 방식이다
 
 <img src="../README.assets/compose.png" alt="navigation" align="center" width="60%" />
 

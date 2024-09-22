@@ -14,7 +14,8 @@
 
 ## 🔥 Compose 기초
 
-- Compose
+- Jetpack Compose
+- 선언형 UI
 - Composable
 - Composition
 - Recomposition
@@ -61,6 +62,10 @@ Compose는 선언형 UI 프레임워크
 ### Composable (컴포저블)
 
 Composable은 컴포즈로 화면을 만들기 위한 함수로, `@Composable`로 지정할 수 있다
+
+(해당 주석으로 이 함수가 UI를 그리는 함수라고 알려준다)
+
+<br>
 
 하나의 화면을 만들기 위해 여러개의 컴포저블 함수를 만들어 사용할 수 있고, 
 

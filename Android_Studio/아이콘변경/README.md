@@ -18,3 +18,6 @@ Android Studio에서  `res` 폴더에서 `mipmap` 디렉토리를 찾는다
 
 오른쪽 클릭 후 `New -> Image Asset` 으로 이동
 
+<img src="../README.assets/icon.png" alt="sdk33" align="center" width="60%" />
+
+<img src="../README.assets/icon2.png" alt="sdk33" align="center" width="70%" />

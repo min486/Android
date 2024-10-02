@@ -27,3 +27,7 @@ Path 항목에서 다운받은 아이콘 이미지를 선택하고 (이미지 �
 Name 변경 후 Resize 통해 크기(위치)를 조정한다
 
 <img src="../README.assets/icon2.png" alt="sdk33" align="center" width="70%" />
+
+<br>
+
+이후 왼쪽 패널에서 Project ➡️ app ➡️ manifest ➡️ AndroidManifest.xml 로 이동

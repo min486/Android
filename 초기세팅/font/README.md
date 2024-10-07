@@ -21,9 +21,9 @@ https://cactus.tistory.com/306
 
 위의 페이지에서 글꼴 다운로드 받기
 
-➡️ 압출 풀어주고 해당 폴더 진입
+➡️ 압축 풀어주고 해당 폴더 진입
 
-➡️ public > static 이동 후 Medium, Bold, SemiBold 사용
+➡️ public > static 폴더 이동 후 Medium, Bold, SemiBold 사용
 
 <img src="../README.assets/font.png" alt="font" align="center" width="30%" />
 
@@ -43,10 +43,10 @@ res폴더에서 우클릭 후 New > Android Resource Directory 클릭
 
 <br>
 
-➡️ 해당 font 폴더에 3가지 폰트 이동시킨다
+➡️ 해당 font 폴더에 3가지 폰트를 이동시킨다
 
-‼️폰트 이름이 에러가 생기므로 이름을 변경한다. 아래 예시같이 전부 변경하기
+‼️폰트 이름이 에러가 생기므로 이름을 변경한다. 아래 예시처럼 전부 변경하기
 
-(예시 : Pretendard-bold.otf > pretendard_bold.otf)
+(예시 : Pretendard-Bold.otf > pretendard_bold.otf)
 
 <img src="../README.assets/font4.png" alt="font4" align="center" width="40%" />

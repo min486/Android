@@ -54,3 +54,15 @@ res폴더에서 우클릭 후 New > Android Resource Directory 클릭
 <br>
 
 마지막으로 프로젝트 ui > theme > Type.kt 파일에서 폰트 적용 후 사용한다
+
+```kotlin
+private val preMedium = FontFamily(
+    Font(R.font.pretendard_medium)
+)
+
+val preMediumTitle1 = TextStyle(
+    fontFamily = preMedium,
+    ...
+)
+```
+

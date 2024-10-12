@@ -66,3 +66,12 @@ val preMediumTitle1 = TextStyle(
 )
 ```
 
+<br>
+
+```kotlin
+Text(
+  	text = "테스트",
+  	style = preMediumTitle1
+)
+```
+

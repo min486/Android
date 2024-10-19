@@ -14,7 +14,9 @@
 
 ### 버전 설정
 
-사용 가능한 두 버전 설정(versionCode, versionName)의 값을 모두 정의한다
+버전 설정에는 2가지가 있다
+
+👉 versionCode, versionName의 값을 모두 정의한다
 
 <br>
 
@@ -23,3 +25,29 @@
 - 양의 정수이며, 내부 버전 번호로 사용된다
 - 이 번호는 한 버전이 다른 버전보다 최신인지를 판단하는 데 도움이 되며, 번호가 높을수록 최신 버전임을 나타낸다
 - 사용자에게 표시되는 버전 번호가 아니다
+
+<br>
+
+### versionName
+
+- 사용자에게 표시되는 버전 번호로 사용된다
+- 사용자에게 표시되는 유일한 값이다
+
+<br>
+
+### 버전 값 정의
+
+app 수준의 build.gradle에서 수정 가능하다
+
+```kotlin
+android {
+    ...
+    defaultConfig {
+        ...
+        versionCode 2
+        versionName "1.1"
+    }
+    ...
+}
+    
+```

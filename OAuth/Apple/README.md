@@ -24,3 +24,9 @@
 
 Firebase 해당 프로젝트 > Authentication > 로그인 방법 Apple 선택
 
+👉 아래 4가지 항목은 애플 디벨로퍼 사이트에서 값 얻을 수 있음
+
+- 서비스 ID
+- Apple 팀 ID
+- 키 ID
+- 비공개 키

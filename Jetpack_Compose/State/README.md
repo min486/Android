@@ -80,18 +80,6 @@ value property 로 현재 상태를 read 할 수 있다
 
 <br>
 
-### 핵심 용어
-
-- Composition
-
-  : Jetpack Compose가 컴포저블을 실행할 때 빌드한 UI에 관한 설명이다
-
-- Recomposition
-
-  : 데이터가 변경될 때 컴포지션을 업데이트하기 위해 컴포저블을 다시 실행하는 것을 말한다
-
-<br>
-
 ### Remember
 
 Compose는 State값이 바뀌면 Recomposition(재구성)이 일어난다

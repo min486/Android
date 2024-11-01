@@ -23,3 +23,11 @@ Column
 Row
 
 항목들을 화면에 가로로 배치한다
+
+Box
+
+여러 요소를 겹쳐서 놓을 수 있는 레이아웃
+
+<br>
+
+<img src="../README.assets/layout.png" alt="layout" align="center" width="60%" />

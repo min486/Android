@@ -31,3 +31,18 @@ Box
 <br>
 
 <img src="../README.assets/layout.png" alt="layout" align="center" width="60%" />
+
+<br>
+
+### Surface / Box
+
+- Surface
+
+  - Material Design 시스템에 기반한 Compose의 컨테이너
+
+  - light/dark 테마에 따라 적용 가능
+
+- Box
+
+  - 단순한 컨테이너로, Compose의 레이아웃을 구성하는데 사용
+  - Box는 자식 요소를 수직 또는 수평으로 정렬하고, 간격, 패딩 등의 스타일을 적용하는데 유용하다

@@ -20,7 +20,7 @@ Jetpack Compose에서는 UI의 상태가 변했음을 인식하기 위해 `State
 
 Composable UI 가 특정 변수를 State로 인식하기 위해서는 `mutableStateOf` 같은 State Object로 감싸주면된다
 
-State Object로 활용하는 방법에는 `mutableStateOf` 말고도 여러가지 방법이 있다
+Compose는 mutableStateOf 를 통해 변경 사항을 추적할 수 있다
 
 <br>
 
@@ -82,9 +82,13 @@ value property 로 현재 상태를 read 할 수 있다
 
 ### Remember
 
-Compose는 State값이 바뀌면 Recomposition(재구성)이 일어난다
+Compose는 State값이 바뀌면 recomposition이 일어난다
 
-이때 이전 State를 기억해야 하는 경우 remember을 이용해 값을 저장할 수 있다
+Composable 함수는 remember를 사용하여 메모리에 객체를 저장할 수 있다 (상태 저장)
+
+remember는 mutable 객체와 immutable 객체 둘다 저장하는데 사용할 수 있다
+
+Recomposition 과정 전체에서 상태를 유지하는 데 도움이 된다
 
 <br>
 

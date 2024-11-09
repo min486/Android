@@ -76,7 +76,7 @@ class Car(private val engine: Engine) {
 
 ### 의존성 주입 장점
 
-- 코드 재사용하고 의존성을 분리
+- 코드를 재사용하고 의존성을 분리
 - 코드의 리팩토링 편의성
 
 - 테스트 편의성
@@ -105,9 +105,7 @@ fun main(args: Array<String>) {
 
 ### Hilt
 
-> Google의 Dagger 기반의 의존성 주입(DI) 라이브러리
-
-👉 안드로이드에서의 의존성 주입은 Hilt를 사용한다
+> 안드로이드 앱의 의존성 주입을 간소화해주는 라이브러리
 
 <br>
 

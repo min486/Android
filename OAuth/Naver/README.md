@@ -3,11 +3,12 @@
     <img src="../README.assets/android.png">
   </p>
   <br>
-  <h2>API</h2>
-  <p>API 관련 내용 정리</p>
+  <h2>OAuth</h2>
+  <p>OAuth 관련 내용 정리</p>
   <br>
   <br>
 </div>
+
 
 
 
@@ -56,4 +57,3 @@ https://developers.naver.com/main/
 네이버 로그인 개발 가이드
 
 https://developers.naver.com/docs/login/android/android.md#android
-

@@ -117,6 +117,12 @@ NavHostController.navigate("$routeName$argument")
 
 <br>
 
+### Compose Navigation backstack
+
+popBackStack()
+
+<br>
+
 ### Bottom Navigation
 
 - Bottom Navigation item 리스트 만들기

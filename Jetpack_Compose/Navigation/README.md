@@ -117,9 +117,27 @@ NavHostController.navigate("$routeName$argument")
 
 <br>
 
-### Compose Navigation backstack
+### Back stack
 
-popBackStack()
+NavController에는 백 스택이 있다
+
+사용자가 앱 전체에서 화면 간에 이동할 때, NavController는 항목을 백 스택에 추가하거나 백 스택에서 삭제한다
+
+백 스택은 후입선출 데이터 구조인 스택이다. 따라서 NavController는 항목을 상단으로 push하거나 상단에서 pop 한다
+
+<br>
+
+- 스택으로 push
+
+  `NavController.navigate()` 메서드는 지정된 항목을 스택 상단으로 푸시한다
+
+- 돌아가기
+
+  `NavController.popBackStack()` 메서드는 현재 항목을 백 스택에서 pop하고 이전 항목으로 이동하려고 시도한다
+
+  이렇게 하면 navigation 기록에서 사용자가 한 단계 뒤로 효과적으로 이동할 수 있다
+
+
 
 <br>
 

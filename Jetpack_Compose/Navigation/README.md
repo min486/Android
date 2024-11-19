@@ -137,7 +137,21 @@ NavController에는 백 스택이 있다
 
   이렇게 하면 navigation 기록에서 사용자가 한 단계 뒤로 효과적으로 이동할 수 있다
 
+- 여러 화면 닫기
 
+  - inclusive 옵션
+
+    - false : 이전 화면이 유지됨
+
+    - true : 이전 화면이 유지되지 않음
+
+  ```kotlin
+  NavController.navigate() {
+    	popUpTo() {
+      		inclusive = true
+    	}
+  }
+  ```
 
 <br>
 

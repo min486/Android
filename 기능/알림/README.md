@@ -38,6 +38,22 @@
 
 우측상단 New Message → New Push 클릭
 
+<br>
+
+푸시알림 작성 화면에서
+
+- Title
+
+  푸시알림의 제목 입력
+
+- Message
+
+  푸시알림의 내용 입력
+
+- Launch URL
+
+<br>
+
 *좌측 메뉴 → Messages → Push 에서 푸시알림 관련 확인 가능
 
 <br>

@@ -54,11 +54,17 @@
 
   사용자가 푸시알림 클릭시, 해당 URL로 이동된다 (앱 내 특정 화면)
 
-  안드로이드 앱에 설정한 딥링크를 통해 특정 화면으로 이동된다
-
 <br>
 
 *좌측 메뉴 → Messages → Push 에서 푸시알림 관련 확인 가능
+
+<br>
+
+### 푸시알림 아이콘 설정
+
+SVG형식의 아이콘을 아래 사이트를 통해 여러 크기의 이미지로 다운받을 수 있음
+
+[Android Asset Studio - Notification icon generator](https://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_onesignal_default)
 
 <br>
 

@@ -62,9 +62,21 @@
 
 ### 푸시알림 아이콘 설정
 
-SVG형식의 아이콘을 아래 사이트를 통해 여러 크기의 이미지로 다운받을 수 있음
+SVG 형식의 아이콘을 아래 사이트를 통해 여러 크기의 이미지로 다운받을 수 있음
 
 [Android Asset Studio - Notification icon generator](https://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_onesignal_default)
+
+👉 이름은 ic_stat_onesignal_default 으로 설정
+
+<br>
+
+아이콘 색상은 res/values/strings.xml 파일에서 아래와 같이 설정
+
+```xml
+<resources>
+    <string name="onesignal_notification_accent_color">FF00FF00</string>
+</resources>
+```
 
 <br>
 

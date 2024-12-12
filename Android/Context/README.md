@@ -15,3 +15,7 @@
 ### Context 정의
 
 Application의 현재 상태(맥락)
+
+<br>
+
+CompositionLocal

@@ -19,3 +19,5 @@ Application의 현재 상태(맥락)
 <br>
 
 CompositionLocal
+
+LocalContext.current를 활용함으로써 resources의 현재 값을 가져올 수 있다

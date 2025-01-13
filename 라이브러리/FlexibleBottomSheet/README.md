@@ -13,4 +13,6 @@
 
 ## 🔥 FlexibleBottomSheet
 
-aa
+안드로이드 제공하는 bottom sheet가 원하는대로 동작하지 않아서 아래 라이브러리 사용
+
+https://github.com/skydoves/FlexibleBottomSheet

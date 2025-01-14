@@ -27,6 +27,12 @@
 
 ### Coil 사용
 
+최신버전 아래에서 확인 가능
+
+https://coil-kt.github.io/coil/
+
+<br>
+
 module 수준의 build.gradle에 의존성 추가
 
 ```kotlin

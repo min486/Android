@@ -19,4 +19,14 @@
 
 ### Data class 특징
 
-Data class는 toString(), hashCode(), equals(), copy() 메소드를 자동으로 정의하여 주기 때문에 다음과 같이 간단하게 클래스를 만들수 있게 된다
+Data class는 `toString()`, `hashCode()`, `equals()`, `copy()` 메소드를 자동으로 정의하여 주기 때문에 간단하게 클래스를 만들 수 있다
+
+```kotlin
+data class User(
+    val name: String,
+    val age: Int
+)
+```
+
+👉 class 앞에 data라는 접두어를 붙이면 사용 가능
+

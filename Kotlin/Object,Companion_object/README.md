@@ -9,9 +9,11 @@
   <br>
 </div>
 
-## 🔥 Object / Companion object
+## 🔥 Object / Companion Object
 
-### Singleton pattern (싱글톤 패턴)
+### 싱글톤 패턴 (Singleton pattern)
+
+> 클래스의 인스턴스가 오직 하나만 생성됨
 
 > 클래스 인스턴스를 단 하나만 만들어야 할 경우 사용
 

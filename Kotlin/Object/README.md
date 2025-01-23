@@ -129,23 +129,3 @@ DataSourceClass.baseUrl
 
 👉 companion object로 바꿀 수 있다. 이로 인해 클래스 내부 객체에 접근할 때 해당 객체의 이름을 반복적으로 타이핑할 필요가 없다
 
-<br>
-
-### Static (참고)
-
-자바와 코틀린은 모두 JVM(Java Virtual Machine)에서 실행된다
-
-<img src="../README.assets/JVM.png" alt="JVM" align="center" width="70%" />
-
-### - Method area
-
-> 클래스에 대한 정보와 함께 클래스 변수(static variable)가 저장되는 곳
-
-런타임 상수 풀, 멤버 변수, 클래스 변수, 생성자 및 메소드를 저장한다
-👉 이 곳에 저장되는 정보가 `static`한 정보
-
-### - Heap area
-
-> 동적으로 할당되는 정보가 있는 곳
-
-붕어빵으로 찍어낸 붕어빵들이 생성되기도 하고, 가비지 컬렉팅되어 없어지기도 한다

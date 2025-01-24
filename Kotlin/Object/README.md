@@ -30,13 +30,13 @@
 ```kotlin
 fun main(args: Array<String>) {
   
-  	// 기존에는 아래처럼 객체를 생성하면 2개의 객체는 다른 것이였음
-  	val car = Car()
-  	val car2 = Car()
+  // 기존에는 아래처럼 객체를 생성하면 2개의 객체는 다른 것이였음
+  val car = Car()
+  val car2 = Car()
   
-  	// 하지만 Object의 경우 객체가 전체 프로그램에서 하나만 만들어지기 때문에 바로 사용가능
-  	println(MyObject.number)  // 1
-  	MyObject.sayHello()  // Hello
+    // 하지만 Object의 경우 객체가 전체 프로그램에서 하나만 만들어지기 때문에 바로 사용가능
+    println(MyObject.number)  // 1
+    MyObject.sayHello()  // Hello
 }
 
 object MyObject {
@@ -90,7 +90,7 @@ class Dinner {
 
 ### Companion object 특징
 
-- 클래스 하나에 companion object 하나만 있을 수 있다
+- 클래스 하나에 companion object 
 
 - Java의 static과 동일한 역할
 - companion object에 이름을 붙여도 되고 안 붙여도 된다

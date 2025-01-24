@@ -30,9 +30,9 @@
 ```kotlin
 fun main(args: Array<String>) {
   
-  // 기존에는 아래처럼 객체를 생성하면 2개의 객체는 다른 것이였음
-  val car = Car()
-  val car2 = Car()
+    // 기존에는 아래처럼 객체를 생성하면 2개의 객체는 다른 것이였음
+    val car = Car()
+    val car2 = Car()
   
     // 하지만 Object의 경우 객체가 전체 프로그램에서 하나만 만들어지기 때문에 바로 사용가능
     println(MyObject.number)  // 1
@@ -40,10 +40,10 @@ fun main(args: Array<String>) {
 }
 
 object MyObject {
-  	val number = 1
-  	fun sayHello() {
-    		println("Hello")
-  	}
+    val number = 1
+    fun sayHello() {
+        println("Hello")
+    }
 }
 ```
 
@@ -65,20 +65,20 @@ object MyObject {
 ```kotlin
 fun main(args: Array<String>) {
   
-  	// companion object를 사용하기 때문에, Dinner 객체 생성 없이 바로 사용가능
-  	println(Dinner.MENU)  // pasta
-  	Dinner.eatDinner()  // Today's Menu is pasta
+    // companion object를 사용하기 때문에, Dinner 객체 생성 없이 바로 사용가능
+    println(Dinner.MENU)  // pasta
+    Dinner.eatDinner()  // Today's Menu is pasta
   
-  	// launch는 companion object 안에 들어가 있지 않아서
-  	Dinner.launch  // 접근불가
+    // launch는 companion object 안에 들어가 있지 않아서
+    Dinner.launch  // 접근불가
 }
 
 class Dinner {
-  	val lunch = "steak"
-  	companion object {
-    		val MENU = "pasta"
-      	fun eatDinner() {
-          	println("Today's Menu is $MENU")
+    val lunch = "steak"
+    companion object {
+        val MENU = "pasta"
+        fun eatDinner() {
+            println("Today's Menu is $MENU")
         }
     }
 }
@@ -106,7 +106,7 @@ class Dinner {
 
 👉 그냥 선언된 변수는 클래스 내부에 위치하기 때문에
 
-<br
+<br>
 
 ### Object와의 차이점
 

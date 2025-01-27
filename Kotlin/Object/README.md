@@ -58,9 +58,9 @@ object MyObject {
 
 <br>
 
-### Companion Object (동반 객체)
+### Companion Object
 
-> 클래스 안에 들어있는 Object
+> 클래스 안에 들어있는 object
 
 ```kotlin
 fun main(args: Array<String>) {
@@ -84,27 +84,14 @@ class Dinner {
 }
 ```
 
-
-
 <br>
 
-### Companion object 특징
+### Companion Object 특징
 
-- 클래스 하나에 companion object 
+- 클래스 하나에 companion object 하나만 사용가능
 
-- Java의 static과 동일한 역할
 - companion object에 이름을 붙여도 되고 안 붙여도 된다
 - object 키워드와 같은 역할
-
-<br>
-
-![companion](../README.assets/companion_object.png)
-
-차이 발생하는 이유
-
-👉 companion object로 선언한 변수는 클래스 영역에 위치하고, 
-
-👉 그냥 선언된 변수는 클래스 내부에 위치하기 때문에
 
 <br>
 

@@ -24,38 +24,38 @@
 
 ```kotlin
 fun main(args: Array<String>) {
-		val car = Car()  // 객체 생성
-  	car.drive()  // car is moving
-		car.stop()  // car is stopping
+    val car = Car()  // 객체 생성
+    car.drive()  // car is moving
+    car.stop()  // car is stopping
   
-  	val bike = Bike()
-  	bike.drive()  // bike is moving
-  	bike.stop()  // bike is stopping
+    val bike = Bike()
+    bike.drive()  // bike is moving
+    bike.stop()  // bike is stopping
 }
 
 interface Vehicle {
-  	fun drive()
-  	fun stop()
-  	fun destroy() { println("vehicle is destroyed") }
+    fun drive()
+    fun stop()
+    fun destroy() { println("vehicle is destroyed") }
 }
 
 class Car : Vehicle {
-  	override fun drive() {
-      	println("car is moving")
+    override fun drive() {
+        println("car is moving")
     } 
   
   	override fun stop() {
-      	println("car is stopping")
+        println("car is stopping")
     }
 }
 
 class Bike : Vehicle {
-  	override fun drive() {
-      	println("bike is moving")
+    override fun drive() {
+        println("bike is moving")
     } 
   
-  	override fun stop() {
-      	println("bike is stopping")
+    override fun stop() {
+        println("bike is stopping")
     }
 }
 ```
@@ -68,26 +68,26 @@ class Bike : Vehicle {
 
 ```kotlin
 interface Vehicle {
-  	fun drive()
-  	fun stop()
-  	fun destroy() { println("vehicle is destroyed") }
+    fun drive()
+    fun stop()
+    fun destroy() { println("vehicle is destroyed") }
 }
 
 interface Color {
-  	fun showMeColor()
+    fun showMeColor()
 }
 
 class Car : Vehicle, Color {
-  	override fun showMeColor() {
-      	println("red color")
+    override fun showMeColor() {
+        println("red color")
     } 
   
   	override fun drive() {
-      	println("car is moving")
+        println("car is moving")
     } 
   
   	override fun stop() {
-      	println("car is stopping")
+        println("car is stopping")
     }
 }
 ```

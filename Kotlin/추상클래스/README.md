@@ -29,10 +29,10 @@
 
 ```kotlin
 abstract class Vehicle {
-  	abstract fun drive():
+    abstract fun drive():
   
-  	fun stop() {
-      	println("stop")
+    fun stop() {
+        println("stop")
     }
 }
 ```
@@ -51,24 +51,24 @@ abstract class Vehicle {
 
 ```kotlin
 fun main(args: Array<String>) {
-   
-		val venue = Venue()
   
-  	venue.startDrive()  // start drive
-		venue.printCarName()  // this is venue
+    val venue = Venue()
+  
+    venue.startDrive()  // start drive
+    venue.printCarName()  // this is venue
 }
 
 abstract class Vehicle {
-  	fun startDrive() {
-      	println("start drive")
+    fun startDrive() {
+        println("start drive")
     }
   
-  	abstract fun printCarName():
+    abstract fun printCarName():
 }
 
 class Venue : Vehicle() {
-  	override fun printCarName() {
-      	println("this is venue")
+    override fun printCarName() {
+        println("this is venue")
     }
 }
 ```
@@ -121,13 +121,13 @@ abstract class는 절대로 바뀌지 않는 개념에 대한 공통 부분을 �
 
     ```kotlin
     interface Vehicle {
-      val name : String
-      val color : String
-      val weight : Double
+        val name : String
+        val color : String
+        val weight : Double
     }
     
     interface Pet {
-      val name : String = "puppy"  // 초기화 불가능
+        val name : String = "puppy"  // 초기화 불가능
     }
     ```
 

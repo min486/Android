@@ -103,13 +103,13 @@ class Dinner {
 ```kotlin
 // 예제 1
 class DataSourceClass {
-  object Datasource {
-    var baseUrl: String = "google.com"
-
-    fun printBaseUrl() {
-      println("baseUrl is : $baseUrl")
+    object Datasource {
+        var baseUrl: String = "google.com"
+      
+        fun printBaseUrl() {
+            println("baseUrl is : $baseUrl")
+        }
     }
-  }
 }
 
 // 접근 1
@@ -123,13 +123,13 @@ DataSourceClass.Datasource.baseUrl
 ```kotlin
 // 예제 2
 class DataSourceClass {
-  companion object {
-    var baseUrl: String = "google.com"
-
-    fun printBaseUrl() {
-      println("baseUrl is : $baseUrl")
+    companion object {
+        var baseUrl: String = "google.com"
+      
+        fun printBaseUrl() {
+            println("baseUrl is : $baseUrl")
+        }
     }
-  }
 }
 
 // 접근 2

@@ -44,7 +44,7 @@ class Car : Vehicle {
         println("car is moving")
     } 
   
-  	override fun stop() {
+    override fun stop() {
         println("car is stopping")
     }
 }
@@ -82,11 +82,11 @@ class Car : Vehicle, Color {
         println("red color")
     } 
   
-  	override fun drive() {
+    override fun drive() {
         println("car is moving")
     } 
   
-  	override fun stop() {
+    override fun stop() {
         println("car is stopping")
     }
 }

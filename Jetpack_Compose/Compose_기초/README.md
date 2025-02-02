@@ -23,13 +23,9 @@
 
 <br>
 
-### Jetpack Compose (Compose)
+### Jetpack Compose
 
-> 안드로이드 앱의 UI를 쉽게 디자인하고 빌드하기 위한 라이브러리
-
-Android를 위한 현대적인 선언형 UI 도구 키트
-
-Compose는 선언형 UI 프레임워크
+> 안드로이드 네이티브 UI를 선언적으로 구성하는 최신 도구
 
 <br>
 
@@ -170,5 +166,3 @@ fun SnackbarEx() {
     }
 }
 ```
-
-<br>

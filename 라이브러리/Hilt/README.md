@@ -3,15 +3,16 @@
     <img src="../README.assets/android.png">
   </p>
   <br>
-  <h2>Android</h2>
-  <p>안드로이드 관련 내용 정리</p>
+  <h2>Library</h2>
+  <p>라이브러리 관련 내용 정리</p>
   <br>
   <br>
 </div>
 
 
 
-## 🔥 Dependency Injection (DI, 의존성 주입)
+
+## 🔥 Hilt
 
 ### 의존성 주입의 필요성
 
@@ -51,7 +52,7 @@ class Car {
 
 <br>
 
-### 의존성 주입
+### 의존성 주입 (Dependency Injection, DI)
 
 > 클래스가 스스로 의존성을 생성하는 대신 클래스에 의존성을 부여하는 것
 

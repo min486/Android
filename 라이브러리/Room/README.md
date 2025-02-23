@@ -3,11 +3,12 @@
     <img src="../README.assets/android.png">
   </p>
   <br>
-  <h2>Android</h2>
-  <p>안드로이드 관련 내용 정리</p>
+  <h2>Library</h2>
+  <p>라이브러리 관련 내용 정리</p>
   <br>
   <br>
 </div>
+
 
 
 ## 🔥 Room
@@ -73,15 +74,15 @@ Room을 사용하려면
 
 ```kotlin
 dependencies {
-  	val room_version = "2.5.0"
+    val room_version = "2.5.0"
   
-  	implementation("androidx.room:room-runtime:$room_version")
-  	annotationProcessor("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
   
-  	// To use Kotlin annotation processing tool
+    // To use Kotlin annotation processing tool
     kapt("androidx.room:room-compiler:$room_version")
     
-  	// Kotlin Extensions and Coroutines support for Room
+    // Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:$room_version")
 }
 ```

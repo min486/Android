@@ -11,73 +11,75 @@
 
 
 
-## 🔥 Retrofit2
 
-### Retrofit2 (레트로핏)
+## 🔥 Retrofit
 
-> 서버와 클라이언트 간 http 통신을 위한 라이브러리
->
-> (안드로이드에서 http 통신을 할 수 있도록 도와준다)
+### Retrofit 개념
+
+> 서버와 JSON 데이터를 주고받는 네트워크 코드를 최소한의 코드로 작성할 수 있게 도와주는 라이브러리
 
 <br>
 
-### Retrofit2 장점
+### Retrofit 특징
 
-- JSON 구조의 데이터를 쉽게 가져오고 업로드 할 수 있다
-- 안드로이드 앱에서 필요한 데이터를 서버로부터 가져올 때 사용 
-- 서버에 데이터를 전송하기 위한 코드를 작성할 때 사용
+- 간단한 선언형 인터페이스 기반 설계
 
-- 가독성이 좋으며 간편하게 사용할 수 있다
+  👉 함수에 어노테이션(@GET, @POST 등)을 붙여 간단하게 API 호출 정의 가능
+
+- 자동 JSON 직렬화/역직렬화 지원
+
+  👉 Gson, Moshi 등의 컨버터를 통해 JSON을 객체로 쉽게 변환
+
+- OkHttp 기반
+
+  👉 성능 좋고 확장성 뛰어난 OkHttp를 내부적으로 사용
+
+- Coroutine 및 Flow 연동 지원
+
+  👉 suspend 함수로 비동기 API 호출을 간결하게 처리 가능
+
+- 높은 가독성과 유지보수성
+
+  👉 반복적인 코드 없이 명확하게 API 구조를 표현할 수 있음
+
+<br>
+
+### Retrofit 사용 용도
+
+- 서버로부터 데이터를 가져오기(GET) 또는 전송하기(POST, PUT 등)
+- RESTful API와의 통신을 간결한 방식으로 처리
+- JSON 응답 데이터를 모델 클래스 객체로 자동 변환
+- 다양한 HTTP 요청 방식, 쿼리 파라미터, 헤더 설정 등 유연한 요청 구성 가능
 
 <br>
 
 ### 의존성 추가
 
-✅ app 수준의 build.gradle 파일에 의존성 추가
+app 수준의 build.gradle 파일에 의존성 추가
 
 ```kotlin
 // Retrofit
-implementation("com.squareup.retrofit2:retrofit:2.9.0")
+implementation("com.squareup.retrofit2:retrofit:2.11.0")
+// Gson Converter (JSON → 객체 자동 변환)
+implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 ```
 
 <br>
 
-✅ Converter 추가
+### 사용 예시
 
-- Gson
+1. AndroidManifest.xml 파일에서 인터넷 권한 설정
 
-```kotlin
-// Gson Converter
-implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+  	<!-- 인터넷 권한 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        ...
+   	</application>
+</manifest>
 ```
-
-- Moshi
-
-```kotlin
-// Moshi Converter
-implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
-```
-
-👉 converter는 응답 결과가 JSON일 때 객체로 변환해준다
-
-<br>
-
-✅ 인터넷 권한 설정
-
-<img src="../README.assets/retrofit.png" alt="retrofit" align="center" width="50%" />
-
-- 1번은 서버와 통신 하기 위해 인터넷 권한 얻는 것
-
-- 2번은 http로 시작하는 사이트에 접근하기 위한 것
-
-  : 안드로이드는 기본적으로 http 접근을 허용하지 않기 때문이다. https를 지원하는 사이트와 통신하면 안적어도 된다
-
-<br>
-
-### Retrofit2 사용
-
-레트로핏을 사용하기 위해서 세 가지 필요
-
-- Data class
-- Http 작업을 정의하는 Interface
-- Retrofit.Builder를 선언한 Object

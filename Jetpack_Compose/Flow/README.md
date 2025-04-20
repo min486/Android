@@ -43,7 +43,7 @@
   | 처리 방식 | 동기적 / 1회성            | 비동기적 / 스트리밍          |
   | 예시      | `suspend fun fetchUser()` | `fun getUsers(): Flow<User>` |
 
-​	👉 Flow는 suspend fun 으로는 처리하기 어려운 변화하는 데이터 흐름에 적합함
+    👉 Flow는 suspend fun 으로는 처리하기 어려운 변화하는 데이터 흐름에 적합함
 
 - Compose에서 Flow를 사용하는 이유
 

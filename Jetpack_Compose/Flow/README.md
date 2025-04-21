@@ -100,7 +100,7 @@
 
 - collectAsStateWithLifecycle 사용 이유
 
-  -  `collectAsState()`는 생명주기를 고려하지 않기 때문에, 생명주기 관리가 어려움
+  - `collectAsState()`는 생명주기를 고려하지 않기 때문에, 생명주기 관리가 어려움
 
     👉 onStart 이전에도 collect가 이뤄질 수 있음 (불필요한 리소스 낭비 발생 가능)
 

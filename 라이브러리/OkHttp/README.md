@@ -52,6 +52,35 @@ val request = Request.Builder()
 
 <br>
 
+### Interceptor
+
+인터셉터는 요청/응답 흐름을 가로채고 수정할 수 있다
+
+<br>
+
+### HttpLoggingInterceptor
+
+요청/응답 로그를 출력해주는 인터셉터
+
+```kotlin
+val logging = HttpLoggingInterceptor().apply {
+    level = HttpLoggingInterceptor.Level.BODY
+}
+
+val client = OkHttpClient.Builder()
+    .addInterceptor(logging)
+    .build()
+```
+
+로그 레벨 종류
+
+- NONE : 로그 출력 없음
+- BASIC : 요청/응답 라인만 출력
+- HEADERS : 헤더까지 출력
+- BODY : 본문까지 출력
+
+<br>
+
 ### 의존성 추가
 
 libs.versions.toml 파일에 추가

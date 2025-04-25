@@ -10,9 +10,9 @@
 </div>
 
 
-## 🔥 build.gradle 내용
+## 🔥 build.gradle
 
-app 수준의 build.gradle 파일에 있는 내용 설명
+app 수준의 build.gradle 파일에 있는 항목들 설명
 
 <br>
 
@@ -106,3 +106,24 @@ compileOptions {
 - Kotlin이 생성한 바이트코드는 결국 JVM에서 실행되므로, 대상 JVM 버전 설정은 중요
 
 - 일부 라이브러리는 최소 JVM 타겟 버전을 요구하므로 주의
+
+<br>
+
+### 기타 항목들
+
+- namespace
+
+  : 앱의 패키지 이름
+
+- buildTypes 
+
+  : 릴리즈/디버그 빌드 구분 및 설정
+
+- buildFeatures { compose = true }
+
+  : Jetpack Compose 활성화 여부
+
+- dependencies
+
+  : 외부 라이브러리 및 모듈 의존성 설정
+

@@ -25,16 +25,16 @@
 
 ```kotlin
 fun main(args: Array<String>) {
-  	// data class 객체 생성
+    // data class 객체 생성
     val memo = Memo("Go to grocery", "Egg, Milk", false)
   
-  	println(memo)  // Memo(title=Go to grocery, content=Egg, Milk, isDone=false)
+    println(memo)  // Memo(title=Go to grocery, content=Egg, Milk, isDone=false)
 }
 
 data class Memo(
-  	val title : String,
-  	val content : String,
-  	var isDone : Boolean
+    val title: String,
+    val content: String,
+    var isDone: Boolean
 )
 ```
 

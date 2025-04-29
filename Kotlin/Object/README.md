@@ -31,7 +31,7 @@ fun main(args: Array<String>) {
     // 일반 클래스는 객체를 각각 생성
     val car1 = Car()
     val car2 = Car()
-  	println(car1 == car2)  // false (다른 객체)
+    println(car1 == car2)  // false (다른 객체)
   
     // Object는 전체 프로그램에서 하나의 인스턴스만 존재
     println(MyObject.number)  // 1

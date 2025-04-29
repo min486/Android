@@ -54,7 +54,7 @@ fun main(args: Array<String>) {
 }
 
 // Car 클래스 선언
-class Car(val color : String)
+class Car(val color: String)
 ```
 
 <br>

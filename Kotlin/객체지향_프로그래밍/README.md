@@ -11,57 +11,88 @@
 
 ## 🔥 객체지향 프로그래밍 (OOP)
 
-### 객체지향 프로그래밍의 4가지 특징
+### 객체 지향 프로그래밍
 
-추상화, 상속, 다형성, 캡슐화
+- OOP(Object Oriented Programming)는 프로그램을 다수의 객체로 만들고,
+
+  객체 간의 상호작용을 통해 기능을 수행하는 방식
+
+- 목적 : 재사용성, 유지보수성, 확장성을 높이는 것
 
 - 코틀린은 객체지향 언어
-- OOP는 프로그램을 다수의 객체로 만들고, 객체 간의 상호작용을 통해 프로그램의 기능을 구현하는 방식
-- OOP는 코드의 재사용성, 유지보수성, 확장성을 향상시키는데 목적을 둔다
 
 <br>
 
-### 추상화
+### 객체지향 프로그래밍의 4가지 특징
 
-공통성을 모아서 추출하는 것
+1. 추상화 (Abstraction)
 
-- 추상화는 인터페이스 혹은 추상 클래스를 이용해서 구현한다
+- 공통성을 모아서 추출하는 것
 
-- Car와 Bike의 공통성을 Vehicle로 모을 수 있다
+- 공통된 동작을 인터페이스 또는 추상 클래스로 정의한다
 
-  👉 move(), stop()
+- 예시 : Vehicle 추상 클래스를 만들어 Car, Bike가 이를 상속받게함
 
-<br>
-
-### 상속
-
-기존의 클래스를 재활용하기 위한 것
-
-- move(), stop() 포함된 Vehicle class가 있으면,
-
-  Car class와 Bike class는 Vehicle class를 사용하기 위해 상속받으면 된다
-
-- Car class와 Bike class는 각각의 메서드를 가질 수 있으나, 공통적인 것은 Vehicle class를 상속 받는다
-- 상속을 해주는 클래스를 부모 클래스, 상속을 받는 클래스를 자식 클래스 라고 한다
+```kotlin
+abstract class Vehicle {
+    abstract fun move()
+    fun stop() = println("Stopping...")
+}
+class Car : Vehicle() {
+    override fun move() = println("Car is moving")
+}
+```
 
 <br>
 
-### 다형성
+2. 상속 (Inheritance)
 
-어떤 객체의 속성이나 기능이 상황에 따라 여러가지 형태를 가질 수 있는 성질
+- 부모 클래스의 속성과 기능을 자식 클래스에 물려줌
+- 중복 코드를 줄이고, 일관성 있는 구조를 만든다
 
-- Car class와 Bike class가 같은 move() 메서드를 상속받아도,
-
-  오버라이딩을 통해서 각 클래스가 메서드를 다르게 바꿀 수 있다
+```kotlin
+open class Vehicle(val name: String) {
+    fun stop() = println("$name stops")
+}
+class Bike(name: String) : Vehicle(name)
+```
 
 <br>
 
-### 캡슐화
+3. 다형성 (Polymorphism)
 
-서로 연관있는 것들을 묶어서 외부로부터 보호하는 것
+- 같은 이름의 메서드가 상황에 따라 다르게 동작함
+- 오버라이딩(overriding)을 통해 자식 클래스마다 다른 구현 가능
 
-- 캡슐화는 접근 제한자를 이용해서 구현한다
+```kotlin
+open class Animal {
+    open fun sound() = println("Some sound")
+}
+class Dog : Animal() {
+    override fun sound() = println("Bark")
+}
+```
 
-- Vehicle class를 Public으로 지정하면, 밖에서 해당 객체에 접근할 수 있다.
+- 다형성은 아래처럼 활용됨
 
-  반대로 Private으로 지정하면, 밖에서 해당 객체에 접근할 수 없다
+```kotlin
+fun makeSound(animal: Animal) {
+    animal.sound()
+}
+makeSound(Dog())  // Bark
+```
+
+<br>
+
+4. 캡슐화 (Encapsulation)
+
+- 관련 데이터를 하나로 묶고, 외부로부터 직접 접근을 제한하는 것
+- 코틀린에서는 private 등의 접근 제한자를 사용
+
+```kotlin
+// 외부에서 balance에 직접 접근할 수 없음 → 객체 내부 로직 보호 가능
+class Account(private var balance: Int) {
+    fun deposit(amount: Int) { balance += amount }
+    fun getBalance(): Int = balance
+}
+```

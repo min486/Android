@@ -13,90 +13,60 @@
 
 ### 컬렉션
 
-> 데이터를 효율적으로 관리하고 조작할 수 있도록 코틀린에서 제공하는 자료구조 클래스
+- 코틀린의 컬렉션은 데이터를 효율적으로 관리하기 위한 자료구조
+- Immutable(변경 불가능)과 Mutable(변경 가능) 두가지 타입으로 나뉜다
 
 <br>
 
-### 컬렉션의 형태
+### 컬렉션의 종류
 
-- Immutable (변경 불가능)
-  - 읽기 전용
+- Immutable Collection
+  
+  : 선언 이후 요소를 삽입, 삭제, 수정할 수 없음 (읽기 전용)
 
-- Mutable (변경 가능)
-  - 요소의 삽입, 삭제, 수정이 가능함
+```kotlin
+val fruitList = listOf("Apple", "Banana")
+println(fruitList[0])  // Apple
+```
+
+- Mutable Collection
+
+  : 요소를 삽입, 삭제, 수정할 수 있음
+
+```kotlin
+val mutableFruitList = mutableListOf("Apple", "Banana")
+mutableFruitList[0] = "Melon"
+println(mutableFruitList[0])  // Melon
+```
 
 <br>
 
-### Kotlin의 주요 컬렉션
+### 주요 컬렉션
 
 코틀린에서 가장 많이 사용되는 컬렉션은 List, Set, Map 이다
 
-- List
-  - 순서가 있는 자료구조로, 동일한 값을 여러 번 포함할 수 있음
-
-- Set
-  - 순서가 없으며, 중복된 요소를 허용하지 않는 자료구조
-
-- Map
-  - 키(key)와 값(value) 쌍으로 이루어진 자료구조
-  - 키는 중복될 수 없으며, 각 키는 하나의 값만 가짐
+| 타입 | 특징                   | 예시                    |
+| ---- | ---------------------- | ----------------------- |
+| List | 순서 있음, 중복 허용   | listOf("a", "b")        |
+| Set  | 순서 없음, 중복 불가   | setOf(1, 2, 2) ➡️ [1, 2] |
+| Map  | 키-값 쌍, 키 중복 불가 | mapOf("name" to "min")  |
 
 <br>
 
-### List 예제
+### Compose에서의 컬렉션 사용 예시
 
 ```kotlin
-// Immutable List
-val fruitList = listOf("Banana", "Apple")
-print("first fruit ${fruitList[0]}")  // first fruit Banana
+val items = remember { mutableStateListOf("Apple", "Banana") }
 
-fruitList[0] = "Melon"  // Immutable 이여서 값 변경 불가
+LazyColumn {
+    items(items) { item ->
+        Text(text = item)
+    }
+}
 
-// Mutable List
-val mutableFruitList = mutableListOf("Banana", "Apple")
-print("first fruit ${fruitList[0]}")  // first fruit Banana
-
-mutableFruitList[0] = "Melon"
-print("new first fruit ${fruitList[0]}")  // new first fruit Melon
-```
-
-<br>
-
-### Set 예제
-
-```kotlin
-// Immutable Set
-val numSet = setOf(1,1,2,3,3,4)
-print(numSet)  // [1, 2, 3, 4]
-
-// Mutable Set
-val mutableNumSet = mutableSetOf(1,1,2,3,3,4)
-print(mutableNumSet)  // [1, 2, 3, 4]
-
-mutableNumSet.add(100)
-mutableNumSet.remove(1)
-print(mutableNumSet)  // [2, 3, 4, 100]
-```
-
-<br>
-
-### Map 예제
-
-```kotlin
-// Immutable Map
-val immutableMap = mapOf("name" to "min", "age" to 100, "height" to 200)
-print(immutableMap["name"])  // min
-print(immutableMap["no"])  // null
-
-// Mutable Map
-val mutableMap = mutableMapOf("name" to "min", "age" to 100, "height" to 200)
-print(mutableMap["age"])  // 100
-
-mutableMap["age"] = 5
-print(mutableMap)  // {name=min, age=5, height=200}
-
-mutableMap.put("hobby", "coding")
-mutableMap.remove("name")
-print(mutableMap)  // {age=5, height=200, hobby=coding}
+// 항목 추가
+Button(onClick = { items.add("Melon") }) {
+    Text("Add Melon")
+}
 ```
 

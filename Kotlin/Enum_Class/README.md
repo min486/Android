@@ -30,8 +30,8 @@
 
 ```kotlin
 enum class Color {
-  	RED,
-  	GREEN,
-  	BLUE
+    RED,
+    GREEN,
+    BLUE
 }
 ```

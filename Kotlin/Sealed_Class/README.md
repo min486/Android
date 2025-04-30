@@ -35,7 +35,7 @@ class Circle(val radius: Double): Shape()
 class Rectangle(val width: Double, val height: Double): Shape()
 
 fun describe(shape: Shape): String = when(shape) {
-  	is Circle -> "Circle with radius ${shape.radius}"
-  	is Rectangle -> "Rectangle of size ${shape.width} x ${shape.height}"
+    is Circle -> "Circle with radius ${shape.radius}"
+    is Rectangle -> "Rectangle of size ${shape.width} x ${shape.height}"
 }
 ```

@@ -76,8 +76,8 @@ println(lunch)  // waffle
 
 ```kotlin
 val lazyBear: String by lazy {
-  	println("Bear is coming")
-  	"bear"  // string 할당
+    println("Bear is coming")
+    "bear"  // string 할당
 }
 
 println(lazyBear)  // Bear is coming

@@ -101,8 +101,6 @@ class CustomBox<T> : Box<T>(item = ...)  // 타입 파라미터 전달
 - 코틀린에서는 제네릭 타입 정보가 런타임에 지워짐
 - 하지만 inline 함수 + reified 키워드를 사용하면 타입 정보를 런타임에도 활용 가능
 
-<br>
-
 ```kotlin
 inline fun <reified T> isType(value: Any): Boolean {
     return value is T

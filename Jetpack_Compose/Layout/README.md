@@ -12,21 +12,24 @@
 
 
 
-## 🔥 레이아웃
+## 🔥 레이아웃 (Layout)
 
 ### Compose 레이아웃 기초
 
-Column
+- Column
+  - 자식 컴포저블을 세로 방향으로 순서대로 배치하는 레이아웃
+  - 속성
+    - verticalArrangement : 자식 간 세로 간격 조절
+    - horizontalAlignment : 자식의 수평 정렬 설정
 
-항목들을 화면에 세로로 배치한다
+- Row
+  - 자식 컴포저블을 가로 방향으로 순서대로 배치하는 레이아웃
+  - 속성
+    - horizontalArrangement : 자식 간 가로 간격 조절
+    - verticalAlignment : 자식의 세로 정렬 설정
 
-Row
-
-항목들을 화면에 가로로 배치한다
-
-Box
-
-여러 요소를 겹쳐서 놓을 수 있는 레이아웃
+- Box
+  - 자식들을 겹치거나 특정 위치에 정렬할 때 사용
 
 <br>
 

@@ -79,3 +79,72 @@ fun Greeting(name: String) {
 
 - 데이터가 변경되면 해당 변경을 감지하여 관련된 컴포저블 함수만 다시 실행되는 것이다
 - 이 과정을 통해 UI는 항상 최신 상태를 유지한다
+
+<br>
+
+### Modifier
+
+- 컴포저블의 UI 속성을 설정하거나 동작을 부여하기 위해 사용하는 객체
+
+- 크기, 패딩, 정렬, 배경색 등 레이아웃 관련 속성뿐만 아니라, 클릭, 스크롤, 드래그 같은 동작까지 정의 가능
+
+- 불변(immutable)한 객체로, 메서드 체이닝을 통해 연속적으로 설정함
+
+- 예제
+
+  ```kotlin
+  Box(
+      modifier = Modifier
+          .fillMaxWidth()
+          .height(100.dp)
+          .padding(16.dp)
+          .background(Color.Blue)
+  )
+  ```
+
+  👉 위 코드에서 `Modifier`는 순차적으로 크기를 지정하고, 패딩을 주고, 배경색을 적용하는 역할을 한다
+
+<br>
+
+### Modifier 체이닝 순서
+
+- Modifier는 앞에서부터 순서대로 적용됨
+- 순서가 바뀌면 화면 출력 결과가 달라질 수 있음
+
+- 예제
+
+  ```kotlin
+  // 배경 → 패딩
+  Modifier
+      .background(Color.Yellow)
+      .padding(16.dp)
+  
+  // 패딩 → 배경
+  Modifier
+      .padding(16.dp)
+      .background(Color.Yellow)
+  ```
+
+  👉 결과 : 첫 번째는 전체 배경이 노란색, 두 번째는 패딩 제외 영역만 노란색
+
+<br>
+
+### 커스텀 Modifier 만들기
+
+- 여러 Modifier를 묶어서 재사용하고 싶을 때 사용
+
+- 확장 함수 형태로 정의
+
+- 예제
+
+  ```kotlin
+  fun Modifier.myCardStyle(): Modifier = this
+      .padding(8.dp)
+      .background(Color.White, shape = RoundedCornerShape(12.dp))
+      .border(1.dp, Color.Gray, shape = RoundedCornerShape(12.dp))
+  
+  Box(modifier = Modifier.myCardStyle())
+  ```
+
+  👉 `Modifier.myCardStyle()`을 사용하면 여러 스타일을 한번에 적용 가능
+

@@ -147,4 +147,3 @@ fun Greeting(name: String) {
   ```
 
   👉 `Modifier.myCardStyle()`을 사용하면 여러 스타일을 한번에 적용 가능
-

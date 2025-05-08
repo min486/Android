@@ -12,7 +12,7 @@
 
 ## 🔥 macOS에서 Homebrew를 이용한 JDK 17 설치 및 설정
 
-### 배경
+### 개요
 
 - Android Studio에서 `AGP 8.7.3`과 `Gradle 8.10.2` 를 사용하는 프로젝트에서 `JDK 17` 이 요구되었으나,
 
@@ -45,16 +45,12 @@ JAVA_HOME
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
    ```
 
-   <br>
-
    설치 확인
 
    ```bash
    brew --version
    # Homebrew 4.5.1
    ```
-
-   <br>
 
    ❗️경고 메세지가 나타나는 경우, 아래 방법으로 진행
 
@@ -90,8 +86,6 @@ JAVA_HOME
 
    👉 각 명령어를 한 줄씩 실행
 
-   <br>
-
 4. 설치 및 설정 확인 잘 되었는지 확인
 
    ```bash
@@ -102,8 +96,7 @@ JAVA_HOME
    # /opt/homebrew/opt/openjdk@17
    ```
 
-
-​	👉 출력이 위와 같으면 설정 성공한 것
+   👉 출력이 위와 같으면 설정 성공한 것
 
 <br>
 
@@ -111,11 +104,8 @@ JAVA_HOME
 
 - 설치한 버전은 아래 위치에서 확인 가능
 
-  상단 Android Studio ➡️ Settings ➡️ Build, Execution, Deployment ➡️ Build Tools ➡️ Gradle ➡️ Gradle JDK 에서 
+  상단 Android Studio ➡️ Settings ➡️ Build, Execution, Deployment ➡️ Build Tools ➡️ Gradle ➡️ Gradle JDK
 
 - 설치한 버전 선택 후 적용(OK)하기
 
 <img src="../README.assets/jdk.png" alt="jdk" align="center" width="70%" />
-
-
-

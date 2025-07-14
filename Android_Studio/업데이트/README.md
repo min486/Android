@@ -26,7 +26,7 @@
 
 (macOS)
 
-<img src="../README.assets/update.png" alt="update" align="center" width="50%" />
+<img src="../README.assets/update.png" alt="update" align="center" width="40%" />
 
 ### 3. 업데이트 설치
 
@@ -36,18 +36,18 @@
 
   *업데이트가 감지되지 않는다면, 이미 최신 버전을 사용 중이거나 업데이트 채널 설정이 다를 수 있다
 
-- Update 클릭하면 업데이트 내용을 확인할 수 있다
+- 알림에서 [Update]를 클릭하면 업데이트 내용을 확인할 수 있다
 
-  <img src="../README.assets/update3.png" alt="update3" align="center" width="60%" />
+  <img src="../README.assets/update3.png" alt="update3" align="center" width="50%" />
 
-- Download 클릭하면 기존 스튜디오 내에서 바로 업데이트 하거나,
+- [Download] 버튼을 클릭하면 기존 스튜디오 내에서 바로 업데이트 하거나,
 
   웹사이트로 이동하는 경우도 있다 (메이저 버전 업그레이드 시)
 
   - 사이트 이동 후, Download Android Studio 클릭
 
-    <img src="../README.assets/update4.png" alt="update4" align="center" width="60%" />
+    <img src="../README.assets/update4.png" alt="update4" align="center" width="40%" />
 
-  - '대치'를 선택하면 최신 버전이 이전 버전을 대체하며 설치된다
+  - [대치]를 선택하면 최신 버전이 이전 버전을 대체하며 설치된다
 
-    <img src="../README.assets/update5.png" alt="update5" align="center" width="70%" />
+    <img src="../README.assets/update5.png" alt="update5" align="center" width="50%" />

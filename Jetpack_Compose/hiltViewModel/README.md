@@ -47,23 +47,83 @@
 
 ### 의존성 추가
 
-앱 수준 build.gradle에 libs.versions.toml 파일의 의존성 적용
+- Hilt 의존성 추가
 
-(버전 관리를 toml 파일로 분리한 경우)
+  - libs.versions.toml 파일
 
-```toml
-[versions]
-hilt = "2.48"
-hilt-compose = "1.0.0"
+    ```toml
+    [versions]
+    # ...
+    hilt = "2.56.2"
+    ksp = "2.0.21-1.0.28"
+    
+    [libraries]
+    # ...
+    hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+    hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+    
+    [plugins]
+    # ...
+    hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+    ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+    ```
 
-[libraries]
-# Hilt 핵심 의존성
-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
-hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+  - 프로젝트 수준 build.gradle 파일
 
-# Compose와 Hilt 연동을 위한 의존성 (hiltViewModel 함수 사용)
-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-compose" }
-```
+    ```kotlin
+    plugins {
+        // ...
+        alias(libs.plugins.ksp) apply false
+        alias(libs.plugins.hilt) apply false
+    }
+    ```
+
+  - app/build.gradle 파일
+
+    ```kotlin
+    plugins {
+        // ...
+        alias(libs.plugins.ksp)
+        alias(libs.plugins.hilt)
+    }
+    
+    android {
+        // ...
+    }
+    
+    dependencies {
+        // ...
+        implementation(libs.hilt.android)
+        ksp(libs.hilt.compiler)
+    }
+    ```
+
+- Hilt with Compose Navigation 의존성 추가
+
+  > `hiltViewModel()` 사용 가능하게함
+  >
+  > Hilt와 Navigation Compose 연동을 위한 라이브러리
+
+  - libs.versions.toml 파일
+
+    ```toml
+    [versions]
+    # ...
+    hiltNavigationCompose = "1.2.0"
+    
+    [libraries]
+    # ...
+    hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+    ```
+
+  - app/build.gradle 파일
+
+    ```kotlin
+    dependencies {
+        // ...
+        implementation(libs.hilt.navigation.compose)
+    }
+    ```
 
 <br>
 

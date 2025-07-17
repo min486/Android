@@ -14,93 +14,43 @@
 
 ## 🔥 Hilt
 
-### 의존성 주입의 필요성
+### 의존성 주입 (Dependency Injection)
 
-클래스는 작업을 완료하기 위해 다른 클래스를 참조해야 할 때가 있다
-
-👉 이렇게 참조하는 것을 `의존성` 이라고 한다
-
-<br>
-
-자동차는 엔진이 없으면 동작하지 않는다
-
-즉 엔진을 자동차의 의존성이라고 표현하거나, 차가 엔진에 의존한다고 말할 수 있다
-
-다음 예는 Car 클래스가 자체 Engine을 구성하고 있다
-
-👉 Car 클래스가 실행되기 위해서는 Engine 클래스의 인스턴스가 있어야 한다
-
-<img src="../README.assets/di.png" alt="di" align="center" width="30%" />
-
-위의 예는 Car 클래스가 자체 Engine을 구성하기 때문에 의존성 주입의 예가 아니다. 다음과 같은 이유로 문제가 될 수 있다
-
-- Car와 Engine은 밀접하게 연결되어 있다
-
-  Car 인스턴스는 한 가지 유형의 Engine을 사용하므로 서브클래스 또는 대체 구현을 쉽게 사용할 수 없다
-
-  Car가 자체 Engine을 구성했다면 Gas 및 Electric 유형의 엔진에 동일한 Car를 재사용하는 대신 두 가지 유형의 Car를 생성해야 한다
-
-- Engine의 종속성이 높은 경우 테스트하기가 더욱 어려워진다
+클래스가 직접 의존 객체를 생성하지 않고, 외부에서 주입받도록 설계하는 패턴
 
 ```kotlin
 // Without DI
-
 class Car {
   private val engine: Engine = Engine()
 }
-```
 
-<br>
-
-### 의존성 주입 (Dependency Injection, DI)
-
-> 클래스가 스스로 의존성을 생성하는 대신 클래스에 의존성을 부여하는 것
-
-<img src="../README.assets/di2.png" alt="di2" align="center" width="30%" />
-
-👉 자동차가 엔진 인스턴스를 직접 생성하는 것이 아니라 자동차를 만들 때 엔진을 차에 달아주는 것이다
-
-<br>
-
-의존성 주입으로 클래스가 지닌 책임을 가져가고 매개변수를 의존성으로 바꾼다
-
-👉 자동차를 소규모로 유지하면서 다른 부분은 생각하지 않고 자동차 상태 관리에만 집중하게 한다
-
-```kotlin
 // With DI
-
-class Car(private val engine: Engine) {
-}
+class Car(private val engine: Engine)
 ```
+
+- `Car`가 직접 `Engine`을 생성하면, 테스트나 교체가 어려워짐
+
+  <img src="../README.assets/di.png" alt="di" align="center" width="30%" />
+
+- `Car` 외부에서 `Engine`을 주입하면, 유연하고 테스트가 편해짐
+
+  <img src="../README.assets/di2.png" alt="di2" align="center" width="30%" />
 
 <br>
 
-### 의존성 주입 장점
+### DI의 장점
 
-- 코드를 재사용하고 의존성을 분리
-- 코드의 리팩토링 편의성
+- 코드의 결합도 낮춤
 
-- 테스트 편의성
+- 테스트 용이성 향상
 
-```kotlin
-// Reuse Car
+- 모듈화 및 유지보수성 향상
 
-fun main(args: Array<String>) {
-  val electricCar = Car(ElectricEngine())
-  val combustionCar = Car(CombustionEngine())
-  ...
-}
-```
+- 재사용성 증가
 
 <img src="../README.assets/di3.png" alt="di3" align="center" width="40%" />
 
-커대한 클래스를 가지는 대신 여러 부품으로 나눠서 자동차를 작게 만든다
-
-✅ 자동차를 관리하기 더 쉬워진다
-
-✅ 코드가 줄어든다
-
-✅ 여러 사람이 동시에 충돌 없이 앱을 작업할 수 있다
+👉 거대한 클래스를 가지는 대신 여러 부품으로 나눠서 자동차를 작게 만든다
 
 <br>
 

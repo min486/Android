@@ -16,19 +16,23 @@
 
 ### 의존성 주입 (Dependency Injection)
 
-클래스가 직접 의존 객체를 생성하지 않고, 외부에서 주입받도록 설계하는 패턴
+> 클래스가 직접 의존 객체를 생성하지 않고, 외부에서 주입받도록 설계하는 패턴
 
 ```kotlin
 // Without DI
 class Car {
-  private val engine: Engine = Engine()
+  private val engine: Engine = Engine()  // Car가 Engine에 강하게 의존
 }
 
 // With DI
-class Car(private val engine: Engine)
+class Car(private val engine: Engine)  // 외부에서 Engine을 주입받음
 ```
 
-- `Car`가 직접 `Engine`을 생성하면, 테스트나 교체가 어려워짐
+<br>
+
+### DI가 필요한 이유
+
+- `Car`가 직접 `Engine`을 생성하면, 테스트나 다른 Engine으로 교체가 어려워짐
 
   <img src="../README.assets/di.png" alt="di" align="center" width="30%" />
 
@@ -36,17 +40,18 @@ class Car(private val engine: Engine)
 
   <img src="../README.assets/di2.png" alt="di2" align="center" width="30%" />
 
+- 각 클래스는 자신의 책임에만 집중할 수 있음
+
 <br>
 
 ### DI의 장점
 
-- 코드의 결합도 낮춤
+- 결함도 감소 : 클래스 간 의존성이 줄어든다
+- 테스트 용이성 : Mock 객체 주입으로 단위 테스트 가능
+- 모듈화 : 각 모듈이 독립적으로 개발/유지보수 가능
 
-- 테스트 용이성 향상
-
-- 모듈화 및 유지보수성 향상
-
-- 재사용성 증가
+- 재사용성 : 동일한 의존성을 여러 클래스에서 재사용
+- 확장성 : 새로운 구현체로 쉽게 교체 가능
 
 <img src="../README.assets/di3.png" alt="di3" align="center" width="40%" />
 
@@ -56,19 +61,17 @@ class Car(private val engine: Engine)
 
 ### Hilt
 
-> 안드로이드 앱의 의존성 주입을 간소화해주는 라이브러리
+> Jetpack 공식 DI 프레임워크로, 내부적으로 Dagger2 기반이며 안드로이드에 최적화된 DI 환경을 제공
 
 <br>
 
 ### Hilt 특징
 
-- Android class에 의존성 주입을 지원하고 생명 주기를 자동으로 관리
+- Android 컴포넌트 생명주기 자동 관리
 
-- Dagger2 기반의 라이브러리
-- 프로젝트 설정의 간소화
-- 쉬운 모듈 탐색과 통합
-- 개선된 테스트 환경
-- Android Component별 Scope가 명확
+- 컴포넌트별 스코프 제공 (Activity, ViewModel 등)
+
+- 설정과 테스트가 쉬움
 
 - 보일러플레이트 코드 감소
 
@@ -76,376 +79,160 @@ class Car(private val engine: Engine)
 
 <br>
 
-### Hilt 의존성 추가
+### Hilt 기본 구성 요소
 
-프로젝트 수준의 `build.gradle` 파일에 추가
+1. `@HiltAndroidApp`
 
-```python
-plugins {
-  id("com.google.dagger.hilt.android") version "2.44" apply false
-}
-```
+   Application 클래스에 붙여 hilt가 DI를 시작할 수 있는 루트를 제공
 
-➡️ app 수준의 `build.gradle` 파일에 추가
+   ```kotlin
+   @HiltAndroidApp
+   class MyApp : Application()
+   ```
 
-```python
-plugins {
-  kotlin("kapt")
-  id("com.google.dagger.hilt.android")
-}
+   이후 `AndroidManifest.xml`에서 아래 내용 추가
 
-android {
-  ...
-}
+    ```xml
+    <application
+        android:name=".MyApp"
+        ...
+    </application>
+    ```
 
-dependencies {
-  implementation("com.google.dagger:hilt-android:2.44")
-  kapt("com.google.dagger:hilt-android-compiler:2.44")
-}
-```
+2. `@AndroidEntryPoint`
+
+   의존성 주입을 받을 Android 컴포넌트에 사용
+
+   ```kotlin
+   @AndroidEntryPoint
+   class MainActivity : ComponentActivity() {
+       // hilt가 자동으로 의존성을 주입해줌
+   }
+   ```
+
+3. `@Inject`
+
+   생성자 또는 필드에 사용해 hilt가 의존성을 제공하도록 함
+
+   ```kotlin
+   // 생성자 주입
+   class UserRepository @Inject constructor(
+       private val api: UserApi
+   )
+   
+   // 필드 주입
+   @AndroidEntryPoint
+   class MainActivity : ComponentActivity() {
+       @Inject
+       lateinit var userRepository: UserRepository
+   }
+   ```
+
+4. `@Module` + `@Provides`
+
+   인터페이스나 외부 라이브러리 클래스 등 hilt가 생성할 수 없는 타입을 제공할 때 사용
+
+   ```kotlin
+   @Module
+   @InstallIn(SingletonComponent::class)
+   object NetworkModule {
+   
+       @Provides
+       @Singleton
+       fun provideUserApi(retrofit: Retrofit): UserApi {
+           return retrofit.create(UserApi::class.java)
+       }
+   }
+   ```
+
+5. `@Binds` (인터페이스 바인딩)
+
+   인터페이스와 구현체를 연결할 때 `@Provides`보다 효율적
+
+   ```kotlin
+   @Module
+   @InstallIn(SingletonComponent::class)
+   abstract class RepositoryModule {
+   
+       @Binds
+       abstract fun bindUserRepository(
+           userRepositoryImpl: UserRepositoryImpl
+       ): UserRepository
+   }
+   ```
+
+6. Scope 어노테이션 (생명주기 관리)
+
+   의존성의 생명주기를 설정하는 역할
+
+   | Scope                   | 생명주기                  | 설명                                      |
+   | ----------------------- | ------------------------- | ----------------------------------------- |
+   | @Singleton              | 전체 앱                   | 앱이 실행되는 동안 하나의 인스턴스만 생성 |
+   | @ActivityScoped         | Activity                  | Activity가 생성~소멸까지 동일한 인스턴스  |
+   | @ActivityRetainedScoped | Activity (화면 회전 유지) | Configuration change 시에도 유지됨        |
+   | @ViewModelScoped        | ViewModel                 | ViewModel 생명주기와 동일                 |
+   | @ServiceScoped          | Service                   | Service 생명주기와 동일                   |
+
+   ```kotlin
+   // 앱 전체에서 하나의 인스턴스만 생성
+   @Singleton
+   class UserRepository @Inject constructor(
+       private val api: UserApi
+   )
+   
+   // Activity 범위 내에서 하나의 인스턴스
+   @ActivityScoped
+   class LocationTracker @Inject constructor(
+       private val context: Context
+   )
+   ```
 
 <br>
 
-### Hilt 상세내용
+### 의존성 추가
 
-Hilt는 Annotation을 통해 적용할 수 있다
+- libs.versions.toml 파일
 
-- Hilt 애플리케이션 클래스
-
-  Hilt를 사용하는 모든 앱은 `@HiltAndroidApp`을 달아야한다
-
-  `@HiltAndroidApp`은 애플리케이션 수준 의존성 컨테이너 역할을 하는 애플리케이션의 기본 클래스를 비롯하여 Hilt의 코드 생성을 트리거합니다.
-
-  ```kotlin
-  @HiltAndroidApp
-  class ExampleApplication : Application() { ... }
+  ```toml
+  [versions]
+  hilt = "2.56.2"
+  ksp = "2.0.21-1.0.28"
+  hiltNavigationCompose = "1.2.0"
+  
+  [libraries]
+  hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+  hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+  hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+  
+  
+  [plugins]
+  hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+  ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
   ```
 
-  ➡️ `AndroidManifest.xml`에서 아래 내용 추가
-
-  ```xml
-  <application
-      android:name=".ExampleApplication"
-  </application>
-  ```
-  
-  <br>
-  
-- Android 클래스에 의존성 주입
-
-  `Application` 클래스에 Hilt를 설정하고 애플리케이션 수준 구성요소를 사용할 수 있게 되면 
-
-  Hilt는 `@AndroidEntryPoint` 어노테이션이 있는 다른 Android 클래스에 의존성을 제공할 수 있습니다
+- 프로젝트 수준 build.gradle 파일
 
   ```kotlin
-  @AndroidEntryPoint
-  class ExampleActivity : AppCompatActivity() { ... }
-  ```
-
-  Hilt가 해당 클래스에 Dependency를 제공해 줄 수 있는 Component를 생성해준다
-
-  - Application (`@HiltAndroidApp` 사용하여)
-  - ViewModel (`@HiltViewModel` 사용하여)
-  - Activity
-  - Fragment
-  - View
-  - Service
-  - BroadcastReceiver
-
-  👉 나머지는 `@AndroidEntryPoint` 사용
-
-<br>
-
-- Hilt 결합 정의
-
-  생성자 주입 방식으로 Hilt에 결합 정보를 제공
-
-  다음과 같이 클래스의 생성자에서 `@Inject` 어노테이션을 사용하여 클래스의 인스턴스를 제공하는 방법을 Hilt에 알려준다
-
-  ```kotlin
-  class AnalyticsAdapter @Inject constructor(
-    private val service: AnalyticsService
-  ) { ... }
-  ```
-
-  👉 어노테이션이 지정된 클래스 생성자의 매개변수는 그 클래스의 의존성이다
-
-  `AnalyticsAdapter`에는 `AnalyticsService`가 의존성으로 있다
-
-<br>
-
-- Hilt 모듈
-
-  Module을 이용해서 Hilt에게 원하는 의존성을 생성하는 방법을 알려줄 수 있다
-
-  아래와 같이 생성자 주입할 수 없는 상황에도 쓰인다
-
-  - 인터페이스
-  - 외부 라이브러리의 클래스
-
-  👉 이럴 때는 Hilt 모듈을 사용하여 Hilt에 결합 정보를 제공할 수 있다
-
-  <br>
-
-  ➡️ Module 클래스를 생성할 때 가장 먼저 `@Module` Annotation을 붙여준다
-
-  그래야 Hilt는 여기가 모듈이 있는 곳임을 알 수 있다
-
-  이 모듈은 특정 유형의 인스턴스를 제공하는 방법을 Hilt에 알려준다
-
-  ➡️ 다음으로 `@InstallIn` 어노테이션을 붙여준다
-
-  ex) `@InstallIn(ActivityComponent::class)`는 해당 모듈이 acitivity에서 사용가능하다고 선언하다는 의미
-
-  (해당 Component의 이름을 넣어주면 된다)
-
-  *Hilt 모듈에 `@InstallIn` 어노테이션을 지정하여 각 모듈을 사용하거나 설치할 Android 클래스를 Hilt에 알려야 한다
-
-  <br>
-
-  ✅ `@Binds`를 사용하여 인터페이스 인스턴스 주입
-
-  `AnalyticsService`가 인터페이스라면 이 인터페이스를 생성자 주입할 수 없다
-
-  대신 Hilt 모듈 내에 `@Binds`로 어노테이션이 지정된 abstract 함수를 생성하여 Hilt에 결합 정보를 제공한다
-
-  `@Binds` 어노테이션은 인터페이스의 인스턴스를 제공해야 할 때 사용할 구현을 Hilt에 알려준다
-
-  <br>
-
-  어노테이션이 지정된 함수는 Hilt에 다음 정보를 제공한다
-
-  - 함수 반환 유형은 함수가 어떤 인터페이스의 인스턴스를 제공하는지 Hilt에 알려준다
-  - 함수 매개변수는 제공할 구현을 Hilt에 알려준다
-
-  <br>
-
-  ```kotlin
-  interface AnalyticsService {
-    fun analyticsMethods()
-  }
-  
-  // Constructor-injected, because Hilt needs to know how to
-  // provide instances of AnalyticsServiceImpl, too.
-  class AnalyticsServiceImpl @Inject constructor(
-    ...
-  ) : AnalyticsService { ... }
-  
-  @Module
-  @InstallIn(ActivityComponent::class)
-  abstract class AnalyticsModule {
-  
-    @Binds
-    abstract fun bindAnalyticsService(
-      analyticsServiceImpl: AnalyticsServiceImpl
-    ): AnalyticsService
+  plugins {
+      alias(libs.plugins.ksp) apply false
+      alias(libs.plugins.hilt) apply false
   }
   ```
 
-  👉 Hilt가 AnalyticsModule의 의존성을 `ExampleActivity`에 주입하기를 원하기 때문에 
-
-  Hilt 모듈 `AnalyticsModule`에 `@InstallIn(ActivityComponent.class)` 어노테이션을 지정한다
-
-  이 어노테이션은 `AnalyticsModule`의 모든 의존성을 앱의 모든 activity에서 사용할 수 있음을 의미한다
-
-  <br>
-
-  ✅ `@Provides`를 사용하여 인스턴스 주입
-
-  생성자 주입할 수 없는 것은 인터페이스만이 아니다
-
-  클래스가 외부 라이브러리에서 제공되므로 
-
-  클래스를 소유하지 않은 경우(Retrofit, OkHttpClient 또는 Room 데이터베이스와 같은 클래스)
-
-  또는 빌더 패턴으로 인스턴스를 생성해야 하는 경우에도 생성자 주입이 불가능하다
-
-  <br>
-
-  이전 예에서, `AnalyticsService` 클래스를 직접 소유하지 않으면 
-
-  Hilt 모듈 내에 함수를 생성하고 이 함수에 `@Provides` 어노테이션을 지정하여 이 유형의 인스턴스를 제공하는 방법을 Hilt에 알릴 수 있다
-
-  어노테이션이 달린 함수는 Hilt에 다음 정보를 제공한다
-
-  - 함수 반환 유형은 함수가 어떤 유형의 인스턴스를 제공하는지 Hilt에 알려준다
-
-  - 함수 매개변수는 해당 유형의 의존성을 Hilt에 알려준다
-
-  - 함수 본문은 해당 유형의 인스턴스를 제공하는 방법을 Hilt에 알려준다
-
-    Hilt는 해당 유형의 인스턴스를 제공해야 할 때마다 함수 본문을 실행한다
+- app/build.gradle 파일
 
   ```kotlin
-  @Module
-  @InstallIn(ActivityComponent::class)
-  object AnalyticsModule {
-  
-    @Provides
-    fun provideAnalyticsService(
-      // Potential dependencies of this type
-    ): AnalyticsService {
-        return Retrofit.Builder()
-                 .baseUrl("https://example.com")
-                 .build()
-                 .create(AnalyticsService::class.java)
-    }
-  }
-  ```
-
-  <br>
-
-### Android 클래스용으로 생성된 구성요소
-
-- 구성요소 전체기간 (@InstallIn)
-
-주입할 수 있는 각 Android Class마다 `@InstallIn` 어노테이션을 설정해야 한다
-
-이 어노테이션에는 구성요소 기간을 설정해서 모듈이 어느 범위까지 사용되는지를 지정해야 한다
-
-👉 Hilt는 해당 Android 클래스의 수명 주기에 따라 생성된 구성요소 클래스의 인스턴스를 자동으로 만들고 제거한다
-
-<img src="../README.assets/di4.png" alt="di4" align="center" width="80%" />
-
-ex) SingletonComponent는 Application 전체 기간동안 존재하고 사용할 수 있다
-
-<br>
-
-- 구성요소 범위 (Component Scopes)
-
-기본적으로 Hilt의 모든 결합은 범위가 지정되지 않는다
-
-앱이 결합을 요청할 때마다 Hilt는 필요한 유형의 새 인스턴스를 생성한다
-
-<br>
-
-Hilt는 결합을 특정 구성요소로 범위 지정할 수도 있다
-
-Hilt는 결합의 범위가 지정된 구성요소의 인스턴스마다 한 번만 범위가 지정된 결합을 생성하며,
-
-이 결합에 관한 모든 요청은 동일한 인스턴스를 공유한다
-
-<img src="../README.assets/di5.png" alt="di5" align="center" width="80%" />
-
-<br>
-
-### 각 Annotation 내용
-
-- @Module
-
-  : Hilt 모듈인지 여부를 판단
-
-- @InstallIn
-
-  : Component 범위를 지정 
-
-- @Binds
-
-  : 인터페이스 타입의 객체를 어떻게 만드는지 Hilt에게 알려주기 위한 용도로 사용
-
-  (인터페이스 주입)
-
-- @Provides
-
-  : 외부 라이브러리인 클래스(Retrofit, OkHttpClient, Room 등) 또는 빌더 패턴으로 인스턴스를 생성해야 하는 경우에 사용
-
-  (인스턴스 주입)
-
-- @Qualifier
-
-  : 동일한 유형에 대해 여러 결합 제공
-
-- @ApplicationContext
-
-  : Application의 context를 제공하는 한정자
-
-<br>
-
-### [참고] 의존성 주입 방식별 구분
-
-- 생성자 주입 방식
-  - 필요한 모든 의존객체를 객체를 생성하는 시점에 준비 가능
-  - 생성 시점에 의존객체가 정상인지 아닌지 판정 가능
-- 메서드 주입 방식
-  - 의존객체가 나중에 생성되는 경우에 사용 가능
-  - 메서드의 이름을 통해 어떤 의존객체를 주입하는지 더 알기 쉬움
-- 인터페이스를 통한 주입 방식
-  - 메서드와 특징 동일
-
-<br>
-
-### [참고] 의존성 주입 방식별 예시
-
-```kotlin
-class DieselEngine {
-  val fuel = "diesel"
-}
-
-class Car {
-  val engine = DieselEngine()
-}
-```
-
-- 생성자 주입 방식
-
-  ```kotlin
-  class DieselEngine {
-    val fuel = "diesel"
+  plugins {
+      alias(libs.plugins.ksp)
+      alias(libs.plugins.hilt)
   }
   
-  class Car(val engine: DieselEngine) {
-  }
-  
-  fun main() {
-    val dieselEngine = DieselEngine()  // DieselEngine 객체
-    val car = Car(dieselEngine)  // 클래스를 초기화하는 시점에서 외부에서 작성한 DieselEngine 객체를 생성자로 주입
-  }
-  ```
-
-- 메서드 주입 방식
-
-  ```kotlin
-  class DieselEngine {
-    val fuel = "diesel"
-  }
-  
-  class Car {
-    val engine = null
+  dependencies {
+      // hilt
+      implementation(libs.hilt.android)
+      ksp(libs.hilt.compiler)
     
-    private fun setEngine(engine: Engine) {
-      this.engine = engine
-    }
-  }
-  
-  fun main() {
-    val dieselEngine = DieselEngine()
-    val car = Car()
-    // 클래스 초기화가 끝난 후 어떤 시점에서 setEngine을 실행시켜서 객체를 주입
-    car.setEngine(dieselEngine)
-  ```
-
-- 인터페이스를 통한 주입 방식
-
-  ```kotlin
-  interface DieselEngineInjector {
-    fun inject(dieselEngine: DieselEngine)
-  }
-  
-  class DieselEngine {
-    val fuel = "diesel"
-  }
-  
-  class Car implements DieselEngineInjector {
-    val engine = null
-    
-    override fun inject(dieselEngine: DieselEngine) {
-      this.engine = engine
-    }
-  }
-  
-  fun main() {
-    val dieselEngine = DieselEngine()
-    val car = Car()
-    car.inject(dieselEngine)
+      // compose와 함께 사용 (hiltViewModel() 지원)
+      implementation(libs.hilt.navigation.compose)
   }
   ```

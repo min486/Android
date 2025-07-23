@@ -32,11 +32,13 @@
 
 ### 기본 사용 예시
 
-인터넷 권한 추가
+AndroidManifest.xml 파일에 인터넷 권한 추가
 
-```kotlin
-// AndroidManifest.xml
-<uses-permission android:name="android.permission.INTERNET" />
+```xml
+<manifest>
+    <uses-permission android:name="android.permission.INTERNET" />
+    ...
+</manifest>
 ```
 
 AsyncImage를 사용하여 이미지를 로드하고 표시

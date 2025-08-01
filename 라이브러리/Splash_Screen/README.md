@@ -3,8 +3,8 @@
     <img src="../README.assets/android.png">
   </p>
   <br>
-  <h2>기능</h2>
-  <p>기능 관련 내용 정리</p>
+  <h2>Library</h2>
+  <p>라이브러리 관련 내용 정리</p>
   <br>
   <br>
 </div>
@@ -14,19 +14,26 @@
 
 
 
+
 ## 🔥 스플래시 화면 설정 방법
+
+> 이 문서는 스플래시 화면 기능을 구현하기 위해
+>
+> `androidx.core:core-splashscreen` 라이브러리를 사용하는 방법과, 로고(아이콘) 제작 가이드라인을 정리함
+
+<br>
 
 ### 개요
 
-안드로이드 12 (API 레벨 31)부터 시스템 스플래시 화면이 기본적으로 도입되었다
+Android 12 (API 31)부터 시스템 스플래시 화면이 기본적으로 도입되었다
 
-이 가이드에서는 `androidx.core:core-splashscreen` 라이브러리를 사용해서, 모든 API 레벨에서 일관된 스플래시 화면 경험을 제공하는 방법을 설명한다
+`androidx.core:core-splashscreen` 라이브러리를 사용하면, 모든 버전에서 일관된 스플래시 화면 경험을 제공할 수 있다
 
 <br>
 
 ### 1. 의존성 추가
 
-`app/build.gradle` 에 Splash Screen API 라이브러리를 추가한다
+`app/build.gradle`
 
 ```kotlin
 dependencies {
@@ -37,7 +44,24 @@ dependencies {
 
 <br>
 
-### 2. 로고 리소스 준비 (SVG → Vector Drawable)
+### 2. 로고(아이콘) 준비 가이드
+
+스플래시 화면에 표시되는 로고는 앱 아이콘 또는 전용 로고를 사용할 수 있다
+
+구글의 권장 가이드라인은 다음과 같다
+
+| 유형                         | 크기        | 원 안의 크기                |
+| ---------------------------- | ----------- | --------------------------- |
+| 아이콘 배경이 있는 앱 아이콘 | 240 x 240dp | 지름 160dp 원 안에 맞춰야함 |
+| 아이콘 배경이 없는 앱 아이콘 | 288 x 288dp | 지름 192dp 원 안에 맞춰야함 |
+
+*출처 :
+
+https://developer.android.com/develop/ui/views/launch/splash-screen?hl=ko#dimensions
+
+<br>
+
+### 3. 로고 변환 (SVG → Vector Drawable)
 
 스플래시 화면에 사용될 정적 로고(SVG)를 벡터 드로어블로 변환한다
 
@@ -49,11 +73,11 @@ dependencies {
 
 <br>
 
-### 3. 테마 설정
+### 4. 테마 설정
 
 스플래시 화면에 적용될 테마를 설정한다
 
-#### 3-1. Android 12 (API 31+) 전용 테마
+#### 4-1. Android 12 (API 31+) 전용 테마
 
 `res/values-v31/themes.xml`
 
@@ -75,7 +99,7 @@ dependencies {
 </resources>
 ```
 
-#### 3-2. Android 11 (API 30) 이하 호환 테마
+#### 4-2. Android 11 (API 30) 이하 호환 테마
 
 `res/values/themes.xml`
 
@@ -107,7 +131,7 @@ dependencies {
 
 <br>
 
-### 4. AndroidManifest.xml 설정
+### 5. AndroidManifest.xml 설정
 
 MainActivity에 스플래시 테마를 적용한다
 
@@ -131,7 +155,7 @@ MainActivity에 스플래시 테마를 적용한다
 
 <br>
 
-### 5. MainActivity 에서 스플래시 화면 제어
+### 6. MainActivity 에서 스플래시 화면 제어
 
 MainActivity 에서 `installSplashScreen()` 을 호출하고,
 
@@ -164,7 +188,7 @@ class MainActivity : ComponentActivity() {
 
 `androidx.core:core-splashscreen` 라이브러리는
 
-Android 앱에서 버전에 상관없이 일관된 스플래시 화면 경험을 제공하기 위해 필요한 도구다
+안드로이드 앱에서 버전에 상관없이 일관된 스플래시 화면 경험을 제공하기 위해 필수적이다
 
 - Android 12 (API 레벨 31) 이상
   - 이 버전부터는 시스템 기본 스플래시 화면이 자동으로 적용된다
@@ -177,4 +201,4 @@ Android 앱에서 버전에 상관없이 일관된 스플래시 화면 경험을
 
 minSdk가 31 이상이든 30 이하이든, 스플래시 화면의 디자인과 종료 시점을 제어하려면
 
-`androidx.core:core-splashscreen` 라이브러리는 필수적으로 사용해야 한다
+`androidx.core:core-splashscreen` 라이브러리는 필수적으로 사용하는 것이 좋다

@@ -10,21 +10,7 @@
 </div>
 
 
-## 🔥 안드로이드 앱 아이콘 변경 및 디자인 가이드라인
-
-> 이 문서는 안드로이드 스튜디오를 사용하여 앱 아이콘을 변경하는 과정과,
->
-> 로고 디자인시 고려해야 할 안정 영역에 대한 가이드라인을 제공함
-
-<br>
-
-## 안드로이드 앱 아이콘 변경 과정
-
-안드로이드 앱 아이콘을 변경하는 가장 권장되는 방법은
-
-SVG 파일을 활용하여 Vector Asset Studio와 Image Asset Studio를 함께 사용하는 것이다
-
-<br>
+## 🔥 안드로이드 앱 아이콘 변경
 
 ### 1. SVG 파일 준비 및 VectorDrawable 변환
 
@@ -38,9 +24,9 @@ SVG 파일을 활용하여 Vector Asset Studio와 Image Asset Studio를 함께 �
 
 - SVG 파일 선택
 
-  - Asset Type을 `Local file (SVG, PSD)`로 설정
-  - Path 옆의 폴더 아이콘 클릭하여 준비한 SVG 파일 선택
-  - Name은 ic_hambug와 같은 이름으로 지정
+  - Asset Type : `Local file (SVG, PSD)`로 설정
+  - Path 옆 폴더 아이콘 클릭하여 준비한 SVG 파일 선택
+  - Name : ic_hambug와 같은 이름으로 지정
   - Size는 기본으로 표시되는 값으로 두기
 
 - 변환 완료
@@ -50,6 +36,8 @@ SVG 파일을 활용하여 Vector Asset Studio와 Image Asset Studio를 함께 �
   - `res/drawable` 폴더 안에 SVG 데이터가 포함된 XML 파일 생성됨
 
     (`your_icon_name.xml`)
+
+<img src="../README.assets/icon.png" alt="icon" align="center" width="80%" />
 
 <br>
 
@@ -61,30 +49,63 @@ SVG 파일을 활용하여 Vector Asset Studio와 Image Asset Studio를 함께 �
 
 - 아이콘 유형 설정
 
-  Icon Type을 Launcher Icons (Adaptive and Legacy)로 설정
+  Icon Type : `Launcher Icons (Adaptive and Legacy)`로 설정
 
 - Foreground 레이어 설정
 
   - Asset Type을 Image로 선택
 
+  - Path 옆 폴더 아이콘 클릭하여 1단계에서 생성한 VectorDrawable 파일 선택
+
+    (`res/drawable` 폴더 안에 있는 `your_icon_name.xml`)
+
+  - Resize 슬라이더를 조절하여 로고가 안전 영역(Safe Zone) 안에 들어가도록 크기를 조정한다
+
+  *`An icon with the same name already exists and will be overwritten` 경고 메세지는
+
+  기존 아이콘을 새로운 아이콘으로 덮어쓰는 정상적인 과정이므로 무시해도 된다
+
+- Background 레이어 설정
+
+  - "Background Layer" 탭에서 기본 설정을 그대로 두면 된다
+
+    (커스텀 이미지를 배경으로 사용하거나 특정 색상을 지정할 필요가 없다면)
+
+- 변환 완료
+
+  - Next 클릭하고, 확인 후 Finish 클릭
+
+  - `mipmap-anydpi-v26` 폴더에 XML 파일이 생성되고,
+
+    구형 안드로이드 버전을 위한 다양한 해상도의 WEBP 파일들이 `mipmap` 폴더에 업데이트된다
+
+<img src="../README.assets/icon2.png" alt="icon2" align="center" width="90%" />
+
 <br>
 
-### 앱 아이콘 변경 방법
+### 3. AndroidManifest.xml 파일 확인
 
-Android Studio에서  `res` 폴더에서 `mipmap` 디렉토리를 찾는다
+- 앱 아이콘을 `AndroidManifest.xml` 파일에 지정해야 한다
 
-오른쪽 클릭 후 `New -> Image Asset` 으로 이동
+- `<application>` 태그 내의 `android:icon`, `android:roundIcon` 속성 값을
 
-<img src="../README.assets/icon.png" alt="sdk33" align="center" width="60%" />
+  `@mipmap`을 통해 새로 만든 아이콘으로 지정한다
+
+```xml
+<application
+    android:allowBackup="true"
+    android:dataExtractionRules="@xml/data_extraction_rules"
+    android:fullBackupContent="@xml/backup_rules"
+    android:icon="@mipmap/ic_hambug"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_hambug_round"
+    android:supportsRtl="true"
+    android:theme="@style/Theme.Test0803">
+</application>
+```
 
 <br>
 
-Path 항목에서 다운받은 아이콘 이미지를 선택하고 (이미지 화질이 깨져서 SVG 사용)
+### 4. 앱 빌드 및 실행
 
-Name 변경 후 Resize 통해 크기(위치)를 조정한다
-
-<img src="../README.assets/icon2.png" alt="sdk33" align="center" width="70%" />
-
-<br>
-
-이후 왼쪽 패널에서 Project ➡️ app ➡️ manifest ➡️ AndroidManifest.xml 로 이동
+모든 설정을 마쳤으면, 앱을 빌드하고 에뮬레이터나 실기기에서 실행하여 변경된 아이콘을 확인한다

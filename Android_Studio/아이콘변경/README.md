@@ -26,7 +26,7 @@
 
   - Asset Type : `Local file (SVG, PSD)`로 설정
   - Path 옆 폴더 아이콘 클릭하여 준비한 SVG 파일 선택
-  - Name : ic_hambug와 같은 이름으로 지정
+  - Name : `ic_hambug`와 같은 이름으로 지정
   - Size는 기본으로 표시되는 값으로 두기
 
 - 변환 완료
@@ -37,7 +37,7 @@
 
     (`your_icon_name.xml`)
 
-<img src="../README.assets/icon.png" alt="icon" align="center" width="80%" />
+<img src="../README.assets/icon.png" alt="icon" align="center" width="70%" />
 
 <br>
 
@@ -53,11 +53,11 @@
 
 - Foreground 레이어 설정
 
-  - Asset Type을 Image로 선택
+  - Asset Type을 `Image`로 선택
 
   - Path 옆 폴더 아이콘 클릭하여 1단계에서 생성한 VectorDrawable 파일 선택
 
-    (`res/drawable` 폴더 안에 있는 `your_icon_name.xml`)
+    (`res/drawable` 폴더 > `your_icon_name.xml`)
 
   - Resize 슬라이더를 조절하여 로고가 안전 영역(Safe Zone) 안에 들어가도록 크기를 조정한다
 
@@ -67,7 +67,7 @@
 
 - Background 레이어 설정
 
-  - "Background Layer" 탭에서 기본 설정을 그대로 두면 된다
+  - `Background Layer` 탭에서 기본 설정을 그대로 두면 된다
 
     (커스텀 이미지를 배경으로 사용하거나 특정 색상을 지정할 필요가 없다면)
 
@@ -79,7 +79,7 @@
 
     구형 안드로이드 버전을 위한 다양한 해상도의 WEBP 파일들이 `mipmap` 폴더에 업데이트된다
 
-<img src="../README.assets/icon2.png" alt="icon2" align="center" width="90%" />
+<img src="../README.assets/icon2.png" alt="icon2" align="center" width="80%" />
 
 <br>
 

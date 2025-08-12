@@ -15,6 +15,7 @@
 ## 🔥 Android 시스템 UI 커스터마이징
 
 > 이 문서는 Android 앱 상단의 `상태 표시줄(Status Bar)`과 하단의 `시스템 내비게이션 바(System Bar)`의
+>
 > 색상 및 아이콘 스타일을 커스터마이징하는 방법을 설명한다
 >
 > Kotlin, Jetpack Compose를 사용하며 `minSdk` 30 이상인 프로젝트를 기준으로 한다

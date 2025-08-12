@@ -54,7 +54,7 @@
   }
   ```
 
-- ` build.gradle.kts` (프로젝트 수준)
+- `build.gradle.kts` (프로젝트 수준)
 
   ```kotlin
   plugins {
@@ -62,7 +62,7 @@
   }
   ```
 
-- ` build.gradle.kts` (앱 수준)
+- `build.gradle.kts` (앱 수준)
 
   ```kotlin
   plugins {
@@ -105,7 +105,7 @@ Ktlint를 사용하기 위해 2가지 Gradle 명령어를 활용할 수 있다
 
 IDE 플러그인과 Gradle 플러그인 모두 이 규칙을 참고한다
 
-```toml
+```ini
 root = true
 
 [*]

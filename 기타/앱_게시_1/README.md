@@ -14,7 +14,7 @@
 ### 앱 설정 완료
 
 - 먼저 대시보드 - [앱 설정 완료] 영역의 항목들을 완료해야 한다
-- 이 영역에서 앱 정보, 스토어 등록 정보 등을 작성한다. 이 단계는 앱의 기본적인 정보와 심사 관련 내용을 제출하는 과정이다
+- 앱 정보, 스토어 등록 정보 등을 작성한다. 이 단계는 앱의 기본적인 정보와 심사 관련 내용을 제출하는 과정이다
 
 <img src="../README.assets/1_1.png" alt="1_1" align="center" width="70%" />
 
@@ -34,7 +34,7 @@ https://sites.google.com
 
 ### 1-2)
 
-<img src="../README.assets/1_3.png" alt="1_3" align="center" width="50%" />
+<img src="../README.assets/1_3.png" alt="1_3" align="center" width="40%" />
 
 👉 새 사이트 시작 - [빈 사이트] 클릭 
 
@@ -52,7 +52,7 @@ https://sites.google.com
 
 ### 1-5)
 
-<img src="../README.assets/1_6.png" alt="1_6" align="center" width="50%" />
+<img src="../README.assets/1_6.png" alt="1_6" align="center" width="40%" />
 
 <img src="../README.assets/1_7.png" alt="1_7" align="center" width="50%" />
 
@@ -88,7 +88,7 @@ https://sites.google.com
 
 ### [앱의 전체 또는 일부 기능이 제한됨] 관련
 
-[안내 추가] 클릭 후 아래와 같이 내용 작성
+👉 [안내 추가] 클릭 후 아래와 같이 내용 작성
 
 <img src="../README.assets/1_10.png" alt="1_10" align="center" width="70%" />
 
@@ -96,7 +96,7 @@ https://sites.google.com
 
 ## 3. 광고
 
-<img src="../README.assets/setting11.png" alt="setting11" align="center" width="60%" />
+<img src="../README.assets/1_10_1.png" alt="1_10_1" align="center" width="60%" />
 
 <br>
 
@@ -154,9 +154,9 @@ https://sites.google.com
 
 <br>
 
-## 11. 앱 카테고리 선택 및 연락처 세부정보 제공
+## 10. 앱 카테고리 선택 및 연락처 세부정보 제공
 
-### 11-1) 앱 카테고리
+### 10-1) 앱 카테고리
 
 <img src="../README.assets/1_24.png" alt="1_24" align="center" width="70%" />
 
@@ -166,7 +166,7 @@ https://sites.google.com
 
 <br>
 
-### 11-2) 연락처 세부정보
+### 10-2) 연락처 세부정보
 
 <img src="../README.assets/1_26.png" alt="1_26" align="center" width="60%" />
 
@@ -176,7 +176,7 @@ https://sites.google.com
 
 <br>
 
-## 12. 스토어 등록정보 설정
+## 11. 스토어 등록정보 설정
 
 ### 필수로 입력해야 하는 항목
 
@@ -194,6 +194,6 @@ https://sites.google.com
 
 [앱 설정 완료] 단계를 다 마치면, [비공개 테스트] 단계 진행 후 검토를 제출한다
 
-자세한 내용은 [앱 게시 2] 문서 참고
+자세한 내용은 아래 문서 참고
 
-[앱 게시 2 문서](./앱_게시_2/README.md)
+[앱 게시 2 문서](../앱_게시_2/README.md)

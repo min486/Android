@@ -50,11 +50,13 @@
 
 ✔️ 안드로이드 스튜디오에서 만든 앱 번들을 [App Bundle] 영역에 업로드한다
 
-<img src="../README.assets/2_5.png" alt="2_5" align="center" width="60%" />
+<img src="../README.assets/2_5.png" alt="2_5" align="center" width="50%" />
+
+<br>
 
 ✔️ 나머지는 아래와 같이 작성
 
-<img src="../README.assets/2_6.png" alt="2_6" align="center" width="60%" />
+<img src="../README.assets/2_6.png" alt="2_6" align="center" width="50%" />
 
 <br>
 
@@ -73,17 +75,17 @@
 
 <br>
 
-<img src="../README.assets/2_7.png" alt="2_7" align="center" width="60%" />
+<img src="../README.assets/2_7.png" alt="2_7" align="center" width="50%" />
 
-<img src="../README.assets/2_8.png" alt="2_8" align="center" width="70%" />
+<img src="../README.assets/2_8.png" alt="2_8" align="center" width="60%" />
 
 <br>
 
 ## 5. 검토를 위해 Google에 버전 전송
 
-앱 설정 완료 (앱 게시 1 문서), 비공개 테스트 (앱 게시 2 문서)
+`앱 설정 완료 (앱 게시 1 문서)`, `비공개 테스트 (앱 게시 2 문서)`
 
-두가지를 끝내면 [게시 개요] 로 이동해서 검토 진행 가능
+두가지 단계를 끝내면 [게시 개요] 로 이동해서 검토 진행 가능
 
 <img src="../README.assets/2_9.png" alt="2_9" align="center" width="40%" />
 
@@ -99,9 +101,9 @@
 
 <br>
 
-✔️ 다음으로 [선언 작성] 클릭하면 [광고 ID] 쪽으로 이동됨
+✔️ [문제 보기] 에서 [선언 작성] 클릭하면 [광고 ID] 쪽으로 이동됨
 
-👉 [아니요] 체크 후 저장
+👉 아니요 체크 후 저장
 
 <img src="../README.assets/2_12.png" alt="2_12" align="center" width="70%" />
 
@@ -121,7 +123,7 @@
 
 ### 6-1)
 
-아직 테스트 참여 링크가 활성화되지 않아서, 이메일 목록에 사용자를 더 추가함
+검토 완료 후 테스트 참여 링크가 활성화되지 않아서, 이메일 목록에 사용자를 더 추가함
 
 (사용자 1명 → 사용자 12명)
 
@@ -137,17 +139,17 @@
 
 [게시 개요] 쪽에서 [검토를 위해 변경사항 전송] 버튼 클릭해서 검토 진행
 
+✅ 영업일 기준으로 1시간 이내에 검토 완료됨
+
 <img src="../README.assets/2_16.png" alt="2_16" align="center" width="70%" />
 
 <img src="../README.assets/2_17.png" alt="2_17" align="center" width="40%" />
 
-✅ 영업일 기준으로 1시간 이내에 검토 완료됨
-
-<br>
-
 ### 6-4)
 
 검토가 완료되면 아래처럼 프로덕션 트랙이 활성화되고, 테스트 참여 링크도 활성화된다
+
+👉 이 시점부터는 이메일 목록을 수정해도 검토 없이 바로 반영됨
 
 <img src="../README.assets/2_18.png" alt="2_18" align="center" width="60%" />
 

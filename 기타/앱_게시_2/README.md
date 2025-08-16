@@ -44,7 +44,7 @@
 
 *앱 번들 만드는 방법은 아래 문서 참고
 
-
+[문서 - 앱 번들 생성 방법](https://github.com/min486/Android/tree/master/Android_Studio/AAB_%EC%83%9D%EC%84%B1)
 
 <br>
 
@@ -161,4 +161,4 @@
 
 자세한 내용은 [앱 게시 3] 문서 참고
 
-[앱 게시 3 문서](../앱_게시_3/README.md)
+[문서 - 앱 게시 3](../앱_게시_3/README.md)

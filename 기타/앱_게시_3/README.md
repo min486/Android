@@ -52,21 +52,41 @@
 
 ### 4) 참여 조건 충족
 
-12명 이상 참여시, 대시보드 - 프로덕션 트랙에서 
-
-"12명 이상의 테스터가 비공개 테스트 참여를 선택" 조건이 완료 처리된다
-
-<img src="../README.assets/3_4.png" alt="3_4" align="center" width="60%" />
-
-<br>
-
-## 비공개 테스트 기간 (14일 이상)
-
 - 12명 이상 테스터 확보 후 1일이 지나면, 대시보드에 "1일" 표시
 
-- 14일 이상 유지하면 프로덕션 신청이 가능해진다
+- 14일 이상 유지하면 프로덕션 신청이 가능해진다 (버튼 활성화)
 
 - 예 : "현재 1일 동안 참여를 선택한 테스터 12명" 
 
-  → "현재 14일 동안 참여를 선택한 테스터 12명" 달성시 신청 가능
+  → "현재 14일 동안 참여를 선택한 테스터 12명" 달성하면, 조건 완료 처리됨
+
+<img src="../README.assets/3_4.png" alt="3_4" align="center" width="60%" />
+
+<img src="../README.assets/3_5.png" alt="3_5" align="center" width="90%" />
+
+<br>
+
+## 프로덕션 신청
+
+프로덕션 권한을 신청하려면 아래 순서로 질문에 답해야한다
+
+### 1) 비공개 테스트 정보
+
+<img src="../README.assets/3_6.png" alt="3_6" align="center" width="50%" />
+
+### 2) 앱 정보
+
+<img src="../README.assets/3_7.png" alt="3_7" align="center" width="50%" />
+
+### 3) 프로덕션 준비
+
+<img src="../README.assets/3_8.png" alt="3_8" align="center" width="50%" />
+
+### 4) 프로덕션 액세스 권한 신청
+
+질문 답변이 끝나면 프로덕션 액세스 권한 신청이 자동으로 접수된다
+
+대시보드 - 프로덕션 트랙에서 확인 가능
+
+<img src="../README.assets/3_9.png" alt="3_9" align="center" width="60%" />
 

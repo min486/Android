@@ -17,9 +17,9 @@
 
 ## 🔥 스플래시 화면 설정 방법
 
-> 이 문서는 스플래시 화면 기능을 구현하기 위해
+> 이 문서는 `androidx.core:core-splashscreen` 라이브러리를 사용해서 스플래시 화면을 구현하는 방법을 설명하고,
 >
-> `androidx.core:core-splashscreen` 라이브러리를 사용하는 방법과, 로고(아이콘) 제작 가이드라인을 정리함
+> 스플래시 로고(아이콘) 제작 가이드라인을 제공한다
 
 <br>
 
@@ -27,7 +27,7 @@
 
 Android 12 (API 31)부터 시스템 스플래시 화면이 기본적으로 도입되었다
 
-`androidx.core:core-splashscreen` 라이브러리를 사용하면, 모든 버전에서 일관된 스플래시 화면 경험을 제공할 수 있다
+`androidx.core:core-splashscreen` 라이브러리를 사용하면, 모든 Android 버전에서 일관된 스플래시 화면 경험을 제공할 수 있다
 
 <br>
 
@@ -38,38 +38,36 @@ Android 12 (API 31)부터 시스템 스플래시 화면이 기본적으로 도�
 ```kotlin
 dependencies {
     // Splash Screen
-    implementation 'androidx.core:core-splashscreen:1.0.1'
+    implementation("androidx.core:core-splashscreen:1.0.1")
 }
 ```
 
 <br>
 
-### 2. 로고(아이콘) 준비 가이드
+### 2. 스플래시 로고 준비
 
-스플래시 화면에 표시되는 로고는 앱 아이콘 또는 전용 로고를 사용할 수 있다
+스플래시 화면에 표시될 로고는 SVG 파일 형식으로 준비하는 것이 좋다
 
-구글의 권장 가이드라인은 다음과 같다
+구글의 권장 가이드라인은 아래와 같다
 
-| 유형                         | 크기        | 원 안의 크기                |
-| ---------------------------- | ----------- | --------------------------- |
-| 아이콘 배경이 있는 앱 아이콘 | 240 x 240dp | 지름 160dp 원 안에 맞춰야함 |
-| 아이콘 배경이 없는 앱 아이콘 | 288 x 288dp | 지름 192dp 원 안에 맞춰야함 |
+| 유형             | 권장 프레임 크기 (정사각형) | 로고 크기 및 위치                                            |
+| ---------------- | --------------------------- | ------------------------------------------------------------ |
+| 배경이 있는 로고 | 240 x 240 px                | 로고는 프레임 중앙에 배치하되, 약 160 x 160 px 원 내에 들어가도록 배치 |
+| 배경이 없는 로고 | 288 x 288 px                | 로고는 프레임 중앙에 배치하되, 약 192 x 192 px 원 내에 들어가도록 배치 |
 
-*출처 :
-
-https://developer.android.com/develop/ui/views/launch/splash-screen?hl=ko#dimensions
+*출처 : https://developer.android.com/develop/ui/views/launch/splash-screen?hl=ko#dimensions
 
 <br>
 
 ### 3. 로고 변환 (SVG → Vector Drawable)
 
-스플래시 화면에 사용될 정적 로고(SVG)를 벡터 드로어블로 변환한다
+준비한 SVG 로고를 안드로이드 프로젝트에서 사용할 수 있는 Vector Drawable로 변환해야 한다
 
-- `res/drawable` 폴더 우클릭 → `New` → `Vector Asset` 선택
+1. `res/drawable` 폴더 우클릭 → `New` → `Vector Asset` 선택
 
-- `Asset Type` 을 `Local file (SVG, PSD)` 로 선택
+2. `Asset Type`을 `Local file (SVG, PSD)`로 선택
 
-- SVG 파일을 선택하여 자동 변환한다
+3. 준비한 SVG 파일을 선택하면 자동으로 변환된다
 
 <br>
 
@@ -77,79 +75,97 @@ https://developer.android.com/develop/ui/views/launch/splash-screen?hl=ko#dimens
 
 스플래시 화면에 적용될 테마를 설정한다
 
-#### 4-1. Android 12 (API 31+) 전용 테마
+라이브러리를 사용하면 API 레벨에 상관없이 동일한 속성을 사용해서 테마를 구성할 수 있다
 
-`res/values-v31/themes.xml`
+#### 4-1. Android 12 (API 31) 이상 테마
 
-```xml
-<resources>
-    <style name="Theme.YourApp.SplashScreen" parent="Theme.SplashScreen">
-        <!-- 배경색 -->
-        <item name="android:windowSplashScreenBackground">@color/splash_background</item>
+- `res/values-v31/themes.xml`
 
-        <!-- 중앙 로고 -->
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/logo</item>
-        
-        <!-- 아이콘 배경색 -->
-        <item name="android:windowSplashScreenIconBackgroundColor">@color/splash_icon_background</item>
+  ```xml
+  <resources>
+    	<style name="Theme.YourApp" parent="android:Theme.Material.Light.NoActionBar">
+          <item name="android:statusBarColor">@android:color/white</item>
+          <item name="android:navigationBarColor">@android:color/white</item>
+          <item name="android:windowLightStatusBar">true</item>
+          <item name="android:windowLightNavigationBar">true</item>
+      </style>
+    
+      <style name="Theme.YourApp.SplashScreen" parent="Theme.SplashScreen">
+          <!-- 배경색 -->
+          <item name="android:windowSplashScreenBackground">@color/splash_bg</item>
+          <!-- 중앙 로고 -->
+          <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_hambug</item>
+          <!-- 로고 배경색 -->
+          <item name="android:windowSplashScreenIconBackgroundColor">@color/ic_bg</item>
+          <!-- 스플래시 화면 이후 적용될 테마 -->
+          <item name="postSplashScreenTheme">@style/Theme.YourApp</item>
+      </style>
+  </resources>
+  ```
 
-        <!-- 스플래시 화면 이후 적용될 테마 -->
-        <item name="postSplashScreenTheme">@style/Theme.YourApp</item>
-    </style>
-</resources>
-```
+  👉 이런 식으로 테마를 분리하면, `Theme.YourApp.SplashScreen`은 스플래시 화면에만 적용되고,
 
-#### 4-2. Android 11 (API 30) 이하 호환 테마
+  `postSplashScreenTheme` 속성을 통해 스플래시 화면이 사라진 후에는 자동으로 `Theme.YourApp` 테마로 전환된다
 
-`res/values/themes.xml`
+#### 4-2. Android 11 (API 30) 이하 테마
 
-```xml
-<resources>
-    <style name="Theme.YourApp" parent="android:Theme.Material.Light.NoActionBar" />
+- `res/values/themes.xml`
 
-    <style name="Theme.YourApp.SplashScreen" parent="android:Theme.Material.Light.NoActionBar" >
-        <!-- 배경 + 로고 -->
-        <item name="android:windowBackground">@drawable/splash_layer_list</item>
+  ```xml
+  <resources>
+      <style name="Theme.YourApp" parent="android:Theme.Material.Light.NoActionBar">
+          <item name="android:statusBarColor">@android:color/white</item>
+          <item name="android:navigationBarColor">@android:color/white</item>
+          <item name="android:windowLightStatusBar">true</item>
+          <item name="android:windowLightNavigationBar">true</item>
+      </style>
+  
+      <style name="Theme.YourApp.SplashScreen" parent="Theme.YourApp" >
+          <!-- 배경 + 로고 -->
+          <item name="android:windowBackground">@drawable/splash_layer_list</item>
+      </style>
+  </resources>
+  ```
 
-        <item name="postSplashScreenTheme">@style/Theme.Sptest</item>
-    </style>
-</resources>
-```
+  👉 `Theme.YourApp.SplashScreen` 테마는 `Theme.YourApp`을 상속받아야 `statusBarColor` 등의 속성을 공유할 수 있다
 
-`@drawable/splash_layer_list`
+  👉 `Theme.YourApp.SplashScreen` 테마는 `android:windowBackground`를 포함하므로 `postSplashScreenTheme`는 필요 없다
 
-```xml
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- 배경색 -->
-    <item android:drawable="@color/white" />
-    <!-- 중앙 로고 -->
-    <item android:drawable="@drawable/logo_bug2" android:gravity="center" />
-</layer-list>
-```
+- `@drawable/splash_layer_list`
 
-❗️bitmap 태그 대신 android:drawable 속성을 사용해야 API 30 이하에서도 로고가 표시된다
+  ```xml
+  <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+      <!-- 배경색 -->
+      <item android:drawable="@color/white" />
+      <!-- 중앙 로고 -->
+      <item android:drawable="@drawable/logo" android:gravity="center" />
+  </layer-list>
+  ```
+
+  ❗️bitmap 태그 대신 android:drawable 속성을 사용해야 API 30 이하에서도 로고가 표시된다
+
+#### 4-3. 종합적인 동작 방식
+
+- API 31 이상 : `AndroidManifest`의 테마 이름을 보고, `res/values-v31/themes.xml`의 테마가 적용된다
+
+  이 테마(`Theme.YourApp.SplashScreen`)의 속성들을 통해 스플래시 화면이 표시된다
+
+- API 30 이하 : `AndroidManifest`의 동일한 테마 이름을 보고, `res/values/themes.xml`의 테마가 적용된다
+
+  이 테마의 `android:windowBackground` 속성을 통해 스플래시 화면이 표시된다
 
 <br>
 
 ### 5. AndroidManifest.xml 설정
 
-MainActivity에 스플래시 테마를 적용한다
+- AndroidManifest 에서 application 태그에만 스플래시 테마를 지정하고,
+
+- activity 태그에는 테마를 지정하지 않는다 (테마 제거)
 
 ```xml
 <application
-    android:theme="@style/Theme.YourApp">
-  
-    <activity
-        android:name=".MainActivity"
-        android:exported="true"
-        android:label="@string/app_name"
-        android:theme="@style/Theme.YourApp.SplashScreen"> 
-      
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
+    android:theme="@style/Theme.YourApp.SplashScreen">
+    ...
 </application>
 ```
 
@@ -182,6 +198,10 @@ class MainActivity : ComponentActivity() {
 }
 ```
 
+- `setKeepOnScreenCondition { false }`
+  - false를 반환할 때 : 스플래시 화면을 계속 보여준다
+  - true를 반환할 때 : 스플래시 화면을 즉시 종료한다
+
 <br>
 
 ## 스플래시 라이브러리의 필요성
@@ -192,13 +212,11 @@ class MainActivity : ComponentActivity() {
 
 - Android 12 (API 레벨 31) 이상
   - 이 버전부터는 시스템 기본 스플래시 화면이 자동으로 적용된다
-  - 라이브러리를 사용하면 로고, 배경색, 아이콘 배경색, 표시 시간 등을 커스터마이징할 수 있다
+  - 라이브러리를 사용하면 로고, 배경색, 로고 배경색 등을 커스터마이징할 수 있다
 - Android 11 (API 레벨 30) 이하
   - 기본적으로 시스템 스플래시 화면 기능이 없다
-  - 라이브러리가 동일한 방식으로 동작하도록 구현하여, 최시 버전과 유사한 스플래시 화면을 제공한다
+  - 라이브러리가 동일한 방식으로 동작하도록 구현하여, 최신 버전과 유사한 스플래시 화면을 제공한다
 
-👉 정리
-
-minSdk가 31 이상이든 30 이하이든, 스플래시 화면의 디자인과 종료 시점을 제어하려면
-
-`androidx.core:core-splashscreen` 라이브러리는 필수적으로 사용하는 것이 좋다
+- 정리
+  - minSdk가 31 이상이든 30 이하이든, 스플래시 화면의 디자인과 종료 시점을 제어하려면
+  - `androidx.core:core-splashscreen` 라이브러리는 필수적으로 사용하는 것이 좋다

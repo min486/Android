@@ -16,11 +16,11 @@
 
 - SVG 파일 준비
 
-  앱 아이콘으로 사용할 SVG 파일 준비
+  - 앱 아이콘으로 사용할 SVG 파일 준비
 
 - Vector Asset Studio 열기
 
-  프로젝트 창에서 `res` 폴더 우클릭 → New → Vector Asset 선택
+  - 프로젝트 창에서 `res` 폴더 우클릭 → New → Vector Asset 선택
 
 - SVG 파일 선택
 
@@ -31,13 +31,13 @@
 
 - 변환 완료
 
-  - Next 클릭하고, 확인 후 Finish 클릭
+  - Next 클릭하여 확인 후 Finish 클릭
 
   - `res/drawable` 폴더 안에 SVG 데이터가 포함된 XML 파일 생성됨
 
     (`your_icon_name.xml`)
 
-<img src="../README.assets/icon.png" alt="icon" align="center" width="70%" />
+<img src="../README.assets/icon.png" alt="icon" align="center" width="60%" />
 
 <br>
 
@@ -45,11 +45,11 @@
 
 - Image Asset Studio 열기
 
-  프로젝트 창에서 `res` 폴더 우클릭 → New → Image Asset 선택
+  - 프로젝트 창에서 `res` 폴더 우클릭 → New → Image Asset 선택
 
 - 아이콘 유형 설정
 
-  Icon Type : `Launcher Icons (Adaptive and Legacy)`로 설정
+  - Icon Type : `Launcher Icons (Adaptive and Legacy)`로 설정
 
 - Foreground 레이어 설정
 
@@ -59,7 +59,7 @@
 
     (`res/drawable` 폴더 > `your_icon_name.xml`)
 
-  - Resize 슬라이더를 조절하여 로고가 안전 영역(Safe Zone) 안에 들어가도록 크기를 조정한다
+  - Resize 슬라이더를 조절하여 로고가 안전 영역(Safe Zone) 안에 들어가도록 크기 조정
 
   *`An icon with the same name already exists and will be overwritten` 경고 메세지는
 
@@ -68,22 +68,23 @@
 - Background 레이어 설정
 
   - `Background Layer` 탭에서 기본 설정을 그대로 두면 된다
-
-    (커스텀 이미지를 배경으로 사용하거나 특정 색상을 지정할 필요가 없다면)
+  - 아이콘 배경색이 투명해서 배경색 설정이 필요한 경우
+    - Asset Type을 `Color`로 선택
+    - Color 원하는 색상 지정
 
 - 변환 완료
 
-  - Next 클릭하고, 확인 후 Finish 클릭
+  - Next 클릭하여 확인 후 Finish 클릭
 
   - `mipmap-anydpi-v26` 폴더에 XML 파일이 생성되고,
 
     구형 안드로이드 버전을 위한 다양한 해상도의 WEBP 파일들이 `mipmap` 폴더에 업데이트된다
 
-<img src="../README.assets/icon2.png" alt="icon2" align="center" width="80%" />
+<img src="../README.assets/icon2.png" alt="icon2" align="center" width="70%" />
 
 <br>
 
-### 3. AndroidManifest.xml 파일 확인
+### 3. AndroidManifest 수정
 
 - 앱 아이콘을 `AndroidManifest.xml` 파일에 지정해야 한다
 

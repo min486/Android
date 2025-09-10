@@ -14,92 +14,76 @@
 
 ### Activity Lifecycle
 
-앱의 완성도와 안정성을 높이기 위해 activity의 생명주기를 알아야 한다
+- 안드로이드 앱의 안정성과 성능을 위해 Activity의 생명주기(Lifecycle)를 이해하는 것이 중요하다
+- 각 콜백 메서드는 특정 시점에 호출되며, 그 목적과 올바른 활용법이 다르다
+- Jetpack Compose를 사용하더라도, Activity는 여전히 앱의 진입점으로서 생명주기를 관리한다
 
 <br>
 
 ### 생명주기 콜백
 
-activity가 시작되면 그림과 같은 순서로 콜백이 호출된다
-
 - onCreate()
+  - activity가 처음 생성될 때 호출
+  - 한 번만 호출되는 초기 설정 로직 수행
+  - compose 환경에서는 `setContent { ... }` 를 통해 UI 정의
+  - Hilt, Navigation, ViewModel 초기화 같은 앱 전역 설정을 주로 배치
 
-  - 필수적으로 구현해야함
-  - activity의 생명주기 중 한 번만 발생해야하는 로직을 실행
-  - 멈춰있는 상태 없이 다음 콜백(onStart)으로 넘어감
 
 - onStart()
 
-  - activity가 사용자에게 표시되기 위해 준비하고 있는 상태
-  - 멈춰있는 상태 없이 다음 콜백(onResume)으로 넘어감
+  - activity가 사용자에게 보일 준비가 된 상태
+  - 아직 상호작용은 불가
+  - compose에서는 특별히 구현할 일이 적고, 상태 관리용으로 사용 가능
 
 - onResume()
 
-  - activity가 포그라운드에 표시되어, 사용자와 상호작용 할 수 있는 상태
-  - 앱에서 포커스가 떠날때까지 onResume 상태에 머무름
+  - activity가 포그라운드에서 사용자와 상호작용 가능한 상태
+  - 카메라, 센서, 애니메이션 시작 등의 로직을 재개하는 시점
+  - compose에서는 `LaunchedEffect`, `DisposableEffect` 등을 활용해 UI와 동기화 가능
 
 - onPause()
 
-  - 사용자가 activity를 떠나는 첫 번째 신호
+  - 사용자가 activity를 떠나는 첫번째 신호
+  - activity가 포그라운드에 있지 않지만, 다시 재시작할 수 있는 상태
 
-  - activity가 포그라운드에 있지 않지만, 다시 재시작 할 수 있는 상태
+  - 오래 걸리는 작업(DB, 네트워크, 파일 저장 등)을 넣으면 안됨
 
-  - 멈춰있는 상태 없이 다음 콜백(onResume)으로 넘어감
+    👉 onPause는 매우 짧게 실행되며, 도중에 Activity가 종료될 수 있기 때문
 
-  - 이 상태에서, 실행중이지 않을 때 필요하지 않은 리소스를 해지할 수 있음
-
-  - 이 상태에서, 데이터를 저장하거나 네트워크 호출, DB의 IO 작업을 하면 안됨
-
-    👉 매우 짧은 시간이라 메서드가 끝나기 전에 activity가 종료될 수 있기 때문
+  - 대신 애니메이션 일시 정지, 카메라 프리뷰 정지 같은 가벼운 작업만 처리
 
 - onStop()
 
-  - activity가 사용자에게 더이상 표시되지 않은 상태
-
-  - CPU를 비교적 많이 소모하는 종료 작업을 실행해야함 (onPause가 아닌 onStop 상태에서)
-
-  - activity가 중단되어 있는 상태여서, android OS가 리소스 관리를 위해, 해당 activity가 포함된 프로세스를 종료시킬 수 있음
-
-    👉 오래동안 activity를 실행하지 않거나, RAM 사용량이 많아 프로세스를 종료시킬만큼 리소스가 부족한 상황인 경우,
-
-    프로세스가 종료되면 다시 실행할때 onCreate가 호출됨 
+  - activity가 화면에 완전히 보이지 않는 상태
+  - compose에서는 UI가 더이상 표시되지 않으므로, 무거운 리소스 해제 가능
+  - OS 리소스 관리로 인해 프로세스가 종료될 수 있음 → 다시 실행 시 onCreate 호출
 
 - onDestroy()
 
-  - activity가 완전히 종료되기 전에 실행
+  - activity가 완전히 종료되기 직전에 호출
+  - 더이상 UI에 접근할 수 없고, activity가 메모리에서 해제될 준비가 된 상태
 
 <img src="../README.assets/activity_lifecycle.png" alt="activity_lifecycle.png" align="center" width="50%" />
 
 <br>
 
-### 상황별 생명주기 호출되는 시점
+### 상황별 호출 흐름
 
-- activity가 실행, 종료시에 어떤 생명주기를 따르는지?
+- Activity 실행
+  - `onCreate → onStart → onResume`
 
-  - activity 실행시 생명주기
+- Activity 종료 (앱 종료 포함)
+  - `onPause → onStop → onDestroy`
 
-    onCreate > onStart > onResume
+- 홈 버튼 눌러 백그라운드 이동
 
-  - activity 종료시 생명주기 (activity 1개여서 앱 종료된 경우)
+  - `onPause → onStop `
 
-    onPause > onStop > onDestroy
+    (activity는 메모리에 유지됨)
 
-- 실행중인 앱을 홈버튼 눌러서 백스택에 둔 경우
+- onStop 후 다시 실행 (복귀)
+  - `onRestart → onStart → onResume`
 
-  👉 화면은 사용자에게 보이지 않지만, activity가 백에 살아있음
-
-  onPause > onStop
-
-- onStop까지 호출된 후 다시 activity가 실행된 경우
-
-  onRestart > onStart > onResume
-
-- 다른 activity 실행시 생명주기
-
-  - 기존 activity 생명주기
-
-    onPause > onStop
-
-  - 다른 activity 생명주기
-
-    onCreate > onStart > onResume
+- 다른 Activity 실행
+  - 기존 Activity : `onPause → onStop`
+  - 새 Activity : `onCreate → onStart → onResume`

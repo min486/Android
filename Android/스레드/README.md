@@ -14,83 +14,95 @@
 
 ### 스레드 정의
 
-> 작업 공간
-
-<br>
-
-앱을 안드로이드 기기에서 실행하면, 안드로이드 시스템(OS)은 앱을 실행하기 위한 작업공간을 주게 된다
-
-👉 이렇게 생성된 메인 스레드에서 UI 조작을 한다
+- CPU가 작업을 수행할 수 있는 실행 단위
+- 앱 실행 시, 안드로이드 시스템은 메인 스레드(Main Thread)를 생성하여 UI 작업을 처리
 
 <br>
 
 ### 스레드 종류
 
 - 메인 스레드 (UI 스레드)
+  - 앱 실행 시, 안드로이드 시스템이 자동 생성
 
-  : 앱이 실행되면 안드로이드 시스템이 생성하는 스레드로, UI 관련된 작업을 한다
+  - UI 작업, 사용자 입력 처리 담당
 
-  *1개만 생김
+  - 앱당 1개만 존재
 
 - 작업자 스레드 (Worker Thread)
+  - 메인 스레드 외의 스레드
+  - 네트워크, DB, 파일 I/O 등 오래 걸리는 작업 수행
 
-  : 메인스레드 이외의 스레드
-
-<br>
-
-### 메인 스레드의 중요성 & 규칙
-
-사용자와 상호작용하는 공간이 UI 이기 때문에, 안드로이드 앱에서 가장 중요한 것은 UI 이다
-
-👉 따라서 안드로이드에서 메인 스레드 관리를 잘 해야한다
 
 <br>
 
-규칙
+### 메인 스레드 규칙
 
-1. UI 스레드를 차단하면 안된다
+#### 1. UI 스레드를 차단하면 안됨
 
-   - UI 스레드는 오직 UI만 그리고, UI 스레드에서 다른 작업을 할 수 없다. 시간이 오래 걸리는 작업은 작업자 스레드에서 할 수 있다
+- UI 스레드에서 오래 걸리는 작업을 수행하면, 앱이 멈춘 것처럼 보이거나 ANR(Application Not Responding) 발생
+- ANR 기준 : 약 5초 이상 차단 시
 
-   - UI 스레드가 몇 초 이상 차단되면 사용자에서 ANR이 표시된다
+#### 2. UI 조작은 UI 스레드에서만 가능
 
-     *ANR : Application Not Responding
-
-2. UI 스레드에서만 UI를 조작할 수 있다 (작업자 스레드에서 안드로이드 UI를 작업하면 안된다)
-   - UI를 그리는 작업이 매우 중요하므로 오직 UI 스레드에서만 작업해야하기 때문
-   - 만약 여기저기서 UI를 조작하게 되면, 어떤 작업을 먼저 해야될지 시스템에서는 알 수가 없다
+- 작업자 스레드에서 UI를 직접 변경하면 앱이 크래시 가능
+- UI 업데이트는 반드시 메인 스레드에서 수행
 
 <br>
 
-### 작업자 스레드에서 UI 작업
+### 작업자 스레드에서 UI 작업 방법
 
-실제로 작업을 하다보면 UI 스레드가 아닌 작업자 스레드에서도 UI 조작을 해야되는 경우가 있다
+실제로 작업을 하다보면 작업자 스레드에서도 UI 조작을 해야하는 경우가 있다
 
-👉 이 경우 해결할 수 있는 방법들
+해결 방법 예시
 
 - `Activity.runOnUiThread(Runnable)`
-- `View.post(Runnable)`
-- `View.postDelayed(Runnable, long)`
+- `View.post(Runnable)` / `View.postDelayed(Runnable, long)`
+- `Handler`
+- Compose 환경 : `LaunchedEffect { ... }`
+
+<br>
+
+### 스레드 동작 구조 (Handler, Looper)
+
+- 메인 스레드
+
+  - Looper + MessageQueue 포함
+
+  - UI 작업 처리 및 다른 스레드 요청 처리
+
+- 작업자 스레드
+
+  - 직접 UI 접근 불가
+
+  - Handler를 통해 Runnable/Message를 메인 스레드에 전달
+
+- 흐름
+  1. 작업자 스레드 → Handler → MessageQueue 삽입
+  2. Looper → MessageQueue 확인
+  3. Runnable/Message 순서대로 처리 → UI 업데이트
+
+<br>
+
+### 그림 설명
+
+- Thread / 메인 스레드
+  - 상단 보라색 영역
+  - 내부에 Looper + MessageQueue 존재 
+
+- 작업자 스레드
+
+  - 하단 파란색 영역 (Thread #2)
+
+  - Handler를 통해 MessageQueue에 메시지 전달 
+
 - Handler
 
-<br>
+  - 하단 녹색 영역
 
-### 스레드에서 Handler, Looper
+  - sendMessage → 메시지 큐에 추가
+  - handleMessage → 메시지 처리
 
-앱을 실행하면 메인 스레드가 생기고, 메인 스레드에서 UI 작업을 한다
-
-<br>
-
-그림 설명
-
-- 메인 스레드 안에 Looper가 있다
-  - Looper는 Message Queue를 갖고 있다
-- 작업자 스레드에서는 UI에 접근할 수 없다
-  - UI를 조작하고 싶은 경우, Handler를 통해서 message 또는 runnable한 객체나 보낼 수 있다
-- 메인 스레드 안에 있는 Handler가 다른 스레드들이 보낸 message를 받게 된다
-  - Handler는 Message Queue에 내용을 삽입한다 (선입선출)
-- Looper는 Message Queue의 내용들을 계속 확인한다
-  - message가 들어온 경우, Handler에게 처리하라고 보낸다 (handleMessage() 호출)
-  - runnable한 객체가 들어온 경우, 실제 실행하고 싶은 객체이기 때문에 Looper가 실행한다
+- MessageQueue / Looper 흐름
+  - 메시지와 Runnable이 순서대로 큐에 들어가고, Looper가 순차적으로 처리
 
 <img src="../README.assets/thread.png" alt="thread.png" align="center" width="40%" />

@@ -12,57 +12,54 @@
 
 ## 🔥 Serializable / Parcelable
 
-### 직렬화 & 역직렬화
+### 직렬화와 역직렬화
 
-- 직렬화 (serialization)
+- 직렬화 (Serialization)
 
-  : 객체를 바이트 단위의 연속적인 데이터(바이트 스트림)로 변경하는 작업
+  객체를 바이트 단위의 연속적인 데이터(바이트 스트림)로 변환하는 작업
 
-- 역직렬화 (deserialization)
+- 역직렬화 (Deserialization)
 
-  : 바이트 스트림을 원래 객체로 변환하는 작업
+  바이트 스트림을 다시 원래 객체로 복원하는 작업
+
 
 <img src="../README.assets/sd.png" alt="sd" align="center" width="60%" />
 
 <br>
 
-### 직렬화의 필요성
+### 직렬화가 필요한 이유
 
-Serializable과 Parcelable은 모두 직렬화와 관련이 있다. 객체를 주고 받으려면 객체를 직렬화 해야 한다
-
-👉 직렬화는 서로 다른 메모리 영역을 갖는 컴포넌트 간 객체를 주고 받을 때 사용한다
-
-객체는 대부분 다른 객체를 가리키는 참조 필드를 갖고 있는데, 이 주소 값을 다른 메모리에서는 사용할 수가 없다
-
-따라서, 이 참조 변수를 그것이 가리키는 실제 값으로 변환하는 작업이 필요하다
+- 객체를 네트워크로 전송하거나, 파일에 저장하거나, 서로 다른 프로세스 간 통신(IPC)을 할 때 객체의 상태를 그대로 보존하고 전달하기 위해 필요하다
+- 메모리가 다른 컴포넌트(액티비티, 서비스 등) 간에 데이터를 전달할 때도 객체의 참조가 아닌 값을 전달해야 하므로 직렬화가 필수적이다
 
 <br>
 
-### Serializable과 Parcelable 
+### Serializable vs Parcelable 개요
 
-- Serializable
-  - Serializable은 Java에서 제공하는 인터페이스로, 객체를 직렬화하여 전달하기 위해 사용된다
-  - Serializable을 사용하면 객체를 바이트 스트림으로 변환하여 전달할 수 있다
-  - Serializable 인터페이스를 구현한 객체는 Java에서 제공하는 ObjectOutputStream을 사용하여 전달할 수 있다
-- Parcelable
-  - Parcelable은 안드로이드에서 제공하는 인터페이스로, 객체를 전달하기 위해 사용된다
-  - Parcelable을 사용하면 객체를 직렬화하여 안드로이드 OS에서 처리할 수 있는 바이트 배열로 변환하여 전달할 수 있다
-  - Parcelable 인터페이스를 구현한 객체는 안드로이드 OS에서 Intent나 Bundle에 담아 전달할 수 있다
+- Serializable (Java 표준)
+
+  - `implements Serializable`만 선언하면 자동으로 직렬화 가능
+
+  - 구현이 매우 간단하지만 Reflection 기반이라 성능이 느리다
+
+  - 안드로이드에서는 성능 문제로 거의 사용하지 않는다
+
+- Parcelable (Android 전용)
+
+  - 안드로이드에 최적화된 직렬화 방식
+
+  - 데이터를 Parcel 객체에 직접 쓰고 읽는 방식으로 동작
+
+  - 성능이 좋아 안드로이드에서 권장되는 방식
 
 <br>
 
-### Serializable과 Parcelable의 차이점
+### Serializable vs Parcelable 비교
 
-Serializabler과 Parcelable은 객체를 직렬화하여 전달하기 위한 방법이지만, 내부적으로 다음과 같은 차이점이 있다
-
-- 속도
-  - Parcelable은 Java의 Serializable보다 빠르다
-  - Parcelable은 안드로이드 OS에서 직접 처리하기 때문에 직렬화와 역직렬화 시간이 빠르다
-  - Serializable은 Java의 Reflection을 사용하기 때문에 직렬화와 역직렬화 시간이 상대적으로 느리다
-- 크기
-  - Parcelable은 Java의 Serializable보다 객체를 직렬화할 때 생성되는 데이터 크기가 작다
-  - Parcelable은 객체의 멤버 변수들을 Parcel에 쓰기 때문에 필요한 데이터만 쓰게 된다
-  - Serializable은 객체의 모든 데이터를 직렬화하기 때문에 불필요한 데이터까지 모두 쓰게 된다
-- 안정성
-  - Parcelable은 Java의 Serializable보다 안정성이 높다
-  - Parcelable은 직렬화와 역직렬화에 대한 오류 검사를 수행하기 때문이다
+| 항목        | Serializable                         | Parcelable                       |
+| ----------- | ------------------------------------ | -------------------------------- |
+| 제공        | Java 표준                            | Android 전용                     |
+| 구현 난이도 | 간단 (인터페이스만 구현)             | `@Parcelize` 사용 시 간단        |
+| 성능        | 느림 (Reflection 사용)               | 빠름 (안드로이드 OS 최적화)      |
+| 데이터 크기 | 불필요한 데이터까지 직렬화될 수 있음 | 필요한 데이터만 기록 → 크기 작음 |
+| 사용 빈도   | 거의 사용하지 않음                   | 실무에서 주로 사용됨             |

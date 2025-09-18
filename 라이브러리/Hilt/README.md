@@ -55,8 +55,6 @@ DI는 클래스 간의 결합도를 낮춰 코드의 유연성과 유지보수�
 >
 > 안드로이드 컴포넌트에 최적화된 DI 환경을 제공한다
 
-<br>
-
 - 주요 특징
 
   - 생명주기 자동 관리 : Activity, ViewModel 등 안드로이드 컴포넌트의 생명주기에 맞춰 의존 객체의 스코프를 관리한다
@@ -161,17 +159,15 @@ Hilt는 다양한 어노테이션을 통해 의존성 주입을 처리한다
 >
 > ViewModel에 필요한 의존성을 생성자 주입으로 받을 수 있게 한다
 
-<br>
-
 - 주요 특징
   - ViewModel의 생명주기를 Hilt가 자동으로 관리한다
   - Composable/Activity 범위에서 동일 ViewModel 인스턴스를 공유할 수 있다
   - `hiltViewModel()` 함수로 간단하게 ViewModel을 가져올 수 있다
 - 사용 순서
-  1. Application 클래스에 `@HiltAndroidApp` 추가
-  2. ViewModel 클래스에 `@HiltViewModel`, 생성자 `@Inject` 추가
-  3. 의존성을 주입받을 Activity에 `@AndroidEntryPoint` 추가
-  4. Compose에서 `hiltViewModel()` 함수로 ViewModel 호출
+  - Application 클래스에 `@HiltAndroidApp` 추가
+  - ViewModel 클래스에 `@HiltViewModel`, 생성자 `@Inject` 추가
+  - 의존성을 주입받을 Activity에 `@AndroidEntryPoint` 추가
+  - Compose에서 `hiltViewModel()` 함수로 ViewModel 호출
 
 <br>
 

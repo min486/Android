@@ -8,6 +8,8 @@
   <br>
   <br>
 </div>
+
+
 ## 🔥 Photo picker
 
 ### Photo picker
@@ -26,7 +28,7 @@
 - PickVisualMedia
   - 선택 가능 개수 : 1개
   - 반환 타입 : `Uri?`
-  - UI 동작 : 사진을 클릭 시 반환 및 닫힘
+  - UI 동작 : 사진 클릭 시 반환 및 닫힘
 - PickMultipleVisualMedia
   - 선택 가능 개수 : 여러개
   - 반환 타입 : `List<Uri>`

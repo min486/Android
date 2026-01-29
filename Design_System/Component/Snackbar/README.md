@@ -1,13 +1,14 @@
 <div align="center">
   <p>
-    <img src="../README.assets/android.png">
+    <img src="../../README.assets/android.png">
   </p>
   <br>
-  <h2>기능</h2>
-  <p>기능 관련 내용 정리</p>
+  <h2>Design System</h2>
+  <p>디자인 시스템 관련 내용 정리</p>
   <br>
   <br>
 </div>
+
 
 
 ## 🔥 스낵바 (Snackbar)

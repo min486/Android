@@ -43,7 +43,7 @@ fun delayAndPrint() {
 }
 ```
 
-따하서 아래처럼 `suspend` 키워드를 붙여야 한다
+따라서 아래처럼 `suspend` 키워드를 붙여야 한다
 
 ```kotlin
 suspend fun delayAndPrint() {

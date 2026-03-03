@@ -195,3 +195,109 @@ object TestUtilModule {
     }
 }
 ```
+
+<br>
+
+### UI Test 기본 구조
+
+```kotlin
+@HiltAndroidTest
+@UninstallModules(RepositoryModule::class)
+class KakaoLoginFlowTest {
+
+    @get:Rule(order = 0)
+    val hiltRule = HiltAndroidRule(this)
+
+    @get:Rule(order = 1)
+    val composeTestRule = createAndroidComposeRule<MainActivity>()
+
+    @Inject
+    lateinit var authRepository: AuthRepository
+
+    @Before
+    fun setup() {
+        hiltRule.inject()
+        (authRepository as FakeAuthRepository).shouldSuccess = true
+    }
+
+    @Test
+    fun `카카오로그인 후 홈 진입`() {
+        waitForNode("카카오 로그인")
+
+        composeTestRule
+            .onNodeWithText("카카오 로그인")
+            .assertIsDisplayed()
+            .performClick()
+
+        waitForNode("햄버그")
+
+        composeTestRule
+            .onNodeWithText("햄버그")
+            .assertIsDisplayed()
+    }
+
+    // 지정한 시간 동안 반복해서 해당 텍스트를 가진 노드 탐색
+    private fun waitForNode(text: String, timeoutMillis: Long = 5_000) {
+        composeTestRule.waitUntil(timeoutMillis) {
+            try {
+                composeTestRule
+                    .onAllNodesWithText(text = text, useUnmergedTree = true)
+                    .fetchSemanticsNodes(atLeastOneRootRequired = false)
+                    .isNotEmpty()
+            } catch (e: IllegalStateException) {
+                false
+            }
+        }
+    }
+}
+```
+
+<br>
+
+### 주요 구성 요소
+
+#### 1. @HiltAndroidTest + @UninstallModules
+
+- `@HiltAndroidTest` : Hilt DI 환경에서 테스트 실행
+- `@UninstallModules(RepositoryModule::class)` : 실제 DI 모듈 제거 후 테스트 모듈로 교체
+
+#### 2. Rule 순서
+
+- `HiltAndroidRule`이 먼저(`order = 0`) 실행되어야 Hilt가 초기화된다
+- 이후 `ComposeTestRule`(`order = 1`)이 Activity를 실행한다
+- 순서를 잘못 지정하면 의존성 주입 전에 Activity가 실행되어 오류가 발생한다
+
+#### 3. hiltRule.inject()
+
+- `@Before`에서 호출하여 `@Inject`로 선언한 필드에 의존성을 주입받는다
+- 이후 `(authRepository as FakeAuthRepository).shouldSuccess` 처럼 테스트 시나리오를 직접 제어할 수 있다
+
+#### 4. waitForNode()
+
+- `waitUntil`을 감싸는 유틸 함수
+- `useUnmergedTree = true` : 전체 노드 트리를 탐색하여 더 정확하게 노드를 찾는다
+- `atLeastOneRootRequired = false` : Compose가 아직 초기화되지 않은 상태에서도 예외 없이 탐색을 시도한다
+- `IllegalStateException` catch : 초기화 이전 타이밍에 발생하는 예외를 무시하고 재시도한다
+
+<br>
+
+### 의존성 추가
+
+- libs.versions.toml 파일
+
+  ```toml
+  [versions]
+  hilt = "2.56.2"
+  
+  [libraries]
+  hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt" }
+  hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
+  androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+  androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+  ```
+  
+- 버전 참고
+
+  https://mvnrepository.com/artifact/com.google.dagger/hilt-android-testing
+
+  https://mvnrepository.com/artifact/androidx.compose.ui/ui-test-junit4
